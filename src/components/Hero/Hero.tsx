@@ -5,6 +5,7 @@ import { HeroContainer, HeroInnerContainer } from './Hero.styled';
 
 const Hero = () => {
   const { isMobile } = useResizePage({ size: 568 });
+  console.log(isMobile);
 
   return (
     <HeroContainer>
