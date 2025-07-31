@@ -1,5 +1,5 @@
 :root {
-  --main-bg-color: black;
+  --main-bg-color: #000000;
   --xl-bp: 1400px;
   --l-bp: 1365px;
   --md-bp: 956px;
@@ -8,16 +8,19 @@
 }
 
 * {
-  color: white;
-
+  color: #ebecfa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.react-multi-carousel-list{
+.react-multi-carousel-list {
   position: unset !important;
 }
 
 *::selection {
-  background:transparent;
+  background: transparent;
+  background: transparent;
 }
 
 html {
@@ -27,8 +30,9 @@ html {
 }
 
 #root {
+  overflow-x: hidden;
   overflow: hidden;
-  color: white;
+  color: #ebecfa;
   background: var(--main-bg-color);
 }
 
@@ -66,4 +70,29 @@ html {
     width: 100% !important;
     padding: 0 16px;
   }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3effa3 0%, #56a7ff 50%, #fb01ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-decoration: none !important;
+}
+
+p,
+div {
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: none !important;
 }
