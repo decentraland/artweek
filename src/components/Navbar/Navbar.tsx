@@ -2,8 +2,8 @@ import { FaLinkedinIn } from 'react-icons/fa';
 import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
 import { SlMenu } from 'react-icons/sl';
 import { useResizePage } from '../../hooks/useResizePage';
-// import careerQuestLogo from '../../img/faq/career-quest-logo.png';
 import dclLogoLight from '../../../public/img/logos/dcl-logo-light.png';
+import artWeekLogoLight from '../../../public/img/logos/art-week-logo-white.png';
 import {
   MenuIcon,
   MobileMenu,
@@ -19,7 +19,7 @@ const Navbar = () => {
       <NavbarContainer>
         {isMobile ? (
           <div className="navbar-mobile">
-            {/* <img src={careerQuestLogo} alt="career-quest-logo" /> */}
+            <img src={artWeekLogoLight} alt="art-week-logo" />
             <MenuIcon onClick={() => setMenuOpen(!menuOpen)}>
               <SlMenu />
             </MenuIcon>
@@ -27,7 +27,7 @@ const Navbar = () => {
         ) : (
           <div className="navbar-desktop">
             <div className="navbar-left">
-              {/* <img src={careerQuestLogo} alt="career-quest-logo" /> */}
+              <img src={artWeekLogoLight} alt="art-week-logo" />
               <div className="navbar-navigation">
                 {/* <span>
                   <a href="#about">About</a>

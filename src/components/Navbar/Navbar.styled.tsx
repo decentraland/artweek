@@ -2,12 +2,17 @@ import { styled } from 'styled-components';
 import { breakpoints, theme } from '../../utils/theme';
 
 const NavbarContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  max-height: 72px;
   display: flex;
   align-items: center;
   width: 100%;
   height: 100%;
   padding: 20px;
-  background: rgba(252, 252, 252, 0.3);
+  background: black;
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
 
   @media (min-width: ${breakpoints.l}) {
@@ -81,14 +86,22 @@ const NavbarContainer = styled.div`
   .navbar-right {
     display: flex;
     align-items: center;
+    justify-content: start;
+
     gap: 16px;
 
     .decentraland-logo {
       display: none;
-      margin-right: 16px;
+      width: 160px;
 
       @media (min-width: ${breakpoints.xxl}) {
         display: block;
+      }
+
+      img {
+        margin: 4px 16px 0 0;
+        object-fit: cover;
+        height: 100%;
       }
     }
   }
@@ -142,7 +155,7 @@ const MenuIcon = styled.button`
 
 const MobileMenu = styled.div`
   position: absolute;
-  top: 90px;
+  /* top: 90px; */
   left: 0;
   width: 100%;
   background-color: ${theme.darkGray};
