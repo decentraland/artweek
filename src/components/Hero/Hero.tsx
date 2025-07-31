@@ -1,5 +1,5 @@
 import { useResizePage } from '../../hooks/useResizePage';
-import careerQuestLogo from '../../img/faq/career-quest-logo.png';
+// import careerQuestLogo from '../../img/faq/career-quest-logo.png';
 import { JumpInBtn } from '../JumpInBtn/JumpInBtn';
 import {
   HeroContainer,

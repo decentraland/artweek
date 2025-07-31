@@ -1,11 +1,11 @@
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
-import decentralandLogo from '../../img/icons/logo.png';
+// import decentralandLogo from '../../img/icons/logo.png';
 import {
   FooterContainer,
   FooterLeft,
   FooterRight,
-  LogoImage,
+  // LogoImage,
   SocialFooterIcon,
 } from './Footer.styled';
 

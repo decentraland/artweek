@@ -54,17 +54,17 @@ function getPublicUrls() {
   const isVercel = isCI && !!process.env.VERCEL
   const isGitHubPages = isCI && !!process.env.GITHUB_PAGES
   const isCDN = !isStatic && isCI && !isVercel && !isGitHubPages
-  
+
   console.log("is static", isStatic)
   console.log("is CI", isCI)
   console.log("is Vercel", isVercel)
   console.log("is GitHub Pages", isGitHubPages)
   console.log("is CDN", isCDN)
-  
+
   if (isGitHubPages) {
     // GitHub Pages deployment - read CNAME file if exists
     let customDomain = "github.io"; // Default fallback
-    
+
     try {
       if (fs.existsSync("CNAME")) {
         customDomain = fs.readFileSync("CNAME", "utf8").trim();
@@ -73,7 +73,7 @@ function getPublicUrls() {
     } catch (error) {
       console.log("Error reading CNAME file:", error);
     }
-    
+
     console.log(`Using ${customDomain} as public url for GitHub Pages`);
     return {
       VITE_BASE_URL: `https://${customDomain}`,

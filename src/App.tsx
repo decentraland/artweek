@@ -1,5 +1,5 @@
 // Styled Components
-import { Suspense, lazy, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 // Components
 import { Hero } from './components/Hero/Hero';
