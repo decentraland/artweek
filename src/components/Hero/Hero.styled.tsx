@@ -1,22 +1,25 @@
 import { styled } from 'styled-components';
 import bgImage from '../../../public/img/hero/hero-bg.jpg';
-// import { breakpoints, theme } from '../../utils/theme';
+import { breakpoints } from '../../utils/theme';
 
 const HeroContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 60px;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url(${bgImage});
   background-size: cover;
+  background-position: center;
   min-height: 100dvh;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 80px;
+
+  @media (max-width: ${breakpoints.md}) {
+    padding: 24px;
+  }
 `;
 
 const HeroInnerContainer = styled.div`
@@ -24,14 +27,19 @@ const HeroInnerContainer = styled.div`
   height: 100%;
   display: flex;
   max-width: 400px;
-  /* border: 2px solid lime; */
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  position: relative;
+  top: -88px;
 
   .hero-top {
     margin: 0 0 24px 0;
     letter-spacing: 1em;
+  }
+
+  @media (min-width: ${breakpoints.md}) {
+    top: unset;
   }
 `;
 

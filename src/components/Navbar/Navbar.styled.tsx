@@ -12,8 +12,11 @@ const NavbarContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
-  background: black;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(252, 252, 252, 0.25);
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  will-change: transform;
+  transition: all 300ms;
+  backdrop-filter: blur(4px);
 
   @media (min-width: ${breakpoints.l}) {
     padding: 20px 40px;
@@ -29,8 +32,8 @@ const NavbarContainer = styled.div`
     justify-content: space-between;
     width: 100%;
 
-    @media (min-width: ${breakpoints.l}) {
-      display: none;
+    img {
+      max-width: 72px;
     }
   }
 
@@ -133,14 +136,14 @@ const SocialNavbarIcon = styled.a`
 `;
 
 const MenuIcon = styled.button`
-  background-color: ${theme.darkGray};
+  background-color: #60646b;
   border-radius: 50%;
-  border: 1px solid ${theme.darkGray600};
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
 
   @media (min-width: ${breakpoints.l}) {
     display: none;
@@ -149,51 +152,10 @@ const MenuIcon = styled.button`
   svg {
     width: 12px;
     height: 12px;
-    fill: ${theme.white};
+    fill: #fff;
   }
 `;
 
-const MobileMenu = styled.div`
-  position: absolute;
-  /* top: 90px; */
-  left: 0;
-  width: 100%;
-  background-color: ${theme.darkGray};
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  z-index: 1000;
 
-  .mobile-links {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 
-    a {
-      text-decoration: none;
-      color: ${theme.white};
-      font-size: 16px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-  }
-
-  .mobile-socials {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-top: 16px;
-    border-top: 1px solid ${theme.darkGray600};
-
-    .decentraland-logo {
-      img {
-        margin-top: 4px;
-        max-width: 200px;
-        /* max-height: 30px; */
-      }
-    }
-  }
-`;
-
-export { NavbarContainer, SocialNavbarIcon, MenuIcon, MobileMenu };
+export { NavbarContainer, SocialNavbarIcon, MenuIcon };

@@ -4,12 +4,14 @@ import { SlMenu } from 'react-icons/sl';
 import { useResizePage } from '../../hooks/useResizePage';
 import dclLogoLight from '../../../public/img/logos/dcl-logo-light.png';
 import artWeekLogoLight from '../../../public/img/logos/art-week-logo-white.png';
+import { motion } from 'framer-motion';
 import {
   MenuIcon,
-  MobileMenu,
   NavbarContainer,
   SocialNavbarIcon,
 } from './Navbar.styled';
+import { AnimatedNavLink } from './AnimatedNavLink';
+import { MobileMenuContainer } from './MobileMenuContainer';
 
 const Navbar = () => {
   const { isMobile, menuOpen, setMenuOpen } = useResizePage({ size: 992 });
@@ -69,16 +71,48 @@ const Navbar = () => {
           </div>
         )}
       </NavbarContainer>
-      {isMobile && menuOpen && (
-        <MobileMenu>
-          <div className="mobile-links">
-            <a href="#about">About</a>
-            <a href="#schedule">Schedule</a>
-            <a href="#workshops">Workshops</a>
-            <a href="#advice">Advice</a>
-            <a href="#faq">FAQ</a>
-          </div>
-          <div className="mobile-socials">
+      {isMobile && (
+        <MobileMenuContainer menuOpen={menuOpen}>
+          <motion.div 
+            className="mobile-links"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: menuOpen ? 1 : 0 }}
+            transition={{ delay: menuOpen ? 0.1 : 0, duration: 0.2 }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px'
+            }}
+          >
+            <AnimatedNavLink href="#about" delay={0.15} menuOpen={menuOpen}>
+              About
+            </AnimatedNavLink>
+            <AnimatedNavLink href="#schedule" delay={0.2} menuOpen={menuOpen}>
+              Schedule
+            </AnimatedNavLink>
+            <AnimatedNavLink href="#workshops" delay={0.25} menuOpen={menuOpen}>
+              Workshops
+            </AnimatedNavLink>
+            <AnimatedNavLink href="#advice" delay={0.3} menuOpen={menuOpen}>
+              Advice
+            </AnimatedNavLink>
+            <AnimatedNavLink href="#faq" delay={0.35} menuOpen={menuOpen}>
+              FAQ
+            </AnimatedNavLink>
+          </motion.div>
+          <motion.div 
+            className="mobile-socials"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: menuOpen ? 1 : 0 }}
+            transition={{ delay: menuOpen ? 0.2 : 0, duration: 0.2 }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              paddingTop: '16px',
+              borderTop: '1px solid #60646b'
+            }}
+          >
             <SocialNavbarIcon
               href="https://x.com/decentraland"
               target="_blank"
@@ -106,11 +140,15 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="decentraland-logo"
+              style={{
+                marginTop: '4px',
+                maxWidth: '200px'
+              }}
             >
               <img src={dclLogoLight} alt="decentraland-logo" />
             </a>
-          </div>
-        </MobileMenu>
+          </motion.div>
+        </MobileMenuContainer>
       )}
     </>
   );
