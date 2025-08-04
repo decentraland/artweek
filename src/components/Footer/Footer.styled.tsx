@@ -7,7 +7,7 @@ const FooterContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  background-color: ${theme.black};
+  background-color: ${theme.paleBlack};
   width: 100%;
   border-top: 0.5px solid ${theme.white};
 
@@ -25,16 +25,23 @@ const FooterLeft = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  /* border: 2px solid lime; */
 
-  @media (min-width: ${breakpoints.md}) {
-    flex-direction: row;
-    align-items: center;
+  .footer__logo-img {
+    height: 52px;
+    width: auto;
+    margin-right: 24px;
   }
 
   p {
     font-size: 14px;
     font-weight: 700;
     color: ${theme.white};
+  }
+
+  @media (min-width: ${breakpoints.md}) {
+    flex-direction: row;
+    align-items: center;
   }
 `;
 
@@ -47,11 +54,9 @@ const FooterRight = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
 `;
 
 const SocialFooterIcon = styled.a`
-  background-color: ${theme.white};
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -67,13 +72,12 @@ const SocialFooterIcon = styled.a`
   svg {
     width: 20px;
     height: 20px;
+    fill: ${theme.white};
 
     @media (min-width: ${breakpoints.xl}) {
       width: 24px;
       height: 24px;
     }
-
-    fill: ${theme.darkGray};
   }
 `;
 

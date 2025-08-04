@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
+import { AnimatedCharacters } from '../animatedCharacters';
 
 interface AnimatedNavLinkProps {
   href: string;
@@ -15,11 +15,8 @@ const AnimatedNavLink = ({
   children,
 }: AnimatedNavLinkProps) => {
   return (
-    <motion.a
+    <a
       href={href}
-      initial={{ x: -20, opacity: 0 }}
-      animate={{ x: menuOpen ? 0 : -20, opacity: menuOpen ? 1 : 0 }}
-      transition={{ delay: menuOpen ? delay : 0, duration: 0.2 }}
       style={{
         textDecoration: 'none',
         color: '#fff',
@@ -27,10 +24,18 @@ const AnimatedNavLink = ({
         fontWeight: 400,
         textTransform: 'uppercase',
         letterSpacing: '1px',
+        display: 'inline-block',
       }}
     >
-      {children}
-    </motion.a>
+      <AnimatedCharacters
+        isVisible={menuOpen}
+        delay={delay}
+        duration={0.3}
+        ease="easeOut"
+      >
+        {children}
+      </AnimatedCharacters>
+    </a>
   );
 };
 

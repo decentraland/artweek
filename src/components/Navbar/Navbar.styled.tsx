@@ -16,7 +16,7 @@ const NavbarContainer = styled.div`
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   will-change: transform;
   transition: all 300ms;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 
   @media (min-width: ${breakpoints.l}) {
     padding: 20px 40px;
@@ -153,9 +153,56 @@ const MenuIcon = styled.button`
     width: 12px;
     height: 12px;
     fill: #fff;
+
+    &.close {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;
 
+const MobileMenuContainer = styled.div<{ $menuOpen: boolean }>`
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1000;
+  background: rgba(252, 252, 252, 0.25);
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  opacity: ${(props) => (props.$menuOpen ? 1 : 0)};
+  height: ${(props) => (props.$menuOpen ? 'auto' : '0')};
+  transform: scaleY(${(props) => (props.$menuOpen ? 1 : 0)});
+  transform-origin: top left;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
+  .mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-export { NavbarContainer, SocialNavbarIcon, MenuIcon };
+  .mobile-socials {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #60646b;
+
+    .decentraland-logo {
+      margin-top: 4px;
+      max-width: 200px;
+    }
+  }
+
+  @media (min-width: ${breakpoints.l}) {
+    display: none;
+  }
+`;
+
+export { NavbarContainer, SocialNavbarIcon, MenuIcon, MobileMenuContainer };

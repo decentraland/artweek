@@ -1,11 +1,10 @@
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
-// import decentralandLogo from '../../img/icons/logo.png';
+import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
 import {
   FooterContainer,
   FooterLeft,
   FooterRight,
-  // LogoImage,
   SocialFooterIcon,
 } from './Footer.styled';
 
@@ -13,7 +12,11 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterLeft>
-        {/* <LogoImage src={decentralandLogo} alt="DMF 2025 Logo" /> */}
+        <img
+          className="footer__logo-img"
+          src={artWeekLogo}
+          alt="ArtWeek Logo"
+        />
 
         <a
           href="https://decentraland.org/terms/"
