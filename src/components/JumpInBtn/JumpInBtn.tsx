@@ -105,7 +105,6 @@ const DownloadButtonsContainer = styled.div`
 `;
 
 const DownloadButton = styled.button`
-  border-radius: 10px;
   min-width: 340px;
   padding: 16px 20px;
   font-size: 20px;
@@ -113,14 +112,14 @@ const DownloadButton = styled.button`
   cursor: pointer;
   background: rgba(252, 252, 252, 0.25);
   border: 0.5px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border-radius: 40px;
   will-change: transform;
   transition: all 300ms;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(6px);
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
 
   &:hover {
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(2px);
   }
 
   @media (min-width: 568px) {

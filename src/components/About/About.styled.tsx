@@ -1,95 +1,89 @@
-import { styled } from "styled-components"
-import { breakpoints, theme } from "../../utils/theme"
+import { styled } from 'styled-components';
+import { breakpoints } from '../../utils/theme';
+import bgImage from '../../../public/img/hero/hero-bg-new.png';
 
-const AboutContainer = styled.div`
-  background-color: ${theme.black};
-  // arriba, derecha, abajo, izquierda
-  padding: 40px 20px 20px 20px;
+export const AboutContainer = styled.section`
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
+  background-image: url(${bgImage});
+  background-size: 220% 220%;
+  background-position: 0% 0%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-
-  /* @media (min-width: ${breakpoints.md}) {
-    padding: 80px 20px 40px 20px;
-  } */
-
-  @media (min-width: ${breakpoints.md}) {
-    flex-direction: row;
-    gap: 0px;
-    align-items: stretch;
-    padding: 100px 60px 50px 60px;
-  }
-`
-
-const AboutContainerLeft = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-
-  @media (min-width: ${breakpoints.md}) {
-    justify-content: flex-end;
-    width: 40%;
-  }
-`
-
-const AboutContainerRight = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+`;
 
-  @media (min-width: ${breakpoints.md}) {
-    width: 60%;
-    justify-content: flex-start;
+export const AboutInnerContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  gap: 40px;
+  max-width: 1240px;
+  display: grid;
+  place-items: center;
+  padding-block: 120px;
+  padding-inline: 24px;
+
+  .about__content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    @media (max-width: ${breakpoints.l}) {
+      flex-direction: column-reverse;
+      /* align-items: flex-start; */
+    }
+
+    .about__content--image {
+      img {
+        @media screen and (min-width: ${breakpoints.md}) {
+          /* max-width: 320px; */
+        }
+      }
+    }
+
+    .about__content--list {
+      max-width: 520px;
+
+      > .header {
+        margin-bottom: 46px;
+
+        h3 {
+          font-size: 4rem;
+          font-weight: bolder;
+          letter-spacing: -0.05em;
+        }
+        h4 {
+          font-weight: 200;
+          font-size: 1.2rem;
+        }
+      }
+
+      > .list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 20px;
+
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          font-size: 0.9rem;
+          font-weight: 200;
+          gap: 8px;
+        }
+
+        @media screen and (min-width: ${breakpoints.md}) {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          li {
+            align-items: flex-start;
+            gap: 16px;
+          }
+        }
+      }
+    }
   }
-`
-
-const TitleAboutSection = styled.h2`
-  font-size: 40px;
-  font-weight: 900;
-  color: ${theme.white};
-  letter-spacing: 0.1em;
-  text-align: center;
-
-  @media (min-width: ${breakpoints.md}) {
-    text-align: end;
-  }
-`
-
-const LiAbout = styled.li`
-  font-size: 22px;
-  font-weight: 500;
-  color: ${theme.white};
-  margin-bottom: 5px;
-
-  a {
-    text-decoration: underline !important;
-    font-weight: 500;
-    color: #3a5aff;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
-  }
-`
-
-const SpanAbout = styled.span`
-  font-size: 22px;
-  font-weight: 900;
-  background: linear-gradient(90deg, ${theme.purple}, ${theme.orange});
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-`
-
-export {
-  AboutContainer,
-  AboutContainerLeft,
-  AboutContainerRight,
-  LiAbout,
-  SpanAbout,
-  TitleAboutSection,
-}
+`;

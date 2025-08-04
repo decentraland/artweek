@@ -30,7 +30,7 @@ const Navbar = () => {
     <>
       <NavbarContainer>
         {isMobile ? (
-          <div className="navbar-mobile">
+          <nav className="navbar-mobile">
             <img src={artWeekLogoLight} alt="art-week-logo" />
             <MenuIcon onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? (
@@ -53,12 +53,23 @@ const Navbar = () => {
                 </motion.span>
               )}
             </MenuIcon>
-          </div>
+          </nav>
         ) : (
-          <div className="navbar-desktop">
+          <nav className="navbar-desktop">
             <div className="navbar-left">
               <img src={artWeekLogoLight} alt="art-week-logo" />
-              <div className="navbar-navigation"></div>
+              <ul className="navbar-navigation">
+                <li>
+                  <AnimatedNavLink href="#about" delay={0.15} menuOpen={true}>
+                    About
+                  </AnimatedNavLink>
+                </li>
+                <li>
+                  <AnimatedNavLink href="#about" delay={0.35} menuOpen={true}>
+                    FAQs
+                  </AnimatedNavLink>
+                </li>
+              </ul>
             </div>
 
             <div className="navbar-right">
@@ -92,7 +103,7 @@ const Navbar = () => {
                 <FaLinkedinIn />
               </SocialNavbarIcon>
             </div>
-          </div>
+          </nav>
         )}
       </NavbarContainer>
       {isMobile && (
@@ -100,18 +111,6 @@ const Navbar = () => {
           <div className="mobile-links">
             <AnimatedNavLink href="#about" delay={0.15} menuOpen={menuOpen}>
               About
-            </AnimatedNavLink>
-            <AnimatedNavLink href="#schedule" delay={0.25} menuOpen={menuOpen}>
-              Schedule
-            </AnimatedNavLink>
-            <AnimatedNavLink href="#workshops" delay={0.35} menuOpen={menuOpen}>
-              Workshops
-            </AnimatedNavLink>
-            <AnimatedNavLink href="#advice" delay={0.45} menuOpen={menuOpen}>
-              Advice
-            </AnimatedNavLink>
-            <AnimatedNavLink href="#faq" delay={0.55} menuOpen={menuOpen}>
-              FAQ
             </AnimatedNavLink>
           </div>
           <div className="mobile-socials">

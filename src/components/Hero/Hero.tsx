@@ -1,5 +1,6 @@
 import { useResizePage } from '../../hooks/useResizePage';
 import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
+import heroPills from '../../../public/img/hero/Pills.png';
 import { JumpInBtn } from '../JumpInBtn/JumpInBtn';
 import { HeroContainer, HeroInnerContainer } from './Hero.styled';
 
@@ -13,6 +14,14 @@ const Hero = () => {
         <div className="hero-top">
           <img src={artWeekLogo} alt="art-week-logo" />
           <h2>SEPT 24 - 27</h2>
+        </div>
+        <div className="hero-middle">
+          <h3>Can virtual art make us feel more human?</h3>
+          <p>
+            A free, four-day festival exploring art in virtual worlds — and your
+            place within them.
+          </p>
+          <img src={heroPills} alt="hero-pills" />
         </div>
         <div className="hero-bottom">
           <JumpInBtn />

@@ -18,12 +18,6 @@ const AnimatedNavLink = ({
     <a
       href={href}
       style={{
-        textDecoration: 'none',
-        color: '#fff',
-        fontSize: '16px',
-        fontWeight: 400,
-        textTransform: 'uppercase',
-        letterSpacing: '1px',
         display: 'inline-block',
       }}
     >

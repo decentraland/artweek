@@ -10,6 +10,9 @@ import './css/global.css';
 import { config } from './config';
 import { getAnalytics } from './modules/analytics/segment';
 import { AppContainer } from './App.styled';
+import { MarqueeContainerWrapper } from './components/Marquee/Marquee.styled';
+import { Marquee } from './components/Marquee/Marquee';
+import About from './components/About/About';
 
 // Lazy load VideoSection component
 // const VideoSection = lazy(() =>
@@ -85,16 +88,16 @@ const App = () => {
       <Navbar />
       <AppContainer>
         <Hero />
+        <MarqueeContainerWrapper>
+          <Marquee variant="light" />
+        </MarqueeContainerWrapper>
+        <About />
 
         {/* <Carousel /> */}
 
         {/* <About /> */}
 
         {/* <Schedule /> */}
-
-        {/* <MarqueeContainerWrapper>
-          <Marquee />
-        </MarqueeContainerWrapper> */}
 
         {/* <Suspense fallback={<VideoSectionLoader />}>
           <VideoSection />

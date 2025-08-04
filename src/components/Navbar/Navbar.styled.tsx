@@ -65,22 +65,17 @@ const NavbarContainer = styled.div`
       display: none;
       align-items: center;
       gap: 40px;
+      list-style-type: none;
+      text-transform: none !important;
 
       @media (min-width: ${breakpoints.l}) {
         display: flex;
       }
 
-      span {
+      li {
         a {
-          text-decoration: none;
-          color: ${theme.white};
-          font-size: 14px;
-          font-weight: 700;
-          text-transform: uppercase;
-
-          @media (min-width: ${breakpoints.xl}) {
-            font-size: 16px;
-          }
+          text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+          padding: 2px 4px;
         }
       }
     }
