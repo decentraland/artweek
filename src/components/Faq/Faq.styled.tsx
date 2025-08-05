@@ -1,6 +1,6 @@
-import { styled } from "styled-components"
-import faqBackground from "../../img/faq/faq-background.png"
-import { breakpoints, theme } from "../../utils/theme"
+import { styled } from 'styled-components';
+import faqBackground from '../../../public/img/hero/hero-bg-new.png';
+import { breakpoints, theme } from '../../utils/theme';
 
 const SectionFaqContainer = styled.section`
   position: relative;
@@ -11,24 +11,14 @@ const SectionFaqContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  background-image: url(${faqBackground});
+  background-size: 220% 220%;
+  background-position: 0% 0% fixed;
+  min-height: 100vh;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url(${faqBackground});
-    background-size: cover;
-    opacity: 0.5;
-    z-index: 1;
-  }
-
-  & > * {
-    position: relative;
-    z-index: 2;
+  .faq__inner-container {
+    width: 100%;
+    max-width: 1240px;
   }
 
   @media (min-width: ${breakpoints.md}) {
@@ -40,122 +30,47 @@ const SectionFaqContainer = styled.section`
     gap: 0px;
     padding: 100px 60px;
   }
-`
+`;
 
-const FaqContainerLeft = styled.div`
-  width: 100%;
-  display: flex;
-
-  @media (min-width: ${breakpoints.l}) {
-    justify-content: flex-end;
-    width: 40%;
-  }
-`
-
-const DivVerticalLineFaq = styled.div`
-  width: 2px;
-  background-color: ${theme.white};
-  display: none;
-  margin: 0 40px;
-  height: auto;
-  align-self: stretch;
-
-  @media (min-width: ${breakpoints.l}) {
-    display: block;
-  }
-`
-
-const FaqContainerRight = styled.div`
+const FaqContainerTop = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  /* gap: 20px; */
+  margin-bottom: 40px;
 
-  @media (min-width: ${breakpoints.l}) {
-    width: 60%;
+  > h3 {
+    font-size: 4rem;
   }
-`
+`;
 
-const TitleFaq = styled.h2`
-  font-size: 40px;
-  font-weight: 900;
-  color: ${theme.white};
-  letter-spacing: 0.1em;
-  max-width: 425px;
-  text-align: start;
-
-  @media (min-width: ${breakpoints.l}) {
-    text-align: end;
-    max-width: 400px;
-  }
-`
-
-const QuestionFaqContainer = styled.div`
+const FaqQuestionContainer = styled.div`
   width: 100%;
-  border-top: 2px solid ${theme.white};
-  padding: 20px 0;
-
-  &:last-child {
-    border-bottom: 2px solid ${theme.white};
-  }
-`
-
-const QuestionFaq = styled.div`
-  cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-bottom: 1px solid ${theme.white};
 
-  p {
-    font-size: 24px;
-    font-weight: 700;
-    color: ${theme.white};
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    max-width: 560px;
-  }
-`
+  .faq__question-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 40px;
+    cursor: pointer;
 
-const AnswerFaq = styled.div<{ $isActive: boolean }>`
-  max-height: ${(props) => (props.$isActive ? "1000px" : "0")};
-  opacity: ${(props) => (props.$isActive ? "1" : "0")};
-  margin-top: ${(props) => (props.$isActive ? "20px" : "0")};
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-
-  p {
-    font-size: 18px;
-    color: ${theme.white};
-    font-weight: 500;
-    max-width: 560px;
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
   }
 
-  a {
-    text-decoration: underline !important;
-    color: rgb(0, 0, 238);
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
+  .faq__answer-container {
+    width: 100%;
+    padding-bottom: 24px;
+    opacity: calc(1 - 0.2);
   }
-`
+`;
 
-const ArrowFaq = styled.img<{ $isActive: boolean }>`
-  transition: all 0.3s ease-in-out;
-  height: 24px;
-  transform: ${(props) =>
-    props.$isActive ? "rotate(180deg)" : "rotate(0deg)"};
-`
-
-export {
-  SectionFaqContainer,
-  FaqContainerLeft,
-  FaqContainerRight,
-  TitleFaq,
-  QuestionFaqContainer,
-  QuestionFaq,
-  AnswerFaq,
-  ArrowFaq,
-  DivVerticalLineFaq,
-}
+export { FaqContainerTop, SectionFaqContainer, FaqQuestionContainer };

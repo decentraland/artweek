@@ -11,14 +11,22 @@ const MarqueeContainer = styled.div<{ variant: 'light' | 'glass' }>`
   gap: 1rem;
   padding: 1rem 0;
   overflow: hidden;
-  background-color: ${({ variant }) =>
-    variant === 'light' ? theme.white : theme.black};
+  background: ${({ variant }) =>
+    variant === 'light' ? theme.white : 'rgba(252, 252, 252, 0.25)'};
+  /* border: ${({ variant }) =>
+    variant === 'light'
+      ? '1px solid ' + theme.black
+      : '0.5px solid rgba(0, 0, 0, 0.2)'}; */
+  backdrop-filter: ${({ variant }) =>
+    variant === 'glass' ? 'blur(6px)' : 'none'};
+  box-shadow: ${({ variant }) =>
+    variant === 'glass' ? '0px 0px 10px 0px rgba(255, 255, 255, 0.1)' : 'none'};
   > * {
     color: ${({ variant }) =>
       variant === 'light' ? theme.black : theme.white};
   }
-  border-block: 1px solid
-    ${({ variant }) => (variant === 'light' ? theme.black : theme.white)};
+  border-block: ${({ variant }) =>
+    `1px solid ${variant === 'light' ? theme.black : theme.white}`};
   padding-block: 0.7rem;
 `;
 

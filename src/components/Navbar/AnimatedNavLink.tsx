@@ -6,6 +6,7 @@ interface AnimatedNavLinkProps {
   delay: number;
   menuOpen: boolean;
   children: ReactNode;
+  target?: string;
 }
 
 const AnimatedNavLink = ({
@@ -13,6 +14,7 @@ const AnimatedNavLink = ({
   delay,
   menuOpen,
   children,
+  target,
 }: AnimatedNavLinkProps) => {
   return (
     <a
@@ -20,6 +22,8 @@ const AnimatedNavLink = ({
       style={{
         display: 'inline-block',
       }}
+      target={target}
+      rel="noopener noreferrer"
     >
       <AnimatedCharacters
         isVisible={menuOpen}

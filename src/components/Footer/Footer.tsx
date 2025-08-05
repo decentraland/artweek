@@ -1,5 +1,7 @@
+import { useRef } from 'react';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
+import { motion, useInView } from 'framer-motion';
 import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
 import {
   FooterContainer,
@@ -7,10 +9,30 @@ import {
   FooterRight,
   SocialFooterIcon,
 } from './Footer.styled';
+import { AnimatedNavLink } from '../Navbar/AnimatedNavLink';
+
+const BASE_DELAY = 0.15;
+
+const socialLinks = [
+  {
+    href: 'https://x.com/decentraland',
+    icon: <FaXTwitter />,
+  },
+  {
+    href: 'https://decentraland.org/discord/',
+    icon: <FaDiscord />,
+  },
+  {
+    href: 'https://www.linkedin.com/company/decentralandorg/',
+    icon: <FaLinkedinIn />,
+  },
+];
 
 const Footer = () => {
+  const footerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(footerRef, { once: true });
   return (
-    <FooterContainer>
+    <FooterContainer ref={footerRef}>
       <FooterLeft>
         <img
           className="footer__logo-img"
@@ -18,43 +40,47 @@ const Footer = () => {
           alt="ArtWeek Logo"
         />
 
-        <a
+        <AnimatedNavLink
           href="https://decentraland.org/terms/"
           target="_blank"
-          rel="noopener noreferrer"
+          menuOpen={isInView}
+          delay={BASE_DELAY}
         >
-          Terms & Services
-        </a>
-        <a
+          Terms of Service
+        </AnimatedNavLink>
+        <AnimatedNavLink
           href="https://decentraland.org/privacy/"
           target="_blank"
-          rel="noopener noreferrer"
+          menuOpen={isInView}
+          delay={BASE_DELAY + 0.2}
         >
           Privacy Policy
-        </a>
+        </AnimatedNavLink>
       </FooterLeft>
       <FooterRight>
-        <SocialFooterIcon
-          href="https://x.com/decentraland"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaXTwitter />
-        </SocialFooterIcon>
-        <SocialFooterIcon
-          href="https://decentraland.org/discord/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaDiscord />
-        </SocialFooterIcon>
-        <SocialFooterIcon
-          href="https://www.linkedin.com/company/decentralandorg/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLinkedinIn />
-        </SocialFooterIcon>
+        {socialLinks.map((link, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={
+              isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+            }
+            transition={{
+              delay: isInView ? BASE_DELAY + 0.2 * (index + 2) : 0,
+              type: 'spring',
+              stiffness: 400,
+              damping: 20,
+            }}
+          >
+            <SocialFooterIcon
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.icon}
+            </SocialFooterIcon>
+          </motion.span>
+        ))}
       </FooterRight>
     </FooterContainer>
   );

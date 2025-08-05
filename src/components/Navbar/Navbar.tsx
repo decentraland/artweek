@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
 import { SlMenu } from 'react-icons/sl';
@@ -13,7 +14,23 @@ import {
   MobileMenuContainer,
 } from './Navbar.styled';
 import { AnimatedNavLink } from './AnimatedNavLink';
-import { useEffect } from 'react';
+
+const BASE_DELAY = 0.15;
+
+const socialLinks = [
+  {
+    href: 'https://x.com/decentraland',
+    icon: <FaXTwitter />,
+  },
+  {
+    href: 'https://decentraland.org/discord/',
+    icon: <FaDiscord />,
+  },
+  {
+    href: 'https://www.linkedin.com/company/decentralandorg/',
+    icon: <FaLinkedinIn />,
+  },
+];
 
 const Navbar = () => {
   const { isMobile, menuOpen, setMenuOpen } = useResizePage({ size: 992 });
@@ -31,7 +48,9 @@ const Navbar = () => {
       <NavbarContainer>
         {isMobile ? (
           <nav className="navbar-mobile">
-            <img src={artWeekLogoLight} alt="art-week-logo" />
+            <a href="#">
+              <img src={artWeekLogoLight} alt="art-week-logo" />
+            </a>
             <MenuIcon onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? (
                 <motion.span
@@ -57,15 +76,25 @@ const Navbar = () => {
         ) : (
           <nav className="navbar-desktop">
             <div className="navbar-left">
-              <img src={artWeekLogoLight} alt="art-week-logo" />
+              <a href="#">
+                <img src={artWeekLogoLight} alt="art-week-logo" />
+              </a>
               <ul className="navbar-navigation">
                 <li>
-                  <AnimatedNavLink href="#about" delay={0.15} menuOpen={true}>
+                  <AnimatedNavLink
+                    href="#about"
+                    delay={BASE_DELAY}
+                    menuOpen={true}
+                  >
                     About
                   </AnimatedNavLink>
                 </li>
                 <li>
-                  <AnimatedNavLink href="#about" delay={0.35} menuOpen={true}>
+                  <AnimatedNavLink
+                    href="#faq"
+                    delay={BASE_DELAY * 2}
+                    menuOpen={true}
+                  >
                     FAQs
                   </AnimatedNavLink>
                 </li>
@@ -81,27 +110,27 @@ const Navbar = () => {
               >
                 <img src={dclLogoLight} alt="decentraland-logo" />
               </a>
-              <SocialNavbarIcon
-                href="https://x.com/decentraland"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaXTwitter />
-              </SocialNavbarIcon>
-              <SocialNavbarIcon
-                href="https://decentraland.org/discord/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaDiscord />
-              </SocialNavbarIcon>
-              <SocialNavbarIcon
-                href="https://www.linkedin.com/company/decentralandorg/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedinIn />
-              </SocialNavbarIcon>
+              {socialLinks.map((link, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    delay: BASE_DELAY + 0.2 * (index + 2),
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 20,
+                  }}
+                >
+                  <SocialNavbarIcon
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.icon}
+                  </SocialNavbarIcon>
+                </motion.span>
+              ))}
             </div>
           </nav>
         )}

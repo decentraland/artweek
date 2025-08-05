@@ -196,34 +196,28 @@ const DownloadButtonsContainer = styled.div`
 `
 
 const DownloadButton = styled.a`
-  background-color: #0f1417;
-  border-radius: 12px;
+  background: rgba(252, 252, 252, 0.25);
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
   padding: 16px 20px;
   font-size: 16px;
   font-weight: 400;
-  border: 2px solid ${theme.white};
   color: ${theme.white};
+  cursor: pointer;
+  will-change: transform;
+  transition: all 300ms;
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
 
   text-decoration: none;
-  will-change: background-color, color;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   margin-bottom: 12px;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
 
   &:hover {
-    color: #0f1417;
-    background-color: ${theme.white};
-
-    svg {
-      path {
-        fill: #0f1417;
-      }
-    }
+    backdrop-filter: blur(2px);
   }
 
   svg {

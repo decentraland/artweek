@@ -1,8 +1,8 @@
 import { useResizePage } from '../../hooks/useResizePage';
 import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
-import heroPills from '../../../public/img/hero/Pills.png';
-import { JumpInBtn } from '../JumpInBtn/JumpInBtn';
+import heroPills from '../../../public/img/hero/pills-centered.png';
 import { HeroContainer, HeroInnerContainer } from './Hero.styled';
+import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 
 const Hero = () => {
   const { isMobile } = useResizePage({ size: 568 });
@@ -24,7 +24,7 @@ const Hero = () => {
           <img src={heroPills} alt="hero-pills" />
         </div>
         <div className="hero-bottom">
-          <JumpInBtn />
+          <DownloadBtn showAvailableOnText={false} />
         </div>
       </HeroInnerContainer>
     </HeroContainer>

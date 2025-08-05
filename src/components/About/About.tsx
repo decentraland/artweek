@@ -3,6 +3,8 @@ import provisoryMap from '../../../public/img/about/map.png';
 import { aboutList } from './list';
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { MarqueeContainerWrapper } from '../Marquee/Marquee.styled';
+import { Marquee } from '../Marquee/Marquee';
 
 const About = () => {
   return (
@@ -21,7 +23,7 @@ const About = () => {
             </div>
             <ul className="list">
               {Object.values(aboutList).map((item, index) => (
-                <motion.span>
+                <motion.span key={`--aboutList-${index}`}>
                   <AboutListItem key={index} {...item} />
                 </motion.span>
               ))}
@@ -29,6 +31,13 @@ const About = () => {
           </div>
         </div>
       </AboutInnerContainer>
+      <MarqueeContainerWrapper
+        style={{
+          marginTop: 'auto',
+        }}
+      >
+        <Marquee variant="glass" />
+      </MarqueeContainerWrapper>
     </AboutContainer>
   );
 };

@@ -9,7 +9,7 @@ const FooterContainer = styled.div`
   padding: 20px;
   background-color: ${theme.paleBlack};
   width: 100%;
-  border-top: 0.5px solid ${theme.white};
+  /* border-top: 0.5px solid ${theme.white}; */
 
   @media (min-width: ${breakpoints.md}) {
     padding: 20px 40px;
