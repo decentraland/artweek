@@ -13,7 +13,8 @@ const SectionFaqContainer = styled.section`
   justify-content: center;
   background-image: url(${faqBackground});
   background-size: 220% 220%;
-  background-position: 0% 0% fixed;
+  background-position: 0% 0%;
+  background-attachment: fixed;
   min-height: 100vh;
 
   .faq__inner-container {
@@ -50,7 +51,16 @@ const FaqQuestionContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  border-bottom: 1px solid ${theme.white};
+  position: relative;
+
+  /* &:not(:last-child) {
+    &::after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: ${theme.white};
+    }
+  } */
 
   .faq__question-container {
     width: 100%;
@@ -70,6 +80,16 @@ const FaqQuestionContainer = styled.div`
     width: 100%;
     padding-bottom: 24px;
     opacity: calc(1 - 0.2);
+  }
+
+  .faq__line {
+    width: 100%;
+    height: 1px;
+    background-color: ${theme.white};
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
   }
 `;
 

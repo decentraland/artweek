@@ -15,7 +15,7 @@ const HeroContainer = styled.section`
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   @media (max-width: ${breakpoints.md}) {
@@ -40,8 +40,8 @@ const HeroInnerContainer = styled.div`
   display: flex;
   max-width: 500px;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: start;
 
   justify-content: flex-start;
   position: relative;

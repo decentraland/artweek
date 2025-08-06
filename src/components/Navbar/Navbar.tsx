@@ -1,6 +1,4 @@
 import { useEffect } from 'react';
-import { FaLinkedinIn } from 'react-icons/fa';
-import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
 import { SlMenu } from 'react-icons/sl';
 import { IoMdClose } from 'react-icons/io';
 import { motion } from 'framer-motion';
@@ -14,23 +12,9 @@ import {
   MobileMenuContainer,
 } from './Navbar.styled';
 import { AnimatedNavLink } from './AnimatedNavLink';
+import { ROUTES, socialLinks } from './routes';
 
 const BASE_DELAY = 0.15;
-
-const socialLinks = [
-  {
-    href: 'https://x.com/decentraland',
-    icon: <FaXTwitter />,
-  },
-  {
-    href: 'https://decentraland.org/discord/',
-    icon: <FaDiscord />,
-  },
-  {
-    href: 'https://www.linkedin.com/company/decentralandorg/',
-    icon: <FaLinkedinIn />,
-  },
-];
 
 const Navbar = () => {
   const { isMobile, menuOpen, setMenuOpen } = useResizePage({ size: 992 });
@@ -80,24 +64,17 @@ const Navbar = () => {
                 <img src={artWeekLogoLight} alt="art-week-logo" />
               </a>
               <ul className="navbar-navigation">
-                <li>
-                  <AnimatedNavLink
-                    href="#about"
-                    delay={BASE_DELAY}
-                    menuOpen={true}
-                  >
-                    About
-                  </AnimatedNavLink>
-                </li>
-                <li>
-                  <AnimatedNavLink
-                    href="#faq"
-                    delay={BASE_DELAY * 2}
-                    menuOpen={true}
-                  >
-                    FAQs
-                  </AnimatedNavLink>
-                </li>
+                {Object.values(ROUTES).map((route) => (
+                  <li key={route.href}>
+                    <AnimatedNavLink
+                      href={route.href}
+                      delay={BASE_DELAY * 2}
+                      menuOpen={true}
+                    >
+                      {route.label}
+                    </AnimatedNavLink>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -137,33 +114,29 @@ const Navbar = () => {
       </NavbarContainer>
       {isMobile && (
         <MobileMenuContainer $menuOpen={menuOpen}>
-          <div className="mobile-links">
-            <AnimatedNavLink href="#about" delay={0.15} menuOpen={menuOpen}>
-              About
-            </AnimatedNavLink>
-          </div>
+          <ul className="mobile-links">
+            <li>
+              <AnimatedNavLink href="#about" delay={0.15} menuOpen={menuOpen}>
+                About
+              </AnimatedNavLink>
+            </li>
+            <li>
+              <AnimatedNavLink href="#artists" delay={0.35} menuOpen={menuOpen}>
+                Artists
+              </AnimatedNavLink>
+            </li>
+          </ul>
           <div className="mobile-socials">
-            <SocialNavbarIcon
-              href="https://x.com/decentraland"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaXTwitter />
-            </SocialNavbarIcon>
-            <SocialNavbarIcon
-              href="https://decentraland.org/discord/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaDiscord />
-            </SocialNavbarIcon>
-            <SocialNavbarIcon
-              href="https://www.linkedin.com/company/decentralandorg/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedinIn />
-            </SocialNavbarIcon>
+            {Object.values(socialLinks).map((link) => (
+              <SocialNavbarIcon
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.icon}
+              </SocialNavbarIcon>
+            ))}
 
             <a
               href="https://decentraland.org/?utm_org=dcl&utm_source=mvfwlanding&utm_medium=organic&utm_campaign=mvfw&utm_term=header"

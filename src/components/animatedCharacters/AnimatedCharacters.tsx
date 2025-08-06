@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import {
+  ReactNode,
+  ReactElement,
+  isValidElement,
+  useEffect,
+  useState,
+} from 'react';
 
 interface AnimatedCharactersProps {
   children: ReactNode;
@@ -21,6 +27,7 @@ interface AnimatedCharactersProps {
     | 'anticipate';
   className?: string;
   style?: React.CSSProperties;
+  repeatOnce?: boolean;
 }
 
 const AnimatedCharacters = ({
@@ -32,9 +39,34 @@ const AnimatedCharacters = ({
   ease = 'easeOut',
   className,
   style,
+  repeatOnce = false,
 }: AnimatedCharactersProps) => {
-  const text =
-    typeof children === 'string' ? children : children?.toString() || '';
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isVisible && repeatOnce && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isVisible, repeatOnce, hasAnimated]);
+
+  // Function to extract text content from React nodes
+  const extractTextFromNode = (node: ReactNode): string => {
+    if (typeof node === 'string') return node;
+    if (typeof node === 'number') return node.toString();
+    if (isValidElement(node)) {
+      const element = node as ReactElement;
+      if (element.props.children) {
+        if (Array.isArray(element.props.children)) {
+          return element.props.children.map(extractTextFromNode).join('');
+        }
+        return extractTextFromNode(element.props.children);
+      }
+    }
+    if (Array.isArray(node)) return node.map(extractTextFromNode).join('');
+    return '';
+  };
+
+  const text = extractTextFromNode(children);
   const chars = text.split('');
 
   const containerVariants = {
@@ -58,11 +90,13 @@ const AnimatedCharacters = ({
     },
   };
 
+  const shouldAnimate = repeatOnce ? hasAnimated : isVisible;
+
   return (
     <motion.div
       variants={containerVariants}
       initial="hidden"
-      animate={isVisible ? 'visible' : 'hidden'}
+      animate={shouldAnimate ? 'visible' : 'hidden'}
       className={className}
       style={{
         display: 'flex',
@@ -72,7 +106,7 @@ const AnimatedCharacters = ({
     >
       {chars.map((char, index) => (
         <motion.span
-          key={index}
+          key={`--char-${index}`}
           variants={charVariants}
           transition={{
             duration,

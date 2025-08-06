@@ -1,6 +1,6 @@
 // Styled Components
-import { useEffect, useRef } from 'react';
-import Lenis from 'lenis';
+import { useEffect } from 'react';
+import { useLenis } from './hooks/useLenis';
 // Components
 import { Hero } from './components/Hero/Hero';
 import { Navbar } from './components/Navbar/Navbar';
@@ -43,30 +43,8 @@ import { Faq } from './components/Faq/Faq';
 // }
 
 const App = () => {
-  const lenisRef = useRef<Lenis | null>(null);
-
-  useEffect(() => {
-    // Inicializar Lenis para scroll suave
-    lenisRef.current = new Lenis({
-      duration: 1.8,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
-    });
-
-    // Función para actualizar Lenis en cada frame
-    const raf = (time: number) => {
-      lenisRef.current?.raf(time);
-      requestAnimationFrame(raf);
-    };
-
-    // Iniciar el loop de animación
-    requestAnimationFrame(raf);
-
-    // Limpiar al desmontar
-    return () => {
-      lenisRef.current?.destroy();
-    };
-  }, []);
+  // Initialize Lenis smooth scrolling
+  useLenis();
 
   useEffect(() => {
     // Initialize analytics after component mounts to avoid race conditions

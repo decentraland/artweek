@@ -1,6 +1,6 @@
 import { useResizePage } from '../../hooks/useResizePage';
 import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
-import heroPills from '../../../public/img/hero/pills-centered.png';
+import heroPills from '../../../public/img/hero/Pills.png';
 import { HeroContainer, HeroInnerContainer } from './Hero.styled';
 import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 

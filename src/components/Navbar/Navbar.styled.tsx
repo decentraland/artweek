@@ -180,6 +180,7 @@ const MobileMenuContainer = styled.div<{ $menuOpen: boolean }>`
     display: flex;
     flex-direction: column;
     gap: 16px;
+    list-style: none;
   }
 
   .mobile-socials {

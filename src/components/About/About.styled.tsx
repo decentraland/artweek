@@ -31,14 +31,25 @@ export const AboutInnerContainer = styled.div`
 
     @media (max-width: ${breakpoints.l}) {
       flex-direction: column-reverse;
-      /* align-items: flex-start; */
     }
 
     .about__content--image {
+      position: relative;
       img {
+        max-width: 320px;
         @media screen and (min-width: ${breakpoints.md}) {
-          /* max-width: 320px; */
+          max-width: unset;
         }
+      }
+
+      .about__content--image--mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 1);
+        z-index: 1;
       }
     }
 
