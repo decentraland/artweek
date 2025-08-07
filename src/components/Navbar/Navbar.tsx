@@ -19,6 +19,12 @@ const BASE_DELAY = 0.15;
 const Navbar = () => {
   const { isMobile, menuOpen, setMenuOpen } = useResizePage({ size: 992 });
 
+  const handleNavigation = () => {
+    if (menuOpen) {
+      setMenuOpen(false);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (menuOpen) {
@@ -129,14 +135,14 @@ const Navbar = () => {
       {isMobile && (
         <MobileMenuContainer $menuOpen={menuOpen}>
           <ul className="mobile-links">
-            <li>
+            <li onClick={handleNavigation}>
               <AnimatedNavLink href="#about" delay={0.15} menuOpen={menuOpen}>
                 About
               </AnimatedNavLink>
             </li>
-            <li>
-              <AnimatedNavLink href="#artists" delay={0.35} menuOpen={menuOpen}>
-                Artists
+            <li onClick={handleNavigation}>
+              <AnimatedNavLink href="#faq" delay={0.35} menuOpen={menuOpen}>
+                FAQs
               </AnimatedNavLink>
             </li>
           </ul>

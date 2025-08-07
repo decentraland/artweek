@@ -8,7 +8,7 @@ const ROUTES = [
   },
   {
     label: 'FAQs',
-    href: '/faq',
+    href: '/faqs',
   },
 ];
 

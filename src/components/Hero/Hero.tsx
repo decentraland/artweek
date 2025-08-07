@@ -1,13 +1,26 @@
-// import { useResizePage } from '../../hooks/useResizePage';
 import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
-import heroPills from '../../../public/img/hero/pills-centered.png';
+import heroPillsCentered from '../../../public/img/hero/pills-centered.png';
+import heroPills from '../../../public/img/hero/Pills.png';
 import { HeroContainer, HeroInnerContainer } from './Hero.styled';
 import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 import { motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
-  // const { isMobile } = useResizePage({ size: 568 });
-  // console.log(isMobile);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <HeroContainer>
@@ -33,7 +46,10 @@ const Hero = () => {
             </p>
           </TextMaskReveal>
           <TextMaskReveal delay={1}>
-            <img src={heroPills} alt="hero-pills" />
+            <img
+              src={isMobile ? heroPillsCentered : heroPills}
+              alt="hero-pills"
+            />
           </TextMaskReveal>
         </div>
         <motion.div

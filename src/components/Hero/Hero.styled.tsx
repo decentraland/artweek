@@ -15,12 +15,12 @@ const HeroContainer = styled.section`
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  /* align-items: flex-start; */
+  align-items: flex-start;
 
   @media (max-width: ${breakpoints.md}) {
     padding: 24px;
+    align-items: center;
   }
 
   &::after {
@@ -42,13 +42,17 @@ const HeroInnerContainer = styled.div`
   max-width: 500px;
   flex-direction: column;
   align-items: center;
-  /* align-items: flex-start; */
-  text-align: center;
-  justify-content: center;
-  /* justify-content: flex-start; */
+  align-items: flex-start;
+  text-align: start;
+  justify-content: flex-start;
   position: relative;
   top: 50%;
   z-index: 2;
+
+  @media (max-width: ${breakpoints.md}) {
+    align-items: center;
+    text-align: center;
+  }
 
   .hero-top {
     letter-spacing: 1em;
