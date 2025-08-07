@@ -15,8 +15,9 @@ const HeroContainer = styled.section`
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  /* align-items: flex-start; */
 
   @media (max-width: ${breakpoints.md}) {
     padding: 24px;
@@ -40,10 +41,11 @@ const HeroInnerContainer = styled.div`
   display: flex;
   max-width: 500px;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: start;
-
-  justify-content: flex-start;
+  align-items: center;
+  /* align-items: flex-start; */
+  text-align: center;
+  justify-content: center;
+  /* justify-content: flex-start; */
   position: relative;
   top: 50%;
   z-index: 2;
@@ -60,17 +62,17 @@ const HeroInnerContainer = styled.div`
   .hero-middle {
     margin-block: 24px;
 
-    > h3 {
+    h3 {
       font-size: 1.4rem;
     }
 
-    > p {
+    p {
       opacity: 0.9;
       margin-block: 8px 12px;
       font-size: 1rem;
     }
 
-    > img {
+    img {
       width: 100%;
       margin-top: 16px;
     }

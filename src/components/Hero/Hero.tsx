@@ -1,34 +1,88 @@
-import { useResizePage } from '../../hooks/useResizePage';
+// import { useResizePage } from '../../hooks/useResizePage';
 import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
-import heroPills from '../../../public/img/hero/Pills.png';
+import heroPills from '../../../public/img/hero/pills-centered.png';
 import { HeroContainer, HeroInnerContainer } from './Hero.styled';
 import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
+import { motion } from 'motion/react';
 
 const Hero = () => {
-  const { isMobile } = useResizePage({ size: 568 });
-  console.log(isMobile);
+  // const { isMobile } = useResizePage({ size: 568 });
+  // console.log(isMobile);
 
   return (
     <HeroContainer>
       <HeroInnerContainer>
         <div className="hero-top">
-          <img src={artWeekLogo} alt="art-week-logo" />
-          <h2>SEPT 24 - 27</h2>
+          <TextMaskReveal>
+            <img src={artWeekLogo} alt="art-week-logo" />
+          </TextMaskReveal>
+          <motion.div style={{ position: 'relative' }}>
+            <TextMaskReveal delay={0.4}>
+              <h2>SEPT 24 - 27</h2>
+            </TextMaskReveal>
+          </motion.div>
         </div>
         <div className="hero-middle">
-          <h3>Can virtual art make us feel more human?</h3>
-          <p>
-            A free, four-day festival exploring art in virtual worlds — and your
-            place within them.
-          </p>
-          <img src={heroPills} alt="hero-pills" />
+          <TextMaskReveal delay={0.6}>
+            <h3>Can virtual art make us feel more human?</h3>
+          </TextMaskReveal>
+          <TextMaskReveal delay={0.8}>
+            <p>
+              A free, four-day festival exploring art in virtual worlds — and
+              your place within them.
+            </p>
+          </TextMaskReveal>
+          <TextMaskReveal delay={1}>
+            <img src={heroPills} alt="hero-pills" />
+          </TextMaskReveal>
         </div>
-        <div className="hero-bottom">
+        <motion.div
+          className="hero-bottom"
+          initial={{ filter: 'blur(10px)', opacity: 0 }}
+          animate={{ filter: 'blur(0px)', opacity: 1 }}
+          transition={{
+            duration: 1,
+            ease: [0.19, 1, 0.22, 1],
+            delay: 2.2,
+          }}
+        >
           <DownloadBtn showAvailableOnText={false} />
-        </div>
+        </motion.div>
       </HeroInnerContainer>
     </HeroContainer>
   );
 };
 
-export { Hero };
+interface TextMaskRevealProps {
+  children: React.ReactNode;
+  delay?: number;
+}
+
+const TextMaskReveal = ({ children, delay = 0 }: TextMaskRevealProps) => {
+  return (
+    <div style={{ position: 'relative', overflow: 'hidden' }}>
+      <motion.div
+        initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
+        animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+        transition={{ duration: 2, ease: [0.19, 1, 0.22, 1], delay }}
+        style={{
+          overflow: 'hidden',
+        }}
+      >
+        <motion.div
+          initial={{ y: '100%' }}
+          animate={{ y: '0%' }}
+          transition={{
+            duration: 1.2,
+            ease: [0.19, 1, 0.22, 1],
+            delay: delay + 0.2,
+          }}
+        >
+          {children}
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+};
+
+export { Hero, TextMaskReveal };

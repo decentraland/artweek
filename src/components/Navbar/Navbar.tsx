@@ -85,7 +85,21 @@ const Navbar = () => {
                 rel="noopener noreferrer"
                 className="decentraland-logo"
               >
-                <img src={dclLogoLight} alt="decentraland-logo" />
+                <motion.img
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  style={{
+                    transformOrigin: 'center left',
+                  }}
+                  transition={{
+                    delay: BASE_DELAY,
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 20,
+                  }}
+                  src={dclLogoLight}
+                  alt="decentraland-logo"
+                />
               </a>
               {socialLinks.map((link, index) => (
                 <motion.span
@@ -138,14 +152,15 @@ const Navbar = () => {
               </SocialNavbarIcon>
             ))}
 
-            <a
+            <motion.a
+              initial={{ opacity: 0, scale: 0.5 }}
               href="https://decentraland.org/?utm_org=dcl&utm_source=mvfwlanding&utm_medium=organic&utm_campaign=mvfw&utm_term=header"
               target="_blank"
               rel="noopener noreferrer"
               className="decentraland-logo"
             >
               <img src={dclLogoLight} alt="decentraland-logo" />
-            </a>
+            </motion.a>
           </div>
         </MobileMenuContainer>
       )}

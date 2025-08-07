@@ -73,13 +73,20 @@ const FaqQuestionContainer = styled.div`
     h4 {
       font-size: 1.2rem;
       font-weight: 400;
+      color: ${theme.white};
     }
   }
 
   .faq__answer-container {
     width: 100%;
     padding-bottom: 24px;
-    opacity: calc(1 - 0.2);
+    color: ${theme.grayPearl};
+    opacity: 0.9;
+
+    a {
+      /* color: #eec1bc; */
+      text-decoration: underline !important;
+    }
   }
 
   .faq__line {

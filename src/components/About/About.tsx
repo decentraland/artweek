@@ -6,7 +6,11 @@ import { ReactNode } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MarqueeContainerWrapper } from '../Marquee/Marquee.styled';
 import { Marquee } from '../Marquee/Marquee';
-import { AnimatedCharacters } from '../animatedCharacters';
+// import { AnimatedCharacters } from '../animatedCharacters';
+
+// const BASE_DELAY_ANI_1 = 0.5;
+// const BASE_DELAY_ANI_2 = 1;
+// const BASE_DELAY_ANI_3 = 1.5;
 
 const About = () => {
   const containerRef = useRef(null);
@@ -41,19 +45,9 @@ const About = () => {
           </div>
           <div className="about__content--list">
             <div className="header">
-              <h3>
-                <AnimatedCharacters repeatOnce={true} isVisible={isInView}>
-                  Touch Grass
-                </AnimatedCharacters>
-              </h3>
+              <h3>Touch Grass</h3>
               <h4>
-                <AnimatedCharacters
-                  repeatOnce={true}
-                  isVisible={isInView}
-                  delay={0.5}
-                >
-                  A digital exploration of presence, connection, and feeling.
-                </AnimatedCharacters>
+                A digital exploration of presence, connection, and feeling.
               </h4>
             </div>
             <ul className="list">
@@ -62,9 +56,13 @@ const About = () => {
                 .map((item, index) => (
                   <motion.li
                     key={`--aboutList-${index}`}
-                    initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
+                    initial={{ clipPath: 'inset(100% 20% 10% 0%)' }}
                     animate={isInView ? { clipPath: 'inset(0% 0% 0% 0%)' } : {}}
-                    transition={{ duration: 1.5, delay: index * 0.15, ease: [0.19, 1, 0.22, 1] }}
+                    transition={{
+                      duration: 1.5,
+                      delay: index * 0.15,
+                      ease: [0.19, 1, 0.22, 1],
+                    }}
                     style={{ overflow: 'hidden' }}
                   >
                     <AboutListItem {...item} />
