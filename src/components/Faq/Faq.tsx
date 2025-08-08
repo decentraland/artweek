@@ -4,7 +4,7 @@ import {
   SectionFaqContainer,
   FaqQuestionContainer,
 } from './Faq.styled';
-import { motion, useInView, useScroll, useTransform } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 import { FaChevronDown } from 'react-icons/fa';
 import { questions } from './questions';
 import { AnimatedCharacters } from '../animatedCharacters';
@@ -58,12 +58,12 @@ const FaqQuestion = ({
   const lineRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: containerRef,
+  //   offset: ['start end', 'end start'],
+  // });
 
-  const scaleX = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
+  // const scaleX = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
 
   return (
     <FaqQuestionContainer ref={containerRef} onClick={onToggle}>
