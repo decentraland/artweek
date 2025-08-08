@@ -131,8 +131,9 @@ const SocialNavbarIcon = styled.a`
 `;
 
 const MenuIcon = styled.button`
-  background-color: #60646b;
+  /* background-color: #60646b; */
   border-radius: 50%;
+  background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;

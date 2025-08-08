@@ -26,33 +26,33 @@ const Hero = () => {
     <HeroContainer>
       <HeroInnerContainer>
         <div className="hero-top">
-          <TextMaskReveal>
-            <img src={artWeekLogo} alt="art-week-logo" />
-          </TextMaskReveal>
+          {/* <TextMaskReveal> */}
+          <img src={artWeekLogo} alt="art-week-logo" />
+          {/* </TextMaskReveal> */}
           <motion.div style={{ position: 'relative' }}>
-            <TextMaskReveal delay={0.4}>
-              <h2>SEPT 24 - 27</h2>
-            </TextMaskReveal>
+            {/* <TextMaskReveal delay={0.4}> */}
+            <h2>SEPT 24 - 27</h2>
+            {/* </TextMaskReveal> */}
           </motion.div>
         </div>
         <div className="hero-middle">
-          <TextMaskReveal delay={0.6}>
-            <h3>Can virtual art make us feel more human?</h3>
-          </TextMaskReveal>
-          <TextMaskReveal delay={0.8}>
-            <p>
-              A free, four-day festival exploring art in virtual worlds — and
-              your place within them.
-            </p>
-          </TextMaskReveal>
-          <TextMaskReveal delay={1}>
-            <img
-              src={isMobile ? heroPillsCentered : heroPills}
-              alt="hero-pills"
-            />
-          </TextMaskReveal>
+          {/* <TextMaskReveal delay={0.6}> */}
+          <h3>Can virtual art make us feel more human?</h3>
+          {/* </TextMaskReveal> */}
+          {/* <TextMaskReveal delay={0.8}> */}
+          <p>
+            A free, four-day festival exploring art in virtual worlds — and your
+            place within them.
+          </p>
+          {/* </TextMaskReveal> */}
+          {/* <TextMaskReveal delay={1}> */}
+          <img
+            src={isMobile ? heroPillsCentered : heroPills}
+            alt="hero-pills"
+          />
+          {/* </TextMaskReveal> */}
         </div>
-        <motion.div
+        {/* <motion.div
           className="hero-bottom"
           initial={{ filter: 'blur(10px)', opacity: 0 }}
           animate={{ filter: 'blur(0px)', opacity: 1 }}
@@ -61,9 +61,9 @@ const Hero = () => {
             ease: [0.19, 1, 0.22, 1],
             delay: 2.2,
           }}
-        >
-          <DownloadBtn showAvailableOnText={false} />
-        </motion.div>
+        > */}
+        <DownloadBtn showAvailableOnText={false} />
+        {/* </motion.div> */}
       </HeroInnerContainer>
     </HeroContainer>
   );

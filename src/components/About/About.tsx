@@ -54,19 +54,19 @@ const About = () => {
               {Object.values(aboutList)
                 .sort(() => Math.random() - 0.5)
                 .map((item, index) => (
-                  <motion.li
+                  <li
                     key={`--aboutList-${index}`}
-                    initial={{ clipPath: 'inset(100% 20% 10% 0%)' }}
-                    animate={isInView ? { clipPath: 'inset(0% 0% 0% 0%)' } : {}}
-                    transition={{
-                      duration: 1.5,
-                      delay: index * 0.15,
-                      ease: [0.19, 1, 0.22, 1],
-                    }}
+                    // initial={{ clipPath: 'inset(100% 20% 10% 0%)' }}
+                    // animate={isInView ? { clipPath: 'inset(0% 0% 0% 0%)' } : {}}
+                    // transition={{
+                    //   duration: 1.5,
+                    //   delay: index * 0.15,
+                    //   ease: [0.19, 1, 0.22, 1],
+                    // }}
                     style={{ overflow: 'hidden' }}
                   >
                     <AboutListItem {...item} />
-                  </motion.li>
+                  </li>
                 ))}
             </ul>
           </div>

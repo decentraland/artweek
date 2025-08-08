@@ -91,21 +91,7 @@ const Navbar = () => {
                 rel="noopener noreferrer"
                 className="decentraland-logo"
               >
-                <motion.img
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  style={{
-                    transformOrigin: 'center left',
-                  }}
-                  transition={{
-                    delay: BASE_DELAY,
-                    type: 'spring',
-                    stiffness: 400,
-                    damping: 20,
-                  }}
-                  src={dclLogoLight}
-                  alt="decentraland-logo"
-                />
+                <img src={dclLogoLight} alt="decentraland-logo" />
               </a>
               {socialLinks.map((link, index) => (
                 <motion.span
