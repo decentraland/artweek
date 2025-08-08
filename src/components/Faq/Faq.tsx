@@ -103,10 +103,10 @@ const FaqQuestion = ({
       <motion.span
         className="faq__line"
         ref={lineRef}
-        style={{
-          scaleX,
-          transformOrigin: 'left',
-        }}
+        // style={{
+        //   scaleX,
+        //   transformOrigin: 'left',
+        // }}
       />
     </FaqQuestionContainer>
   );
