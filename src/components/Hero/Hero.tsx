@@ -41,7 +41,7 @@ const Hero = () => {
           {/* </TextMaskReveal> */}
           {/* <TextMaskReveal delay={0.8}> */}
           <p>
-            A free, four-day festival exploring art in virtual worlds — and your
+            A free, four-day festival exploring art in virtual worlds—and your
             place within them.
           </p>
           {/* </TextMaskReveal> */}

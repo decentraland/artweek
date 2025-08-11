@@ -1,5 +1,5 @@
 import { AboutContainer, AboutInnerContainer } from './About.styled';
-import provisoryMap from '../../../public/img/about/map.png';
+import provisoryMap from '../../../public/img/about/tree.png';
 import { useRef } from 'react';
 import { aboutList } from './list';
 import { ReactNode } from 'react';
@@ -45,9 +45,9 @@ const About = () => {
           </div>
           <div className="about__content--list">
             <div className="header">
-              <h3>Touch Grass</h3>
+              <h3>Experience Art Week</h3>
               <h4>
-                A digital exploration of presence, connection, and feeling.
+              This year's theme, TOUCH GRASS, invites you on a digital journey into presence, connection, and feeling through art in virtual worlds.
               </h4>
             </div>
             <ul className="list">

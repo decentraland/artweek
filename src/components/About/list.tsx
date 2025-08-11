@@ -19,7 +19,7 @@ const aboutList = {
     icon: iconTwo,
     html: (
       <p>
-        Join intro <b>workshops on AI</b>, worldbuilding & new creative tools
+        Explore as an avatar with live creator guides—no headset needed
       </p>
     ),
   },
@@ -27,8 +27,7 @@ const aboutList = {
     icon: iconThree,
     html: (
       <p>
-        Connect with the <b>artists, curators, and collectors</b> shaping
-        virtual worlds
+        Join intro workshops on AI, worldbuilding & new creative tools
       </p>
     ),
   },
@@ -36,7 +35,7 @@ const aboutList = {
     icon: iconFour,
     html: (
       <p>
-        Explore as an <b>avatar</b> with live creator guides—no headset needed
+        Learn how to launch your first virtual gallery, step by step
       </p>
     ),
   },
@@ -44,7 +43,7 @@ const aboutList = {
     icon: iconFive,
     html: (
       <p>
-        Learn how to launch <b>your first virtual gallery</b>, step by step
+        Connect with the artists, curators, and collectors shaping virtual worlds
       </p>
     ),
   },

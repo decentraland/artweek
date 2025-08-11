@@ -34,8 +34,10 @@ export const AboutInnerContainer = styled.div`
       position: relative;
       img {
         max-width: 320px;
+        object-fit: contain;
+
         @media screen and (min-width: ${breakpoints.md}) {
-          max-width: unset;
+          max-width: 400px;
         }
       }
 
@@ -58,14 +60,15 @@ export const AboutInnerContainer = styled.div`
         margin-bottom: 46px;
 
         h3 {
-          font-size: 4rem;
+          font-size: 3rem;
           font-weight: bolder;
           letter-spacing: -0.05em;
           color: ${theme.black};
         }
         h4 {
+          margin-block: 16px;
           font-weight: 200;
-          font-size: 1.2rem;
+          font-size: 1rem;
           color: ${theme.black};
         }
       }

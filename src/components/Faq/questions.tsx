@@ -23,7 +23,15 @@ export const questions = [
         <br />
         <br />
         Decentraland runs best on computers that meet a few basic specs—check
-        this table before getting started.
+        {' '}
+        <a
+          href="https://docs.decentraland.org/player/FAQs/decentraland-101/?utm_org=dcl&utm_source=homepage&utm_medium=organic&utm_campaign=retargeting2025"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          this table
+        </a>{' '}
+        before getting started.
       </p>
     ),
   },
