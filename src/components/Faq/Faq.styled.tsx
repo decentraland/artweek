@@ -80,6 +80,10 @@ const FaqQuestionContainer = styled.div`
       font-weight: 400;
       color: ${theme.black};
     }
+
+    svg {
+      fill: ${theme.paleBlack};
+    }
   }
 
   .faq__answer-container {
