@@ -77,7 +77,7 @@ const About = () => {
           marginTop: 'auto',
         }}
       >
-        <Marquee variant="glass" />
+        <Marquee variant="light" />
       </MarqueeContainerWrapper>
     </AboutContainer>
   );
