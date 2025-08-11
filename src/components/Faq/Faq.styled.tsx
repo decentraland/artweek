@@ -43,6 +43,10 @@ const FaqContainerTop = styled.div`
   > h3 {
     color: ${theme.black};
     font-size: 4rem;
+
+    * {
+      color: ${theme.black};
+    }
   }
 `;
 
@@ -90,6 +94,7 @@ const FaqQuestionContainer = styled.div`
 
     a {
       text-decoration: underline !important;
+      color: ${theme.black};
     }
   }
 

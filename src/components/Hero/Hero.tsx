@@ -62,7 +62,10 @@ const Hero = () => {
             delay: 2.2,
           }}
         > */}
-        <DownloadBtn showAvailableOnText={false} />
+        <div className="hero-bottom-btn">
+          <DownloadBtn showAvailableOnText={false} />
+          <p>You’ll need to download Decentraland to access the festival</p>
+        </div>
         {/* </motion.div> */}
       </HeroInnerContainer>
     </HeroContainer>

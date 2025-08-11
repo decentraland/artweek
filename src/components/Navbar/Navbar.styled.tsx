@@ -12,11 +12,13 @@ const NavbarContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
-  background: rgba(252, 252, 252, 0.25);
-  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  background-color: ${theme.paleBlack};
+
+  /* background: rgba(252, 252, 252, 0.25); */
+  /* border: 0.5px solid rgba(0, 0, 0, 0.2); */
   will-change: transform;
   transition: all 300ms;
-  backdrop-filter: blur(6px);
+  /* backdrop-filter: blur(6px); */
 
   @media (min-width: ${breakpoints.l}) {
     padding: 20px 40px;
@@ -167,7 +169,7 @@ const MobileMenuContainer = styled.div<{ $menuOpen: boolean }>`
   flex-direction: column;
   gap: 20px;
   z-index: 1000;
-  background: rgba(252, 252, 252, 0.25);
+  background-color: ${theme.paleBlack};
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(6px);
   overflow: hidden;

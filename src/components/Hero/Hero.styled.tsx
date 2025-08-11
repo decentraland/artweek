@@ -82,11 +82,20 @@ const HeroInnerContainer = styled.div`
     }
   }
 
-  .hero-bottom {
+  .hero-bottom-btn {
     width: 100%;
 
     *:is(a) {
       width: 100%;
+    }
+
+    p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+
+      @media (min-width: ${breakpoints.md}) {
+        text-align: center;
+      }
     }
   }
 
