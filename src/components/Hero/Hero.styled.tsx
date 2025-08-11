@@ -56,10 +56,16 @@ const HeroInnerContainer = styled.div`
 
   .hero-top {
     letter-spacing: 1em;
+    margin-top: 24px;
 
     h2 {
       font-weight: 500;
       letter-spacing: 12px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 350px;
     }
   }
 
