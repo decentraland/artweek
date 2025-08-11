@@ -76,8 +76,15 @@ export const questions = [
         can sign up with just an email.
         <br />
         <br />
-        If you want to buy something in the Marketplace later, you can use
-        crypto, a card, or bank transfer—totally up to you.
+        If you want to buy something in the{' '}
+        <a
+          href="https://decentraland.org/marketplace"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Marketplace
+        </a>{' '}
+        later, you can use crypto, a card, or bank transfer—totally up to you.
       </p>
     ),
   },

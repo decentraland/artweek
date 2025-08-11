@@ -98,8 +98,8 @@ const FaqQuestionContainer = styled.div`
 
     a {
       text-decoration: underline !important;
-      color: #6685c3;
-      opacity: 0.8;
+      color: #0055ff;
+      opacity: 1;
     }
   }
 

@@ -56,7 +56,7 @@ const HeroInnerContainer = styled.div`
 
   .hero-top {
     letter-spacing: 1em;
-    margin-top: 24px;
+    margin-top: 48px;
 
     h2 {
       font-weight: 500;
