@@ -4,17 +4,17 @@ import { breakpoints, theme } from '../../utils/theme';
 
 const SectionFaqContainer = styled.section`
   position: relative;
-  background-color: ${theme.black};
+  background-color: ${theme.white};
   padding: 40px 20px;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(${faqBackground});
-  background-size: 220% 220%;
-  background-position: 0% 0%;
-  background-attachment: fixed;
+  /* background-image: url(${faqBackground}); */
+  /* background-size: 220% 220%; */
+  /* background-position: 0% 0%; */
+  /* background-attachment: fixed; */
   min-height: 100vh;
 
   .faq__inner-container {
@@ -41,6 +41,7 @@ const FaqContainerTop = styled.div`
   margin-bottom: 40px;
 
   > h3 {
+    color: ${theme.black};
     font-size: 4rem;
   }
 `;
@@ -73,18 +74,21 @@ const FaqQuestionContainer = styled.div`
     h4 {
       font-size: 1.2rem;
       font-weight: 400;
-      color: ${theme.white};
+      color: ${theme.black};
     }
   }
 
   .faq__answer-container {
     width: 100%;
     padding-bottom: 24px;
-    color: ${theme.grayPearl};
-    opacity: 0.9;
+    color: ${theme.black};
+
+    p {
+      color: ${theme.black};
+      opacity: 0.6;
+    }
 
     a {
-      /* color: #eec1bc; */
       text-decoration: underline !important;
     }
   }
@@ -92,7 +96,7 @@ const FaqQuestionContainer = styled.div`
   .faq__line {
     width: 100%;
     height: 1px;
-    background-color: ${theme.white};
+    background-color: ${theme.black};
     position: absolute;
     bottom: 0;
     left: 0;

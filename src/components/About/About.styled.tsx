@@ -1,13 +1,10 @@
 import { styled } from 'styled-components';
-import { breakpoints } from '../../utils/theme';
-import bgImage from '../../../public/img/hero/hero-bg-new.png';
+import { breakpoints, theme } from '../../utils/theme';
 
 export const AboutContainer = styled.section`
   min-height: 100vh;
   width: 100%;
-  background-image: url(${bgImage});
-  background-size: 220% 220%;
-  background-position: 0% 0%;
+  background-color: ${theme.white};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,6 +51,7 @@ export const AboutInnerContainer = styled.div`
     }
 
     .about__content--list {
+      color: ${theme.black};
       max-width: 520px;
 
       > .header {
@@ -63,10 +61,12 @@ export const AboutInnerContainer = styled.div`
           font-size: 4rem;
           font-weight: bolder;
           letter-spacing: -0.05em;
+          color: ${theme.black};
         }
         h4 {
           font-weight: 200;
           font-size: 1.2rem;
+          color: ${theme.black};
         }
       }
 
@@ -74,6 +74,7 @@ export const AboutInnerContainer = styled.div`
         display: flex;
         flex-direction: column;
         list-style: none;
+        color: ${theme.black};
         gap: 20px;
 
         li {
@@ -83,6 +84,10 @@ export const AboutInnerContainer = styled.div`
           font-size: 0.9rem;
           font-weight: 200;
           gap: 8px;
+
+          * {
+            color: ${theme.black};
+          }
         }
 
         @media screen and (min-width: ${breakpoints.md}) {
