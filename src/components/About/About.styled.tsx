@@ -89,6 +89,12 @@ export const AboutInnerContainer = styled.div`
           font-weight: 200;
           gap: 8px;
 
+          img {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+          }
+
           * {
             color: ${theme.black};
           }
