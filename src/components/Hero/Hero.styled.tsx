@@ -73,13 +73,18 @@ const HeroInnerContainer = styled.div`
     margin-block: 24px;
 
     h3 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
 
     p {
       opacity: 0.9;
       margin-block: 8px 12px;
       font-size: 1rem;
+
+      span {
+        margin-top: 8px;
+        display: block;
+      }
     }
 
     img {

@@ -110,7 +110,7 @@ const FaqQuestionContainer = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    opacity: 0.7;
+    opacity: 0.5;
   }
 `;
 

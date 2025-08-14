@@ -1,5 +1,4 @@
-import { FaDiscord, FaXTwitter } from 'react-icons/fa6';
-import { FaLinkedinIn } from 'react-icons/fa';
+import { FaDiscord, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 
 const ROUTES = [
   {
@@ -22,8 +21,8 @@ const socialLinks = [
     icon: <FaDiscord />,
   },
   {
-    href: 'https://www.linkedin.com/company/decentralandorg/',
-    icon: <FaLinkedinIn />,
+    href: 'https://www.instagram.com/decentraland_foundation/',
+    icon: <FaInstagram />,
   },
 ];
 

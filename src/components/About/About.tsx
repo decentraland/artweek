@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MarqueeContainerWrapper } from '../Marquee/Marquee.styled';
 import { Marquee } from '../Marquee/Marquee';
+// import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 // import { AnimatedCharacters } from '../animatedCharacters';
 
 // const BASE_DELAY_ANI_1 = 0.5;
@@ -47,31 +48,32 @@ const About = () => {
             <div className="header">
               <h3>Experience Art Week</h3>
               <h4>
-              This year's theme, TOUCH GRASS, invites you on a digital journey into presence, connection, and feeling through art in virtual worlds.
+                This year's theme, TOUCH GRASS, invites you on a digital journey
+                into presence, connection, and feeling through art in virtual
+                worlds.
               </h4>
             </div>
             <ul className="list">
-              {Object.values(aboutList)
-                .sort(() => Math.random() - 0.5)
-                .map((item, index) => (
-                  <li
-                    key={`--aboutList-${index}`}
-                    // initial={{ clipPath: 'inset(100% 20% 10% 0%)' }}
-                    // animate={isInView ? { clipPath: 'inset(0% 0% 0% 0%)' } : {}}
-                    // transition={{
-                    //   duration: 1.5,
-                    //   delay: index * 0.15,
-                    //   ease: [0.19, 1, 0.22, 1],
-                    // }}
-                    style={{ overflow: 'hidden' }}
-                  >
-                    <AboutListItem {...item} />
-                  </li>
-                ))}
+              {Object.values(aboutList).map((item, index) => (
+                <li
+                  key={`--aboutList-${index}`}
+                  // initial={{ clipPath: 'inset(100% 20% 10% 0%)' }}
+                  // animate={isInView ? { clipPath: 'inset(0% 0% 0% 0%)' } : {}}
+                  // transition={{
+                  //   duration: 1.5,
+                  //   delay: index * 0.15,
+                  //   ease: [0.19, 1, 0.22, 1],
+                  // }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <AboutListItem {...item} />
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </AboutInnerContainer>
+
       <MarqueeContainerWrapper
         style={{
           marginTop: 'auto',

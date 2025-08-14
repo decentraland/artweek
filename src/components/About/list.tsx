@@ -10,50 +10,36 @@ const aboutList = {
     icon: iconOne,
     html: (
       <p>
-        Tour 27 <b>brand-new, immersive artworks</b> by leading international
-        artists
+        Tour 27 brand-new, immersive artworks by leading international artists
       </p>
     ),
   },
   2: {
     icon: iconTwo,
     html: (
-      <p>
-        Explore as an avatar with live creator guides—no headset needed
-      </p>
+      <p>Explore as an avatar with live creator guides—no headset needed</p>
     ),
   },
   3: {
     icon: iconThree,
-    html: (
-      <p>
-        Join intro workshops on AI, worldbuilding & new creative tools
-      </p>
-    ),
+    html: <p>Join intro workshops on AI, worldbuilding & new creative tools</p>,
   },
   4: {
     icon: iconFour,
-    html: (
-      <p>
-        Learn how to launch your first virtual gallery, step by step
-      </p>
-    ),
+    html: <p>Learn how to launch your first virtual gallery, step by step</p>,
   },
   5: {
     icon: iconFive,
     html: (
       <p>
-        Connect with the artists, curators, and collectors shaping virtual worlds
+        Connect with the artists, curators, and collectors shaping virtual
+        worlds
       </p>
     ),
   },
   6: {
     icon: iconSix,
-    html: (
-      <p>
-        Party in <b>iconic virtual venues</b> with music & digital art
-      </p>
-    ),
+    html: <p>Party in iconic virtual venues with music & digital art</p>,
   },
 };
 

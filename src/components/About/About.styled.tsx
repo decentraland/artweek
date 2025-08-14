@@ -2,9 +2,10 @@ import { styled } from 'styled-components';
 import { breakpoints, theme } from '../../utils/theme';
 
 export const AboutContainer = styled.section`
-  min-height: 100vh;
+  /* min-height: 100vh; */
   width: 100%;
   background-color: ${theme.white};
+  /* background-image: url('public/img/hero/hero-bg-new.png'); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,5 +105,12 @@ export const AboutInnerContainer = styled.div`
         }
       }
     }
+  }
+  .about__bottom-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
   }
 `;

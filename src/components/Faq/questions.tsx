@@ -22,8 +22,7 @@ export const questions = [
         today.
         <br />
         <br />
-        Decentraland runs best on computers that meet a few basic specs—check
-        {' '}
+        Decentraland runs best on computers that meet a few basic specs—check{' '}
         <a
           href="https://docs.decentraland.org/player/FAQs/decentraland-101/?utm_org=dcl&utm_source=homepage&utm_medium=organic&utm_campaign=retargeting2025"
           target="_blank"
@@ -98,9 +97,9 @@ export const questions = [
           target="_blank"
           rel="noopener noreferrer"
         >
-          @Decentraland
+          @Decentraland on X
         </a>{' '}
-        on X and keep an eye on{' '}
+        and keep an eye on{' '}
         <a
           href="https://decentraland.org/events"
           target="_blank"
@@ -108,13 +107,13 @@ export const questions = [
         >
           Decentraland Events
         </a>{' '}
-        for live updates. You can also{' '}
+        for live updates. You can also subscribe to{' '}
         <a
           href="https://decentraland.beehiiv.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          subscribe to Decentraland's weekly newsletter
+          Decentraland's weekly newsletter
         </a>{' '}
         for all of the latest news.
       </p>

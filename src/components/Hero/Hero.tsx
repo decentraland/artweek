@@ -38,11 +38,14 @@ const Hero = () => {
         <div className="hero-middle">
           {/* <TextMaskReveal delay={0.6}> */}
           <h3>Can virtual art make us feel more human?</h3>
+          <br />
           {/* </TextMaskReveal> */}
           {/* <TextMaskReveal delay={0.8}> */}
           <p>
             A free, four-day festival exploring art in virtual worlds—and your
             place within them.
+            <br />
+            <span>Hosted by Decentraland, the social virtual world.</span>
           </p>
           {/* </TextMaskReveal> */}
           {/* <TextMaskReveal delay={1}> */}
@@ -64,7 +67,7 @@ const Hero = () => {
         > */}
         <div className="hero-bottom-btn">
           <DownloadBtn showAvailableOnText={false} />
-          <p>You’ll need to download Decentraland to access the festival</p>
+          <p>You’ll need to download Decentraland to explore the festival.</p>
         </div>
         {/* </motion.div> */}
       </HeroInnerContainer>
