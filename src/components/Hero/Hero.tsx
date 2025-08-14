@@ -1,4 +1,4 @@
-import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
+import artWeekLogo from '../../../public/img/logos/art-week-logo-sept.png';
 import heroPillsCentered from '../../../public/img/hero/pills-centered.png';
 import heroPills from '../../../public/img/hero/Pills.png';
 import { HeroContainer, HeroInnerContainer } from './Hero.styled';
@@ -31,7 +31,7 @@ const Hero = () => {
           {/* </TextMaskReveal> */}
           <motion.div style={{ position: 'relative' }}>
             {/* <TextMaskReveal delay={0.4}> */}
-            <h2>SEPT 24 - 27</h2>
+            {/* <h2>SEPT 24 - 27</h2> */}
             {/* </TextMaskReveal> */}
           </motion.div>
         </div>
@@ -44,8 +44,8 @@ const Hero = () => {
           <p>
             A free, four-day festival exploring art in virtual worlds—and your
             place within them.
-            <br />
-            <span>Hosted by Decentraland, the social virtual world.</span>
+            {/* <br />
+            <span>Hosted by Decentraland, the social virtual world.</span> */}
           </p>
           {/* </TextMaskReveal> */}
           {/* <TextMaskReveal delay={1}> */}
