@@ -12,7 +12,7 @@ import {
   MobileMenuContainer,
 } from './Navbar.styled';
 import { AnimatedNavLink } from './AnimatedNavLink';
-import { ROUTES, socialLinks } from './routes';
+import { socialLinks } from './routes';
 
 const BASE_DELAY = 0.15;
 
