@@ -1,19 +1,19 @@
 // Styled Components
-import { useEffect } from 'react';
-import { useLenis } from './hooks/useLenis';
+import { useEffect } from "react"
+import { About } from "./components/About/About"
+import { Faq } from "./components/Faq/Faq"
+import { Footer } from "./components/Footer/Footer"
+import { Hero } from "./components/Hero/Hero"
+import { Marquee } from "./components/Marquee/Marquee"
+import { MarqueeContainerWrapper } from "./components/Marquee/Marquee.styled"
+import { Navbar } from "./components/Navbar/Navbar"
+import { config } from "./config"
+import { useLenis } from "./hooks/useLenis"
 // Components
-import { Hero } from './components/Hero/Hero';
-import { Navbar } from './components/Navbar/Navbar';
-import { Footer } from './components/Footer/Footer';
 // CSS
-import './css/global.css';
-import { config } from './config';
-import { getAnalytics } from './modules/analytics/segment';
-import { AppContainer } from './App.styled';
-import { MarqueeContainerWrapper } from './components/Marquee/Marquee.styled';
-import { Marquee } from './components/Marquee/Marquee';
-import About from './components/About/About';
-import { Faq } from './components/Faq/Faq';
+import "./css/global.css"
+import { getAnalytics } from "./modules/analytics/segment"
+import { AppContainer } from "./App.styled"
 // import Installations from './components/Installations';
 
 // Lazy load VideoSection component
@@ -45,23 +45,23 @@ import { Faq } from './components/Faq/Faq';
 
 const App = () => {
   // Initialize Lenis smooth scrolling
-  useLenis();
+  useLenis()
 
   useEffect(() => {
     // Initialize analytics after component mounts to avoid race conditions
     const initializeAnalytics = () => {
-      const analytics = getAnalytics();
+      const analytics = getAnalytics()
       if (analytics) {
-        analytics.load(config.get('SEGMENT_API_KEY'));
-        analytics.page();
+        analytics.load(config.get("SEGMENT_API_KEY"))
+        analytics.page()
       }
-    };
+    }
 
     // Small delay to ensure snippet is fully loaded
-    const timer = setTimeout(initializeAnalytics, 0);
+    const timer = setTimeout(initializeAnalytics, 0)
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div className="app-container">
@@ -80,7 +80,7 @@ const App = () => {
         <Footer />
       </AppContainer>
     </div>
-  );
-};
+  )
+}
 
-export { App };
+export { App }

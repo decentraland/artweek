@@ -1,12 +1,11 @@
-import { AboutContainer, AboutInnerContainer } from './About.styled';
-import provisoryMap from '../../../public/img/about/tree.png';
-import { useRef } from 'react';
-import { aboutList } from './list';
-import { ReactNode } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { MarqueeContainerWrapper } from '../Marquee/Marquee.styled';
-import { Marquee } from '../Marquee/Marquee';
-import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
+import { ReactNode, useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { aboutList } from "./list"
+import provisoryMap from "../../../public/img/about/tree.png"
+import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
+import { Marquee } from "../Marquee/Marquee"
+import { MarqueeContainerWrapper } from "../Marquee/Marquee.styled"
+import { AboutContainer, AboutInnerContainer } from "./About.styled"
 // import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 // import { AnimatedCharacters } from '../animatedCharacters';
 
@@ -15,11 +14,11 @@ import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 // const BASE_DELAY_ANI_3 = 1.5;
 
 const About = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef(null)
   const isInView = useInView(containerRef, {
-    margin: '-200px 0px',
+    margin: "-200px 0px",
     once: true,
-  });
+  })
 
   return (
     <AboutContainer ref={containerRef} id="about">
@@ -27,20 +26,20 @@ const About = () => {
         <div className="about__content">
           <div className="about__content--image">
             <motion.div
-              initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
-              animate={isInView ? { clipPath: 'inset(0% 0% 0% 0%)' } : {}}
+              initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+              animate={isInView ? { clipPath: "inset(0% 0% 0% 0%)" } : {}}
               transition={{ duration: 2, ease: [0.19, 1, 0.22, 1] }}
               style={{
-                overflow: 'hidden',
+                overflow: "hidden",
               }}
             >
               <img
                 src={provisoryMap}
                 alt="map"
                 style={{
-                  width: '100%',
-                  height: 'auto',
-                  display: 'block',
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
                 }}
               />
             </motion.div>
@@ -49,9 +48,9 @@ const About = () => {
             <div className="header">
               <h3>Experience Art Week</h3>
               <h4>
-                This year's theme, TOUCH GRASS, invites you on a digital journey
-                into presence, connection, and feeling through art in virtual
-                worlds.
+                This year&apos;s theme, TOUCH GRASS, invites you on a digital
+                journey into presence, connection, and feeling through art in
+                virtual worlds.
               </h4>
             </div>
             <ul className="list">
@@ -65,7 +64,7 @@ const About = () => {
                   //   delay: index * 0.15,
                   //   ease: [0.19, 1, 0.22, 1],
                   // }}
-                  style={{ overflow: 'hidden' }}
+                  style={{ overflow: "hidden" }}
                 >
                   <AboutListItem {...item} />
                 </li>
@@ -84,16 +83,14 @@ const About = () => {
 
       <MarqueeContainerWrapper
         style={{
-          marginTop: 'auto',
+          marginTop: "auto",
         }}
       >
         <Marquee variant="light" />
       </MarqueeContainerWrapper>
     </AboutContainer>
-  );
-};
-
-export default About;
+  )
+}
 
 const AboutListItem = ({ icon, html }: { icon: string; html: ReactNode }) => {
   return (
@@ -101,7 +98,7 @@ const AboutListItem = ({ icon, html }: { icon: string; html: ReactNode }) => {
       <img src={icon} alt="List item icon" />
       <span>{html}</span>
     </motion.li>
-  );
-};
+  )
+}
 
-export { AboutListItem };
+export { About, AboutListItem }

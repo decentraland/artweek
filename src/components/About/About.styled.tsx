@@ -1,7 +1,7 @@
-import { styled } from 'styled-components';
-import { breakpoints, theme } from '../../utils/theme';
+import { styled } from "styled-components"
+import { breakpoints, theme } from "../../utils/theme"
 
-export const AboutContainer = styled.section`
+const AboutContainer = styled.section`
   /* min-height: 100vh; */
   width: 100%;
   background-color: ${theme.white};
@@ -10,9 +10,9 @@ export const AboutContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
+`
 
-export const AboutInnerContainer = styled.div`
+const AboutInnerContainer = styled.div`
   height: 100%;
   width: 100%;
   gap: 40px;
@@ -125,4 +125,6 @@ export const AboutInnerContainer = styled.div`
     justify-content: center;
     gap: 16px;
   }
-`;
+`
+
+export { AboutContainer, AboutInnerContainer }

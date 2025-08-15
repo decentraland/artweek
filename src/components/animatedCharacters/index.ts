@@ -1,2 +1,2 @@
-export { AnimatedCharacters } from './AnimatedCharacters';
-export type { AnimatedCharactersProps } from './AnimatedCharacters';
+export { AnimatedCharacters } from "./AnimatedCharacters"
+export type { AnimatedCharactersProps } from "./AnimatedCharacters"

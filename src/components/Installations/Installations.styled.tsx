@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { breakpoints, theme } from '../../utils/theme';
+import { styled } from "styled-components"
+import { breakpoints, theme } from "../../utils/theme"
 
 export const InstallationsContainer = styled.section`
   display: flex;
@@ -112,4 +112,4 @@ export const InstallationsContainer = styled.section`
       }
     }
   }
-`;
+`

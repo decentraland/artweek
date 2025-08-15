@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-import { IoMdClose } from 'react-icons/io';
-import { styled } from 'styled-components';
-import { breakpoints } from '../../utils/theme';
+import { useEffect } from "react"
+import { IoMdClose } from "react-icons/io"
+import { styled } from "styled-components"
+import { breakpoints } from "../../utils/theme"
 
 // Tipos
 type ModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-  isDownloadModal?: boolean;
-};
+  isOpen: boolean
+  onClose: () => void
+  children: React.ReactNode
+  isDownloadModal?: boolean
+}
 
 const Modal = ({
   isOpen,
@@ -19,17 +19,17 @@ const Modal = ({
 }: ModalProps) => {
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden"
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto"
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isOpen]);
+      document.body.style.overflow = "auto"
+    }
+  }, [isOpen])
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <ModalBackdrop onClick={onClose}>
@@ -43,8 +43,8 @@ const Modal = ({
         {children}
       </ModalContent>
     </ModalBackdrop>
-  );
-};
+  )
+}
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -58,7 +58,7 @@ const ModalBackdrop = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-`;
+`
 
 const ModalContent = styled.div<{ isDownloadModal?: boolean }>`
   position: relative;
@@ -81,8 +81,8 @@ const ModalContent = styled.div<{ isDownloadModal?: boolean }>`
     margin: 0 auto;
   `}
   padding-block: ${({ isDownloadModal }) =>
-    isDownloadModal ? '48px' : '24px'};
-`;
+    isDownloadModal ? "48px" : "24px"};
+`
 
 const CloseButton = styled.button`
   position: absolute;
@@ -104,6 +104,6 @@ const CloseButton = styled.button`
   &:hover {
     background-color: #333;
   }
-`;
+`
 
-export { Modal };
+export { Modal }

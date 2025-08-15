@@ -1,6 +1,6 @@
-import { styled } from 'styled-components';
-import faqBackground from '../../../public/img/hero/hero-bg-new.png';
-import { breakpoints, theme } from '../../utils/theme';
+import { styled } from "styled-components"
+import faqBackground from "../../../public/img/hero/hero-bg-new.png"
+import { breakpoints, theme } from "../../utils/theme"
 
 const SectionFaqContainer = styled.section`
   position: relative;
@@ -31,7 +31,7 @@ const SectionFaqContainer = styled.section`
     gap: 0px;
     padding: 100px 60px;
   }
-`;
+`
 
 const FaqContainerTop = styled.div`
   width: 100%;
@@ -48,7 +48,7 @@ const FaqContainerTop = styled.div`
       color: ${theme.black};
     }
   }
-`;
+`
 
 const FaqQuestionContainer = styled.div`
   width: 100%;
@@ -112,6 +112,6 @@ const FaqQuestionContainer = styled.div`
     left: 0;
     opacity: 0.5;
   }
-`;
+`
 
-export { FaqContainerTop, SectionFaqContainer, FaqQuestionContainer };
+export { FaqContainerTop, SectionFaqContainer, FaqQuestionContainer }

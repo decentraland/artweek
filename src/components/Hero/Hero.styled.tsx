@@ -1,6 +1,6 @@
-import { styled } from 'styled-components';
-import bgImage from '../../../public/img/hero/hero-bg-new.png';
-import { breakpoints } from '../../utils/theme';
+import { styled } from "styled-components"
+import bgImage from "../../../public/img/hero/hero-bg-new.png"
+import { breakpoints } from "../../utils/theme"
 
 const HeroContainer = styled.section`
   position: relative;
@@ -24,7 +24,7 @@ const HeroContainer = styled.section`
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -33,7 +33,7 @@ const HeroContainer = styled.section`
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
-`;
+`
 
 const HeroInnerContainer = styled.div`
   width: 100%;
@@ -117,6 +117,6 @@ const HeroInnerContainer = styled.div`
   @media (min-width: ${breakpoints.md}) {
     top: unset;
   }
-`;
+`
 
-export { HeroContainer, HeroInnerContainer };
+export { HeroContainer, HeroInnerContainer }

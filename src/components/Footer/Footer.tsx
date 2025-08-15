@@ -1,36 +1,36 @@
-import { useRef } from 'react';
+import { useRef } from "react"
 // import { FaLinkedinIn } from 'react-icons/fa';
-import { FaDiscord, FaInstagram, FaXTwitter } from 'react-icons/fa6';
-import { motion, useInView } from 'framer-motion';
-import artWeekLogo from '../../../public/img/logos/art-week-logo-white.png';
+import { motion, useInView } from "framer-motion"
+import { FaDiscord, FaInstagram, FaXTwitter } from "react-icons/fa6"
+import artWeekLogo from "../../../public/img/logos/art-week-logo-white.png"
+import { AnimatedNavLink } from "../Navbar/AnimatedNavLink"
 import {
   FooterContainer,
   FooterLeft,
   FooterRight,
   SocialFooterIcon,
-} from './Footer.styled';
-import { AnimatedNavLink } from '../Navbar/AnimatedNavLink';
+} from "./Footer.styled"
 
-const BASE_DELAY = 0.15;
+const BASE_DELAY = 0.15
 
 const socialLinks = [
   {
-    href: 'https://x.com/decentraland',
+    href: "https://x.com/decentraland",
     icon: <FaXTwitter />,
   },
   {
-    href: 'https://decentraland.org/discord/',
+    href: "https://decentraland.org/discord/",
     icon: <FaDiscord />,
   },
   {
-    href: 'https://www.instagram.com/decentraland_foundation/',
+    href: "https://www.instagram.com/decentraland_foundation/",
     icon: <FaInstagram />,
   },
-];
+]
 
 const Footer = () => {
-  const footerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(footerRef, { once: true });
+  const footerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(footerRef, { once: true })
   return (
     <FooterContainer ref={footerRef}>
       <FooterLeft>
@@ -67,7 +67,7 @@ const Footer = () => {
             }
             transition={{
               delay: isInView ? BASE_DELAY + 0.2 * (index + 2) : 0,
-              type: 'spring',
+              type: "spring",
               stiffness: 400,
               damping: 20,
             }}
@@ -83,7 +83,7 @@ const Footer = () => {
         ))}
       </FooterRight>
     </FooterContainer>
-  );
-};
+  )
+}
 
-export { Footer };
+export { Footer }

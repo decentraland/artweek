@@ -1,25 +1,25 @@
-import { useRef, useState } from 'react';
-import { AnimatedCharacters } from '../animatedCharacters';
-import { installationsData } from './data';
-import { InstallationsContainer } from './Installations.styled';
-import { motion, useInView } from 'framer-motion';
+import { useRef, useState } from "react"
+import { motion, useInView } from "framer-motion"
+import { installationsData } from "./data"
+import { AnimatedCharacters } from "../animatedCharacters"
+import { InstallationsContainer } from "./Installations.styled"
 
-const Installations = () => {
-  const [selectedTitle, setSelectedTitle] = useState('all');
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true });
-  console.log(isInView);
+export const Installations = () => {
+  const [selectedTitle, setSelectedTitle] = useState("all")
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef, { once: true })
+  console.log(isInView)
 
   // Get unique titles from installationsData
   const uniqueTitles = Array.from(
-    new Set(installationsData.map((item) => item.title)),
-  );
+    new Set(installationsData.map((item) => item.title))
+  )
 
   // Filter installationsData based on selectedTitle
   const filteredData =
-    selectedTitle === 'all'
+    selectedTitle === "all"
       ? installationsData
-      : installationsData.filter((item) => item.title === selectedTitle);
+      : installationsData.filter((item) => item.title === selectedTitle)
 
   return (
     <InstallationsContainer>
@@ -74,7 +74,5 @@ const Installations = () => {
         </div>
       </div>
     </InstallationsContainer>
-  );
-};
-
-export default Installations;
+  )
+}
