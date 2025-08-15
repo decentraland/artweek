@@ -44,8 +44,8 @@ const Hero = () => {
           <p>
             A free, four-day festival exploring art in virtual worlds—and your
             place within them.
-            {/* <br />
-            <span>Hosted by Decentraland, the social virtual world.</span> */}
+            <br />
+            <span>Hosted by Decentraland, the social virtual world.</span>
           </p>
           {/* </TextMaskReveal> */}
           {/* <TextMaskReveal delay={1}> */}

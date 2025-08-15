@@ -78,12 +78,15 @@ const HeroInnerContainer = styled.div`
 
     p {
       opacity: 0.9;
-      margin-block: 8px 12px;
+      margin-block: 8px 0px;
       font-size: 1rem;
 
       span {
-        margin-top: 8px;
         display: block;
+        margin-top: 16px;
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 0.82rem;
       }
     }
 
@@ -95,13 +98,14 @@ const HeroInnerContainer = styled.div`
 
   .hero-bottom-btn {
     width: 100%;
+    max-width: 320px;
 
     *:is(a) {
       width: 100%;
     }
 
     p {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       opacity: 0.9;
 
       @media (min-width: ${breakpoints.md}) {

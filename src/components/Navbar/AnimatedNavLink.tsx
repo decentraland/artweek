@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { AnimatedCharacters } from '../animatedCharacters';
 
 interface AnimatedNavLinkProps {
-  href: string;
+  href?: string;
   delay: number;
   menuOpen: boolean;
   children: ReactNode;
@@ -18,7 +18,7 @@ const AnimatedNavLink = ({
 }: AnimatedNavLinkProps) => {
   return (
     <a
-      href={href}
+      href={href ?? '#'}
       style={{
         display: 'inline-block',
       }}

@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MarqueeContainerWrapper } from '../Marquee/Marquee.styled';
 import { Marquee } from '../Marquee/Marquee';
+import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 // import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 // import { AnimatedCharacters } from '../animatedCharacters';
 
@@ -70,6 +71,13 @@ const About = () => {
                 </li>
               ))}
             </ul>
+            <div className="download-btn-container">
+              <DownloadBtn
+                variant="cosmicGlass"
+                showAvailableOnText={false}
+                className="download-btn"
+              />
+            </div>
           </div>
         </div>
       </AboutInnerContainer>

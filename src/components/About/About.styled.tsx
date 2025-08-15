@@ -36,6 +36,7 @@ export const AboutInnerContainer = styled.div`
       img {
         max-width: 320px;
         object-fit: contain;
+        border-radius: 4px;
 
         @media screen and (min-width: ${breakpoints.md}) {
           max-width: 400px;
@@ -97,6 +98,7 @@ export const AboutInnerContainer = styled.div`
 
           * {
             color: ${theme.black};
+            font-size: 0.8rem;
           }
         }
 
@@ -109,6 +111,10 @@ export const AboutInnerContainer = styled.div`
             gap: 16px;
           }
         }
+      }
+
+      .download-btn-container {
+        margin-top: 24px;
       }
     }
   }

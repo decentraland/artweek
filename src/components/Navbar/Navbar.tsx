@@ -70,17 +70,24 @@ const Navbar = () => {
                 <img src={artWeekLogoLight} alt="art-week-logo" />
               </a>
               <ul className="navbar-navigation">
-                {Object.values(ROUTES).map((route) => (
-                  <li key={route.href}>
-                    <AnimatedNavLink
-                      href={route.href}
-                      delay={BASE_DELAY * 2}
-                      menuOpen={true}
-                    >
-                      {route.label}
-                    </AnimatedNavLink>
-                  </li>
-                ))}
+                <li>
+                  <AnimatedNavLink
+                    href="#about"
+                    delay={BASE_DELAY * 2}
+                    menuOpen={true}
+                  >
+                    About
+                  </AnimatedNavLink>
+                </li>
+                <li>
+                  <AnimatedNavLink
+                    href="#faq"
+                    delay={BASE_DELAY * 2}
+                    menuOpen={true}
+                  >
+                    FAQs
+                  </AnimatedNavLink>
+                </li>
               </ul>
             </div>
 
@@ -122,7 +129,7 @@ const Navbar = () => {
         <MobileMenuContainer $menuOpen={menuOpen}>
           <ul className="mobile-links">
             <li onClick={handleNavigation}>
-              <AnimatedNavLink href="#about" delay={0.15} menuOpen={menuOpen}>
+              <AnimatedNavLink delay={0.15} menuOpen={menuOpen}>
                 About
               </AnimatedNavLink>
             </li>
