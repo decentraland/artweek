@@ -1,33 +1,33 @@
-import { useState } from 'react';
-import { styled } from 'styled-components';
-import { useResizePage } from '../../hooks/useResizePage';
-import { theme } from '../../utils/theme';
-import { launchDesktopApp } from '../../utils/utils';
-import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
-import { Modal } from '../Modal';
+import { useState } from "react"
+import { styled } from "styled-components"
+import { useResizePage } from "../../hooks/useResizePage"
+import { theme } from "../../utils/theme"
+import { launchDesktopApp } from "../../utils/utils"
+import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
+import { Modal } from "../Modal"
 
 interface DownloadBtnProps {
-  className?: string;
-  showAvailableOnText?: boolean;
+  className?: string
+  showAvailableOnText?: boolean
 }
 
 const JumpInBtn = ({ className }: DownloadBtnProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { isMobile } = useResizePage({ size: 568 });
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { isMobile } = useResizePage({ size: 568 })
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     if (isMobile) {
-      window.location.href = 'https://decentraland.org/download';
-      return;
+      window.location.href = "https://decentraland.org/download"
+      return
     }
     //TODO: change position
     const resp = await launchDesktopApp(
       e.currentTarget,
-      'decentraland://?position=6%2C89',
-    );
-    if (resp) return;
-    setIsModalOpen(true);
-  };
+      "decentraland://?position=6%2C89"
+    )
+    if (resp) return
+    setIsModalOpen(true)
+  }
 
   return (
     <>
@@ -55,8 +55,8 @@ const JumpInBtn = ({ className }: DownloadBtnProps) => {
         </ModalContent>
       </Modal>
     </>
-  );
-};
+  )
+}
 
 const StyledJumpInBtn = styled(JumpInBtn)`
   .download-buttons-container {
@@ -95,14 +95,14 @@ const StyledJumpInBtn = styled(JumpInBtn)`
     max-width: 400px;
     margin: 0 auto;
   }
-`;
+`
 
 const DownloadButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-`;
+`
 
 const DownloadButton = styled.button`
   min-width: 340px;
@@ -125,14 +125,14 @@ const DownloadButton = styled.button`
   @media (min-width: 568px) {
     min-width: 340px;
   }
-`;
+`
 
 const ButtonContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-`;
+`
 
 const ModalContent = styled.div`
   > div {
@@ -148,6 +148,6 @@ const ModalContent = styled.div`
   align-items: center;
   justify-content: center;
   gap: 24px;
-`;
+`
 
-export { StyledJumpInBtn as JumpInBtn };
+export { StyledJumpInBtn as JumpInBtn }

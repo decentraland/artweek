@@ -1,101 +1,101 @@
-import { useEffect, useState } from 'react';
-import { FaApple, FaWindows } from 'react-icons/fa6';
-import { css, styled } from 'styled-components';
-import { useAdvancedUserAgentData } from '../../hooks/useAdvancedUserAgentData';
-import { useResizePage } from '../../hooks/useResizePage';
-import { theme } from '../../utils/theme';
-import btnBg from '../../../public/img/about/tree.png';
+import { useEffect, useState } from "react"
+import { FaApple, FaWindows } from "react-icons/fa6"
+import { css, styled } from "styled-components"
+import btnBg from "../../../public/img/about/tree.png"
+import { useAdvancedUserAgentData } from "../../hooks/useAdvancedUserAgentData"
+import { useResizePage } from "../../hooks/useResizePage"
+import { theme } from "../../utils/theme"
 
 enum DownloadLinks {
-  MAC_ARM64 = 'https://explorer-artifacts.decentraland.org/launcher-rust/Decentraland_aarch64.dmg',
-  MAC_X64 = 'https://explorer-artifacts.decentraland.org/launcher/dcl/Decentraland%20Launcher-mac-x64.dmg',
-  WIN_X64 = 'https://explorer-artifacts.decentraland.org/launcher-rust/Decentraland_x64-setup.exe',
-  UNKNOWN = '',
-  MOBILE_REDIRECT = 'https://decentraland.org/download/',
+  MAC_ARM64 = "https://explorer-artifacts.decentraland.org/launcher-rust/Decentraland_aarch64.dmg",
+  MAC_X64 = "https://explorer-artifacts.decentraland.org/launcher/dcl/Decentraland%20Launcher-mac-x64.dmg",
+  WIN_X64 = "https://explorer-artifacts.decentraland.org/launcher-rust/Decentraland_x64-setup.exe",
+  UNKNOWN = "",
+  MOBILE_REDIRECT = "https://decentraland.org/download/",
 }
 
 interface DownloadBtnProps {
-  className?: string;
-  showAvailableOnText?: boolean;
-  variant?: 'cosmicGlass' | 'default';
+  className?: string
+  showAvailableOnText?: boolean
+  variant?: "cosmicGlass" | "default"
 }
 
 const DownloadBtn = ({
   className,
   showAvailableOnText = true,
-  variant = 'default',
+  variant = "default",
 }: DownloadBtnProps) => {
-  const [downloadLink, setDownloadLink] = useState('');
-  const { isMobile } = useResizePage({ size: 568 });
-  const [isMac, setIsMac] = useState(false);
-  const [isWindows, setIsWindows] = useState(false);
-  const [isKnownMacArch, setIsKnownMacArch] = useState(true);
-  const [isLoadingUserAgentData, userAgentData] = useAdvancedUserAgentData();
+  const [downloadLink, setDownloadLink] = useState("")
+  const { isMobile } = useResizePage({ size: 568 })
+  const [isMac, setIsMac] = useState(false)
+  const [isWindows, setIsWindows] = useState(false)
+  const [isKnownMacArch, setIsKnownMacArch] = useState(true)
+  const [isLoadingUserAgentData, userAgentData] = useAdvancedUserAgentData()
 
-  console.log('variant', variant);
+  console.log("variant", variant)
 
   useEffect(() => {
     if (userAgentData) {
-      getUserAgentData();
+      getUserAgentData()
     }
-  }, [userAgentData]);
+  }, [userAgentData])
 
   const isMobileDevice = () => {
-    if (isMobile) return true;
-    if (!userAgentData) return false;
-    return userAgentData.mobile;
-  };
+    if (isMobile) return true
+    if (!userAgentData) return false
+    return userAgentData.mobile
+  }
 
   const getUserAgentData = () => {
-    if (!userAgentData) return;
+    if (!userAgentData) return
 
-    const isMacOS = userAgentData?.os.name?.includes('macOS') ?? false;
-    const isWin = userAgentData?.os.name?.includes('Windows') ?? false;
-    const mobileDevice = isMobileDevice();
+    const isMacOS = userAgentData?.os.name?.includes("macOS") ?? false
+    const isWin = userAgentData?.os.name?.includes("Windows") ?? false
+    const mobileDevice = isMobileDevice()
 
-    setIsMac(isMacOS);
-    setIsWindows(isWin);
+    setIsMac(isMacOS)
+    setIsWindows(isWin)
 
     if (mobileDevice) {
-      setDownloadLink(DownloadLinks.MOBILE_REDIRECT);
-      return;
+      setDownloadLink(DownloadLinks.MOBILE_REDIRECT)
+      return
     }
 
     if (isMacOS) {
       if (!userAgentData.cpu.architecture) {
-        setIsKnownMacArch(false);
-        setDownloadLink(DownloadLinks.MAC_ARM64);
-      } else if (userAgentData.cpu.architecture.includes('arm')) {
-        setDownloadLink(DownloadLinks.MAC_ARM64);
-        setIsKnownMacArch(true);
+        setIsKnownMacArch(false)
+        setDownloadLink(DownloadLinks.MAC_ARM64)
+      } else if (userAgentData.cpu.architecture.includes("arm")) {
+        setDownloadLink(DownloadLinks.MAC_ARM64)
+        setIsKnownMacArch(true)
       } else {
-        setDownloadLink(DownloadLinks.MAC_X64);
-        setIsKnownMacArch(true);
+        setDownloadLink(DownloadLinks.MAC_X64)
+        setIsKnownMacArch(true)
       }
     } else if (isWin) {
-      setDownloadLink(DownloadLinks.WIN_X64);
+      setDownloadLink(DownloadLinks.WIN_X64)
     } else {
-      setDownloadLink(DownloadLinks.UNKNOWN);
+      setDownloadLink(DownloadLinks.UNKNOWN)
     }
-  };
+  }
 
   const handleDownloadLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
     try {
-      const mobileDevice = isMobileDevice();
+      const mobileDevice = isMobileDevice()
 
-      if (typeof analytics !== 'undefined' && !mobileDevice) {
-        analytics.track('Download', {
+      if (typeof analytics !== "undefined" && !mobileDevice) {
+        analytics.track("Download", {
           href: e.currentTarget.href,
-          section: 'Carreer Quest Hero',
-        });
+          section: "Carreer Quest Hero",
+        })
       }
     } catch (error) {
-      window.open(e.currentTarget.href, '_blank');
+      window.open(e.currentTarget.href, "_blank")
     }
-  };
+  }
 
   const renderDownloadButton = () => {
-    const mobileDevice = isMobileDevice();
+    const mobileDevice = isMobileDevice()
     if (mobileDevice) {
       return (
         <DownloadButton
@@ -108,7 +108,7 @@ const DownloadBtn = ({
         >
           DOWNLOAD DECENTRALAND
         </DownloadButton>
-      );
+      )
     }
 
     if (isMac && !isKnownMacArch) {
@@ -137,7 +137,7 @@ const DownloadBtn = ({
             <FaApple />
           </DownloadButton>
         </div>
-      );
+      )
     }
 
     if (userAgentData && (isMac || isWindows)) {
@@ -163,13 +163,13 @@ const DownloadBtn = ({
             </>
           ) : null}
         </DownloadButton>
-      );
+      )
     }
 
-    return null;
-  };
+    return null
+  }
 
-  if (isLoadingUserAgentData || !userAgentData) return null;
+  if (isLoadingUserAgentData || !userAgentData) return null
 
   return (
     <DownloadButtonsContainer>
@@ -189,8 +189,8 @@ const DownloadBtn = ({
           </a>
         )}
     </DownloadButtonsContainer>
-  );
-};
+  )
+}
 
 const DownloadButtonsContainer = styled.div`
   display: flex;
@@ -202,14 +202,14 @@ const DownloadButtonsContainer = styled.div`
   .available-on-text {
     padding-top: 16px;
   }
-`;
+`
 
-const DownloadButton = styled.a<{ variant?: 'cosmicGlass' | 'default' }>`
+const DownloadButton = styled.a<{ variant?: "cosmicGlass" | "default" }>`
   position: relative;
   background: ${({ variant }) =>
-    variant !== 'cosmicGlass' && 'rgba(252, 252, 252, 0.25)'};
+    variant !== "cosmicGlass" && "rgba(252, 252, 252, 0.25)"};
   background-image: ${({ variant }) =>
-    variant === 'cosmicGlass' && `url(${btnBg})`};
+    variant === "cosmicGlass" && `url(${btnBg})`};
   background-position: center;
   background-repeat: no-repeat;
   border: 0.5px solid rgba(255, 255, 255, 0.1);
@@ -238,10 +238,10 @@ const DownloadButton = styled.a<{ variant?: 'cosmicGlass' | 'default' }>`
   }
 
   ${({ variant }) =>
-    variant === 'cosmicGlass' &&
+    variant === "cosmicGlass" &&
     css`
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -267,7 +267,7 @@ const DownloadButton = styled.a<{ variant?: 'cosmicGlass' | 'default' }>`
     position: relative;
     top: -2px;
   }
-`;
+`
 
 const StyledDownloadBtn = styled(DownloadBtn)`
   .download-buttons-container {
@@ -296,6 +296,6 @@ const StyledDownloadBtn = styled(DownloadBtn)`
     gap: 12px;
     border: 1px solid ${theme.white};
   }
-`;
+`
 
-export { StyledDownloadBtn as DownloadBtn };
+export { StyledDownloadBtn as DownloadBtn }

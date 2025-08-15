@@ -1,5 +1,5 @@
-import { styled } from 'styled-components';
-import { breakpoints, theme } from '../../utils/theme';
+import { styled } from "styled-components"
+import { breakpoints, theme } from "../../utils/theme"
 
 const NavbarContainer = styled.div`
   position: fixed;
@@ -105,7 +105,7 @@ const NavbarContainer = styled.div`
       }
     }
   }
-`;
+`
 
 const SocialNavbarIcon = styled.a`
   border-radius: 50%;
@@ -130,7 +130,7 @@ const SocialNavbarIcon = styled.a`
       height: 24px;
     }
   }
-`;
+`
 
 const MenuIcon = styled.button`
   /* background-color: #60646b; */
@@ -157,7 +157,7 @@ const MenuIcon = styled.button`
       height: 20px;
     }
   }
-`;
+`
 
 const MobileMenuContainer = styled.div<{ $menuOpen: boolean }>`
   position: fixed;
@@ -174,7 +174,7 @@ const MobileMenuContainer = styled.div<{ $menuOpen: boolean }>`
   backdrop-filter: blur(6px);
   overflow: hidden;
   opacity: ${(props) => (props.$menuOpen ? 1 : 0)};
-  height: ${(props) => (props.$menuOpen ? 'auto' : '0')};
+  height: ${(props) => (props.$menuOpen ? "auto" : "0")};
   transform: scaleY(${(props) => (props.$menuOpen ? 1 : 0)});
   transform-origin: top left;
   transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -202,6 +202,6 @@ const MobileMenuContainer = styled.div<{ $menuOpen: boolean }>`
   @media (min-width: ${breakpoints.l}) {
     display: none;
   }
-`;
+`
 
-export { NavbarContainer, SocialNavbarIcon, MenuIcon, MobileMenuContainer };
+export { NavbarContainer, SocialNavbarIcon, MenuIcon, MobileMenuContainer }

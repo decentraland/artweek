@@ -1,37 +1,37 @@
-import { useEffect } from 'react';
-import { SlMenu } from 'react-icons/sl';
-import { IoMdClose } from 'react-icons/io';
-import { motion } from 'framer-motion';
-import { useResizePage } from '../../hooks/useResizePage';
-import dclLogoLight from '../../../public/img/logos/dcl-logo-light.png';
-import artWeekLogoLight from '../../../public/img/logos/art-week-logo-white.png';
+import { useEffect } from "react"
+import { motion } from "framer-motion"
+import { IoMdClose } from "react-icons/io"
+import { SlMenu } from "react-icons/sl"
+import { AnimatedNavLink } from "./AnimatedNavLink"
+import { socialLinks } from "./routes"
+import artWeekLogoLight from "../../../public/img/logos/art-week-logo-white.png"
+import dclLogoLight from "../../../public/img/logos/dcl-logo-light.png"
+import { useResizePage } from "../../hooks/useResizePage"
 import {
   MenuIcon,
+  MobileMenuContainer,
   NavbarContainer,
   SocialNavbarIcon,
-  MobileMenuContainer,
-} from './Navbar.styled';
-import { AnimatedNavLink } from './AnimatedNavLink';
-import { socialLinks } from './routes';
+} from "./Navbar.styled"
 
-const BASE_DELAY = 0.15;
+const BASE_DELAY = 0.15
 
 const Navbar = () => {
-  const { isMobile, menuOpen, setMenuOpen } = useResizePage({ size: 992 });
+  const { isMobile, menuOpen, setMenuOpen } = useResizePage({ size: 992 })
 
   const handleNavigation = () => {
     if (menuOpen) {
-      setMenuOpen(false);
+      setMenuOpen(false)
     }
-  };
+  }
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (menuOpen) {
-        setMenuOpen(false);
+        setMenuOpen(false)
       }
-    });
-  }, []);
+    })
+  }, [])
 
   return (
     <>
@@ -47,7 +47,7 @@ const Navbar = () => {
                   key="close"
                   initial={{ opacity: 0, rotate: -90 }}
                   animate={{ opacity: 1, rotate: 0 }}
-                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
                   <IoMdClose className="close" />
                 </motion.span>
@@ -56,7 +56,7 @@ const Navbar = () => {
                   key="menu"
                   initial={{ opacity: 0, rotate: 90 }}
                   animate={{ opacity: 1, rotate: 0 }}
-                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
                   <SlMenu />
                 </motion.span>
@@ -107,7 +107,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
                     delay: BASE_DELAY + 0.2 * (index + 2),
-                    type: 'spring',
+                    type: "spring",
                     stiffness: 400,
                     damping: 20,
                   }}
@@ -164,7 +164,7 @@ const Navbar = () => {
         </MobileMenuContainer>
       )}
     </>
-  );
-};
+  )
+}
 
-export { Navbar };
+export { Navbar }
