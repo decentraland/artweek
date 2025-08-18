@@ -1,4 +1,8 @@
-import { AboutContainer, AboutInnerContainer } from './About.styled';
+import {
+  AboutContainer,
+  AboutInnerContainer,
+  DownloadBtnContainer,
+} from './About.styled';
 import provisoryMap from '../../../public/img/about/tree.png';
 import { useRef } from 'react';
 import { aboutList } from './list';
@@ -53,6 +57,13 @@ const About = () => {
                 into presence, connection, and feeling through art in virtual
                 worlds.
               </h4>
+              <DownloadBtnContainer className="mobile-only">
+                <DownloadBtn
+                  variant="cosmicGlass"
+                  showAvailableOnText={false}
+                  className="download-btn"
+                />
+              </DownloadBtnContainer>
             </div>
             <ul className="list">
               {Object.values(aboutList).map((item, index) => (
@@ -71,13 +82,13 @@ const About = () => {
                 </li>
               ))}
             </ul>
-            <div className="download-btn-container">
+            <DownloadBtnContainer className="desktop-only">
               <DownloadBtn
                 variant="cosmicGlass"
                 showAvailableOnText={false}
                 className="download-btn"
               />
-            </div>
+            </DownloadBtnContainer>
           </div>
         </div>
       </AboutInnerContainer>

@@ -14,7 +14,8 @@ import { MarqueeContainerWrapper } from './components/Marquee/Marquee.styled';
 import { Marquee } from './components/Marquee/Marquee';
 import About from './components/About/About';
 import { Faq } from './components/Faq/Faq';
-// import Installations from './components/Installations';
+import Installations from './components/Installations';
+import MapSection from './components/MapSection';
 
 // Lazy load VideoSection component
 // const VideoSection = lazy(() =>
@@ -68,14 +69,15 @@ const App = () => {
       <Navbar />
       <AppContainer>
         <Hero />
+        <MapSection />
+        <MarqueeContainerWrapper>
+          <Marquee variant="light" />
+        </MarqueeContainerWrapper>
+        <Installations />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
         <About />
-        {/* <Installations />
-        <MarqueeContainerWrapper>
-          <Marquee variant="light" />
-        </MarqueeContainerWrapper> */}
         <Faq />
         <Footer />
       </AppContainer>

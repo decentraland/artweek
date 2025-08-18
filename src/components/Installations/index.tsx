@@ -22,7 +22,7 @@ const Installations = () => {
       : installationsData.filter((item) => item.title === selectedTitle);
 
   return (
-    <InstallationsContainer>
+    <InstallationsContainer id="installations">
       <div className="installations__inner-container" ref={containerRef}>
         <h2>
           <AnimatedCharacters isVisible={true}>
@@ -36,6 +36,17 @@ const Installations = () => {
           </div>
 
           <div>
+            <select
+              value={selectedTitle}
+              onChange={(e) => setSelectedTitle(e.target.value)}
+            >
+              <option value="all">All</option>
+              {uniqueTitles.map((title) => (
+                <option key={title} value={title}>
+                  {title}
+                </option>
+              ))}
+            </select>
             <select
               value={selectedTitle}
               onChange={(e) => setSelectedTitle(e.target.value)}

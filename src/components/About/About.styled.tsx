@@ -28,19 +28,15 @@ export const AboutInnerContainer = styled.div`
     gap: 40px;
 
     @media (max-width: ${breakpoints.l}) {
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
 
     .about__content--image {
       position: relative;
       img {
-        max-width: 320px;
+        max-width: 420px;
         object-fit: contain;
         border-radius: 4px;
-
-        @media screen and (min-width: ${breakpoints.md}) {
-          max-width: 400px;
-        }
       }
 
       .about__content--image--mask {
@@ -51,6 +47,19 @@ export const AboutInnerContainer = styled.div`
         height: 100%;
         background-color: rgba(0, 0, 0, 1);
         z-index: 1;
+      }
+
+      @media (max-width: ${breakpoints.l}) {
+        width: 100%;
+
+        img {
+          max-width: unset;
+          max-height: 220px;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 4px;
+        }
       }
     }
 
@@ -72,6 +81,11 @@ export const AboutInnerContainer = styled.div`
           font-weight: 200;
           font-size: 1rem;
           color: ${theme.black};
+        }
+
+        @media (max-width: ${breakpoints.l}) {
+          margin-bottom: 24px;
+          text-align: center;
         }
       }
 
@@ -102,19 +116,15 @@ export const AboutInnerContainer = styled.div`
           }
         }
 
-        @media screen and (min-width: ${breakpoints.md}) {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
+        /* @media screen and (min-width: ${breakpoints.md}) { */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
 
-          li {
-            align-items: flex-start;
-            gap: 16px;
-          }
+        li {
+          align-items: flex-start;
+          gap: 16px;
         }
-      }
-
-      .download-btn-container {
-        margin-top: 24px;
+        /* } */
       }
     }
   }
@@ -124,5 +134,28 @@ export const AboutInnerContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 16px;
+  }
+`;
+
+export const DownloadBtnContainer = styled.div`
+  &.mobile-only {
+    display: none;
+
+    @media (max-width: ${breakpoints.l}) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 24px;
+    }
+  }
+
+  &.desktop-only {
+    display: none;
+
+    @media (min-width: ${breakpoints.l}) {
+      display: block;
+      margin-top: 24px;
+    }
   }
 `;

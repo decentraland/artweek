@@ -107,3 +107,13 @@ img {
   -ms-user-select: none;
   pointer-events: auto;
 }
+
+::selection {
+  background: #9ac7d8;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #9ac7d8;
+  color: #fff;
+}

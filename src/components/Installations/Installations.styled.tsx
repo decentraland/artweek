@@ -8,6 +8,7 @@ export const InstallationsContainer = styled.section`
   justify-content: flex-start;
   min-height: 100vh;
   width: 100%;
+  padding-block: 100px;
 
   * {
     color: ${theme.black};
