@@ -12,14 +12,18 @@ const Installations = () => {
 
   // Get unique titles from installationsData
   const uniqueTitles = Array.from(
-    new Set(installationsData.map((item) => item.title)),
+    new Set(installationsData.map((item) => item.name)),
   );
+
+  // const uniqueStudios = Array.from(
+  //   new Set(installationsData.map((item) => item.studio)),
+  // );
 
   // Filter installationsData based on selectedTitle
   const filteredData =
     selectedTitle === 'all'
       ? installationsData
-      : installationsData.filter((item) => item.title === selectedTitle);
+      : installationsData.filter((item) => item.name === selectedTitle);
 
   return (
     <InstallationsContainer id="installations">
@@ -47,17 +51,17 @@ const Installations = () => {
                 </option>
               ))}
             </select>
-            <select
+            {/* <select
               value={selectedTitle}
               onChange={(e) => setSelectedTitle(e.target.value)}
             >
               <option value="all">All</option>
-              {uniqueTitles.map((title) => (
-                <option key={title} value={title}>
-                  {title}
+              {uniqueStudios.map((studio) => (
+                <option key={studio} value={studio}>
+                  {studio}
                 </option>
               ))}
-            </select>
+            </select> */}
           </div>
         </div>
 
@@ -78,8 +82,8 @@ const Installations = () => {
               //   delay: 0.1 * item.id,
               // }}
             >
-              <img src={item.image} alt={item.title} />
-              <h6>{item.title}</h6>
+              <img src={item.img} alt={item.name} />
+              <h6>{item.name}</h6>
             </motion.div>
           ))}
         </div>

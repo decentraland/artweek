@@ -1,5 +1,5 @@
 // Styled Components
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { useLenis } from './hooks/useLenis';
 // Components
 import { Hero } from './components/Hero/Hero';
@@ -16,33 +16,34 @@ import About from './components/About/About';
 import { Faq } from './components/Faq/Faq';
 import Installations from './components/Installations';
 import MapSection from './components/MapSection';
+// import { VideoSection } from './components/VideoSection/VideoSection';
 
 // Lazy load VideoSection component
-// const VideoSection = lazy(() =>
-//   import("./components/VideoSection/VideoSection").then((module) => ({
-//     default: module.VideoSection,
-//   }))
-// )
+const VideoSection = lazy(() =>
+  import('./components/VideoSection/VideoSection').then((module) => ({
+    default: module.VideoSection,
+  })),
+);
 
 // Loading fallback component
-// const VideoSectionLoader = () => {
-//   return (
-//     <div
-//       style={{
-//         width: "100%",
-//         height: "100vh",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         backgroundColor: "#000",
-//         color: "#fff",
-//         fontSize: "18px",
-//       }}
-//     >
-//       Cargando video...
-//     </div>
-//   )
-// }
+const VideoSectionLoader = () => {
+  return (
+    <div
+      style={{
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#000',
+        color: '#fff',
+        fontSize: '18px',
+      }}
+    >
+      Cargando video...
+    </div>
+  );
+};
 
 const App = () => {
   // Initialize Lenis smooth scrolling
@@ -78,6 +79,9 @@ const App = () => {
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
         <About />
+        <Suspense fallback={<VideoSectionLoader />}>
+          <VideoSection />
+        </Suspense>
         <Faq />
         <Footer />
       </AppContainer>

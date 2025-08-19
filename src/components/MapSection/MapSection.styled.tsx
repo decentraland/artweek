@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from '../../utils/theme';
+import { breakpoints, theme } from '../../utils/theme';
 
 export const MapSectionContainer = styled.section`
   display: flex;
@@ -32,6 +32,18 @@ export const MapSectionContainer = styled.section`
       font-weight: 400;
       opacity: 0.8;
     }
+
+    @media (max-width: ${breakpoints.md}) {
+      margin-bottom: 48px;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      h6 {
+        font-size: 1rem;
+      }
+    }
   }
 
   .map-section__map-container {
@@ -63,12 +75,10 @@ export const MapSectionContainer = styled.section`
 
       @media screen and (max-width: 768px) {
         grid-template-columns: repeat(3, 1fr);
-        padding: 12px;
       }
 
       @media screen and (max-width: 480px) {
         grid-template-columns: repeat(2, 1fr);
-        padding: 12px;
       }
     }
   }
