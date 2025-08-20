@@ -78,7 +78,7 @@ export const AboutInnerContainer = styled.div`
         }
         h4 {
           margin-block: 16px;
-          font-weight: 200;
+          font-weight: 400;
           font-size: 1rem;
           color: ${theme.black};
         }
@@ -113,6 +113,7 @@ export const AboutInnerContainer = styled.div`
           * {
             color: ${theme.black};
             font-size: 0.8rem;
+            font-weight: 500;
           }
         }
 

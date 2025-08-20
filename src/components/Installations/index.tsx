@@ -3,6 +3,7 @@ import { AnimatedCharacters } from '../animatedCharacters';
 import { installationsData } from './data';
 import { InstallationsContainer } from './Installations.styled';
 import { motion, useInView } from 'framer-motion';
+import { MdOutlineSearch } from 'react-icons/md';
 
 const Installations = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +24,7 @@ const Installations = () => {
       <div className="installations__inner-container" ref={containerRef}>
         <h2>
           <AnimatedCharacters isVisible={true}>
-            Installations
+            Explore the Art
           </AnimatedCharacters>
         </h2>
         <div className="installations__filters">
@@ -35,14 +36,15 @@ const Installations = () => {
             <b>SEE INSTALLATION LIST ON MASTER</b>
           </div>
 
-          <div>
+          <div className="installations__filters__search">
             <input
               type="text"
-              placeholder="Search installations..."
+              placeholder="Search..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               aria-label="Search installations"
             />
+            <MdOutlineSearch className="search-icon" />
           </div>
         </div>
 

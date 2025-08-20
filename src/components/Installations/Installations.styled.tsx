@@ -55,20 +55,32 @@ export const InstallationsContainer = styled.section`
         justify-content: flex-start;
         gap: 20px;
 
+        &.installations__filters__search {
+          position: relative;
+        }
+
         input {
           width: 100%;
-          max-width: 204px;
-          background-color: #716b7c;
+          background-color: ${theme.paleBlack};
           color: ${theme.white};
           border: none;
-          padding: 8px;
+          padding: 8px 12px;
           border-radius: 5px;
           outline: none;
           color: ${theme.white};
+
           &::placeholder {
             color: ${theme.white};
             opacity: 1;
           }
+        }
+
+        .search-icon {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          fill: ${theme.white};
         }
 
         @media (min-width: ${breakpoints.md}) {

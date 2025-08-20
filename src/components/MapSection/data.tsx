@@ -3,7 +3,7 @@ export const artists = [
     id: 1,
     name: 'Sara Shakeel',
     description: 'Descripción pendiente.',
-    image: 'https://via.placeholder.com/800',
+    image: '-shara-shakeel.png',
     link: 'https://www.google.com',
     studio: 'Studio 1',
     coordinates: { lat: 0, lng: 0 },

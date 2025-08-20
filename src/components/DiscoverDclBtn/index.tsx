@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
+import { breakpoints } from '../../utils/theme';
 
 interface DiscoverDclBtnProps {
   className?: string;
@@ -28,7 +29,7 @@ const DiscoverDclBtnContainer = styled.div`
   position: relative;
   background: rgba(252, 252, 252, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 12px;
+  padding: 16px 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
   transition: all 300ms ease;
@@ -67,10 +68,13 @@ const DiscoverDclBtnContainer = styled.div`
       opacity: 1;
     }
   }
-  /*
-  @media (max-width: 768px) {
-    padding: 24px;
-  } */
+
+  @media (max-width: ${breakpoints.md}) {
+    max-width: 400px;
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -102,7 +106,7 @@ const ContentWrapper = styled.div`
     }
   }
 
-  @media (max-width: 568px) {
+  @media (max-width: ${breakpoints.md}) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
