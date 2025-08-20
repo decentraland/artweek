@@ -14,6 +14,28 @@ export const MapSectionContainer = styled.section`
     color: ${theme.black};
   }
 
+  .map {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    position: relative;
+
+    .map-vector {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .map-refs-vector {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      z-index: 10;
+      max-width: 200px;
+    }
+  }
+
   .map-section__text-container {
     width: 100%;
     display: flex;
@@ -21,7 +43,7 @@ export const MapSectionContainer = styled.section`
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 
     h2 {
       font-size: 4rem;

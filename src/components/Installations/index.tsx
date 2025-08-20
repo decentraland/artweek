@@ -5,25 +5,18 @@ import { InstallationsContainer } from './Installations.styled';
 import { motion, useInView } from 'framer-motion';
 
 const Installations = () => {
-  const [selectedTitle, setSelectedTitle] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true });
   console.log(isInView);
 
-  // Get unique titles from installationsData
-  const uniqueTitles = Array.from(
-    new Set(installationsData.map((item) => item.name)),
-  );
-
-  // const uniqueStudios = Array.from(
-  //   new Set(installationsData.map((item) => item.studio)),
-  // );
-
-  // Filter installationsData based on selectedTitle
+  // Filter installationsData based on searchTerm
   const filteredData =
-    selectedTitle === 'all'
+    searchTerm.trim() === ''
       ? installationsData
-      : installationsData.filter((item) => item.name === selectedTitle);
+      : installationsData.filter((item) =>
+          item.name.toLowerCase().includes(searchTerm.toLowerCase()),
+        );
 
   return (
     <InstallationsContainer id="installations">
@@ -35,33 +28,21 @@ const Installations = () => {
         </h2>
         <div className="installations__filters">
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Browse all the installations and discover the artists, then explore
+            their creations in-world.
+            <br />
+            <br />
+            <b>SEE INSTALLATION LIST ON MASTER</b>
           </div>
 
           <div>
-            <select
-              value={selectedTitle}
-              onChange={(e) => setSelectedTitle(e.target.value)}
-            >
-              <option value="all">All</option>
-              {uniqueTitles.map((title) => (
-                <option key={title} value={title}>
-                  {title}
-                </option>
-              ))}
-            </select>
-            {/* <select
-              value={selectedTitle}
-              onChange={(e) => setSelectedTitle(e.target.value)}
-            >
-              <option value="all">All</option>
-              {uniqueStudios.map((studio) => (
-                <option key={studio} value={studio}>
-                  {studio}
-                </option>
-              ))}
-            </select> */}
+            <input
+              type="text"
+              placeholder="Search installations..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              aria-label="Search installations"
+            />
           </div>
         </div>
 

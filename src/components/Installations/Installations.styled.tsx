@@ -55,14 +55,20 @@ export const InstallationsContainer = styled.section`
         justify-content: flex-start;
         gap: 20px;
 
-        select {
+        input {
           width: 100%;
-          max-width: 124px;
+          max-width: 204px;
           background-color: #716b7c;
           color: ${theme.white};
           border: none;
           padding: 8px;
           border-radius: 5px;
+          outline: none;
+          color: ${theme.white};
+          &::placeholder {
+            color: ${theme.white};
+            opacity: 1;
+          }
         }
 
         @media (min-width: ${breakpoints.md}) {

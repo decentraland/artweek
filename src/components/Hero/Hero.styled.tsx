@@ -21,6 +21,7 @@ const HeroContainer = styled.section`
   @media (max-width: ${breakpoints.md}) {
     padding: 24px;
     align-items: center;
+    justify-content: flex-start;
   }
 
   .hero-discover-dcl-btn {
@@ -28,6 +29,13 @@ const HeroContainer = styled.section`
     bottom: 24px;
     right: 24px;
     z-index: 2;
+
+    @media (max-width: ${breakpoints.md}) {
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+    }
   }
 
   /* @media (max-width: ${breakpoints.md}) {
@@ -82,7 +90,7 @@ const HeroInnerContainer = styled.div`
     }
 
     @media (max-width: ${breakpoints.md}) {
-      margin-top: 72px;
+      margin-top: 120px;
     }
   }
 

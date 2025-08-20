@@ -67,10 +67,10 @@ const DiscoverDclBtnContainer = styled.div`
       opacity: 1;
     }
   }
-
+  /*
   @media (max-width: 768px) {
     padding: 24px;
-  }
+  } */
 `;
 
 const ContentWrapper = styled.div`
@@ -102,7 +102,7 @@ const ContentWrapper = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 568px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;

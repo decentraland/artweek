@@ -13,6 +13,7 @@ import { Modal } from '../Modal';
 import { IoMdClose } from 'react-icons/io';
 import { GoArrowUpRight } from 'react-icons/go';
 import { RiLink } from 'react-icons/ri';
+// import MapRefsVector from './MapRefsVector';
 
 interface ArtistPinProps {
   id: number;
@@ -44,7 +45,7 @@ const MapSection = () => {
           <div className="map-section__text-container">
             <h2>
               <AnimatedCharacters isVisible={isInView}>
-                Mapa Art Week
+                Art Week map
               </AnimatedCharacters>
             </h2>
             <h6>
@@ -55,7 +56,14 @@ const MapSection = () => {
           </div>
 
           <div className="map-section__map-container">
-            <MapVector />
+            <div className="map">
+              <div className="map-vector">
+                <MapVector />
+              </div>
+              {/* <div className="map-refs-vector">
+                <MapRefsVector />
+              </div> */}
+            </div>
             <ul className="map-section__map-container__artists-grid">
               {artists.map((artist) => (
                 <li key={artist.id} onClick={() => setActiveArtist(artist)}>

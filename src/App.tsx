@@ -16,6 +16,7 @@ import About from './components/About/About';
 import { Faq } from './components/Faq/Faq';
 import Installations from './components/Installations';
 import MapSection from './components/MapSection';
+import CreditList from './components/CreditList';
 // import { VideoSection } from './components/VideoSection/VideoSection';
 
 // Lazy load VideoSection component
@@ -82,6 +83,10 @@ const App = () => {
         <Suspense fallback={<VideoSectionLoader />}>
           <VideoSection />
         </Suspense>
+        <CreditList />
+        <MarqueeContainerWrapper>
+          <Marquee variant="light" />
+        </MarqueeContainerWrapper>
         <Faq />
         <Footer />
       </AppContainer>
