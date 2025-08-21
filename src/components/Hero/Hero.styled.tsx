@@ -34,7 +34,9 @@ const HeroContainer = styled.section`
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
-      width: 90%;
+      width: 100%;
+      margin-top: 48px;
+      position: relative;
     }
   }
 

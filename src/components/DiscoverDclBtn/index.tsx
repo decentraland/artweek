@@ -60,7 +60,7 @@ const DiscoverDclBtnContainer = styled.div`
   }
 
   &:hover {
-    transform: translateY(-1px);
+    /* transform: translateY(-1px); */
     box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.15);
     border-color: rgba(255, 255, 255, 0.2);
 

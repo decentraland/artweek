@@ -74,6 +74,10 @@ const Name = styled.div`
   font-size: 1.2rem;
   line-height: 1.4;
   color: ${theme.paleBlack};
+
+  @media (max-width: ${breakpoints.md}) {
+    font-size: 1rem;
+  }
 `;
 
 const CreditList = () => {
