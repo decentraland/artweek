@@ -21,7 +21,7 @@ import AgustinDiLucianoMelinaOjagnanPhoto from "../../../public/img/artists/Agus
 import HayabusaPhoto from "../../../public/img/artists/Hayabusa-photo.png"
 import REZONPhoto from "../../../public/img/artists/REZON-photo.jpg"
 import CybermikePhoto from "../../../public/img/artists/Cybermike-photo.jpg"
-import CarlosMuñozPhoto from "../../../public/img/artists/Carlos-Muñoz-photo.png"
+import CarlosMunozPhoto from "../../../public/img/artists/Carlos-Munoz-photo.png"
 import ChronoTPhoto from "../../../public/img/artists/Chrono-T-photo.png"
 
 // invited artists
@@ -321,7 +321,7 @@ const artists = [
     name: "Carlos Muñoz",
     description:
       "An invitation to feel small and vulnerable, to rediscover Mother Nature's power. Surrounded by small yet great beings: fungi, plants, and bugs.",
-    image: CarlosMuñozPhoto,
+    image: CarlosMunozPhoto,
     link: "https://twitter.com/carlosdmunoz",
     studio: "ZCayel",
     coordinates: {
