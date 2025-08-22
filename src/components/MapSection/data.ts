@@ -1,4 +1,4 @@
-export const artists = [
+const artists = [
   {
     id: 1,
     name: "Sara Shakeel",
@@ -324,3 +324,5 @@ export const artists = [
     },
   },
 ]
+
+export { artists }

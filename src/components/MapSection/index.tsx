@@ -8,11 +8,11 @@ import {
 import { useRef, useState } from "react"
 import MapVector from "./MapVector"
 import { FaLocationPin } from "react-icons/fa6"
-import { artists } from "./data.jsx"
 import { Modal } from "../Modal"
 import { IoMdClose } from "react-icons/io"
 import { GoArrowUpRight } from "react-icons/go"
 import { RiLink } from "react-icons/ri"
+import { artists } from "./data"
 // import MapRefsVector from './MapRefsVector';
 
 interface ArtistPinProps {
