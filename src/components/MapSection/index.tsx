@@ -116,16 +116,16 @@ const MapSection = () => {
             <button onClick={() => setIsModalOpen(false)}>
               Close <IoMdClose />
             </button>
-            <button
-            // onClick={() => {
-            //   window.open(
-            //     `https://play.decentraland.org/?position=${activeArtist?.coordinates.lat},${activeArtist?.coordinates.lng}`,
-            //     '_blank',
-            //   );
-            // }}
+            {/* <button
+            onClick={() => {
+              window.open(
+                `https://play.decentraland.org/?position=${activeArtist?.coordinates.lat},${activeArtist?.coordinates.lng}`,
+                '_blank',
+              );
+            }}
             >
               Jump in <GoArrowUpRight />
-            </button>
+            </button> */}
           </div>
         </ArtistModalContainer>
       </Modal>

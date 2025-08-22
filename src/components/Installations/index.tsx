@@ -4,11 +4,29 @@ import { artists } from "../MapSection/data"
 import { InstallationsContainer } from "./Installations.styled"
 import { motion, useInView } from "framer-motion"
 import { MdOutlineSearch } from "react-icons/md"
+import { Modal } from "../Modal"
+import { IoMdClose } from "react-icons/io"
+import { GoArrowUpRight } from "react-icons/go"
+import { RiLink } from "react-icons/ri"
+import { ArtistModalContainer } from "../MapSection/MapSection.styled"
 
 const Installations = () => {
   const [searchTerm, setSearchTerm] = useState("")
   const containerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true })
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [activeArtist, setActiveArtist] = useState<{
+    id: number
+    name: string
+    description: string
+    image: string
+    link: string
+    studio: string
+    coordinates: {
+      lat: number
+      lng: number
+    }
+  } | null>(null)
   console.log(isInView)
 
   // Filter installationsData based on searchTerm
@@ -55,6 +73,11 @@ const Installations = () => {
               <motion.div
                 key={item.id}
                 className="installations__grid-item"
+                onClick={() => {
+                  setActiveArtist(item)
+                  setIsModalOpen(true)
+                }}
+                style={{ cursor: "pointer" }}
                 // initial={{ scale: 0.95, opacity: 0 }}
                 // animate={
                 //   isInView
@@ -67,7 +90,15 @@ const Installations = () => {
                 //   delay: 0.1 * item.id,
                 // }}
               >
-                <img src={item.image} alt={item.name} />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    setActiveArtist(item)
+                    setIsModalOpen(true)
+                  }}
+                />
                 <h6>{item.name}</h6>
               </motion.div>
             )
@@ -83,6 +114,57 @@ const Installations = () => {
           </div>
         )}
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ArtistModalContainer>
+          <div className="top">
+            <h2>{activeArtist?.name}</h2>
+            <p>{activeArtist?.studio}</p>
+            <img src={activeArtist?.image} alt={activeArtist?.name} />
+          </div>
+          <div className="middle">
+            <p>{activeArtist?.description || "No description available"}</p>
+            {activeArtist?.link && (
+              <a
+                href={activeArtist?.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <RiLink />
+              </a>
+            )}
+          </div>
+          <hr />
+          <div className="bottom">
+            <div>
+              <h6>Studio</h6>
+              <p>{activeArtist?.studio}</p>
+            </div>
+            <div>
+              <h6>Decentraland coordinates</h6>
+              <p>
+                ({activeArtist?.coordinates.lat.toFixed(2)},{" "}
+                {activeArtist?.coordinates.lng.toFixed(2)})
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div className="actions">
+            <button onClick={() => setIsModalOpen(false)}>
+              Close <IoMdClose />
+            </button>
+            {/* <button
+            onClick={() => {
+              window.open(
+                `https://play.decentraland.org/?position=${activeArtist?.coordinates.lat},${activeArtist?.coordinates.lng}`,
+                '_blank',
+              );
+            }}
+            >
+              Jump in <GoArrowUpRight />
+            </button> */}
+          </div>
+        </ArtistModalContainer>
+      </Modal>
     </InstallationsContainer>
   )
 }
