@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { AnimatedCharacters } from "../animatedCharacters"
-import { installationsData } from "./data"
+import { artists } from "../MapSection/data"
 import { InstallationsContainer } from "./Installations.styled"
 import { motion, useInView } from "framer-motion"
 import { MdOutlineSearch } from "react-icons/md"
@@ -14,8 +14,8 @@ const Installations = () => {
   // Filter installationsData based on searchTerm
   const filteredData =
     searchTerm.trim() === ""
-      ? installationsData
-      : installationsData.filter((item) =>
+      ? artists
+      : artists.filter((item) =>
           item.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
 
@@ -49,26 +49,29 @@ const Installations = () => {
         </div>
 
         <div className="installations__grid">
-          {filteredData.map((item) => (
-            <motion.div
-              key={item.id}
-              className="installations__grid-item"
-              // initial={{ scale: 0.95, opacity: 0 }}
-              // animate={
-              //   isInView
-              //     ? { scale: 1, opacity: 1 }
-              //     : { scale: 0.95, opacity: 0 }
-              // }
-              // transition={{
-              //   duration: 0.3,
-              //   ease: 'easeInOut',
-              //   delay: 0.1 * item.id,
-              // }}
-            >
-              <img src={item.img} alt={item.name} />
-              <h6>{item.name}</h6>
-            </motion.div>
-          ))}
+          {filteredData.map((item) => {
+            if (!item.image) return null
+            return (
+              <motion.div
+                key={item.id}
+                className="installations__grid-item"
+                // initial={{ scale: 0.95, opacity: 0 }}
+                // animate={
+                //   isInView
+                //     ? { scale: 1, opacity: 1 }
+                //     : { scale: 0.95, opacity: 0 }
+                // }
+                // transition={{
+                //   duration: 0.3,
+                //   ease: 'easeInOut',
+                //   delay: 0.1 * item.id,
+                // }}
+              >
+                <img src={item.image} alt={item.name} />
+                <h6>{item.name}</h6>
+              </motion.div>
+            )
+          })}
         </div>
         {filteredData.length === 0 && (
           <div className="installations__no-results">

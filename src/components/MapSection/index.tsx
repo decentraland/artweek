@@ -12,7 +12,7 @@ import { Modal } from "../Modal"
 import { IoMdClose } from "react-icons/io"
 import { GoArrowUpRight } from "react-icons/go"
 import { RiLink } from "react-icons/ri"
-import { artists } from "./data"
+import { artists, invitedArtists } from "./data"
 // import MapRefsVector from './MapRefsVector';
 
 interface ArtistPinProps {
@@ -65,7 +65,7 @@ const MapSection = () => {
               </div> */}
             </div>
             <ul className="map-section__map-container__artists-grid">
-              {artists.map((artist: any) => (
+              {[...artists, ...invitedArtists].map((artist: any) => (
                 <li key={artist.id} onClick={() => setActiveArtist(artist)}>
                   <ArtistPin
                     id={artist.id}
@@ -86,7 +86,7 @@ const MapSection = () => {
             <img src={activeArtist?.image} alt={activeArtist?.name} />
           </div>
           <div className="middle">
-            <p>{activeArtist?.description ?? ""}</p>
+            <p>{activeArtist?.description || "No description available"}</p>
             {activeArtist?.link && (
               <a
                 href={activeArtist?.link}
