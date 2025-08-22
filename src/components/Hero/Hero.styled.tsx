@@ -21,7 +21,30 @@ const HeroContainer = styled.section`
   @media (max-width: ${breakpoints.md}) {
     padding: 24px;
     align-items: center;
+    justify-content: flex-start;
   }
+
+  .hero-discover-dcl-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 2;
+
+    @media (max-width: ${breakpoints.md}) {
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      margin-top: 48px;
+      position: relative;
+    }
+  }
+
+  /* @media (max-width: ${breakpoints.md}) {
+    .hero-discover-dcl-btn {
+      bottom: 0;
+    }
+  } */
 
   &::after {
     content: "";
@@ -39,7 +62,7 @@ const HeroInnerContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  max-width: 500px;
+  max-width: 700px;
   flex-direction: column;
   align-items: center;
   align-items: flex-start;
@@ -67,10 +90,14 @@ const HeroInnerContainer = styled.div`
       width: 100%;
       max-width: 350px;
     }
+
+    @media (max-width: ${breakpoints.md}) {
+      margin-top: 120px;
+    }
   }
 
   .hero-middle {
-    margin-block: 24px;
+    margin-block: 24px 12px;
 
     h3 {
       font-size: 1.5rem;
@@ -93,12 +120,14 @@ const HeroInnerContainer = styled.div`
     img {
       width: 100%;
       margin-top: 16px;
+      max-width: 500px;
     }
   }
 
   .hero-bottom-btn {
     width: 100%;
-    max-width: 320px;
+    position: relative;
+    /* max-width: 320px; */
 
     *:is(a) {
       width: 100%;

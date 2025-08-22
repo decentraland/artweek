@@ -133,7 +133,8 @@ const DownloadBtn = ({
             onClick={handleDownloadLink}
             variant={variant}
           >
-            DOWNLOAD FOR MAC (INTEL)
+            DOWNLOAD NOW
+            {/* DOWNLOAD FOR MAC (INTEL) */}
             <FaApple />
           </DownloadButton>
         </div>
@@ -152,14 +153,16 @@ const DownloadBtn = ({
         >
           {isMac && !isWindows ? (
             <>
-              DOWNLOAD FOR MAC OS
-              <FaApple />
+              DOWNLOAD NOW
+              {/* DOWNLOAD FOR MAC OS */}
+              {/* <FaApple /> */}
             </>
           ) : null}
           {isWindows ? (
             <>
-              DOWNLOAD FOR WINDOWS
-              <FaWindows />
+              DOWNLOAD NOW
+              {/* DOWNLOAD FOR WINDOWS */}
+              {/* <FaWindows /> */}
             </>
           ) : null}
         </DownloadButton>
