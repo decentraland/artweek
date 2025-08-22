@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion"
 import { MdOutlineSearch } from "react-icons/md"
 import { Modal } from "../Modal"
 import { IoMdClose } from "react-icons/io"
-import { GoArrowUpRight } from "react-icons/go"
+// import { GoArrowUpRight } from "react-icons/go"
 import { RiLink } from "react-icons/ri"
 import { ArtistModalContainer } from "../MapSection/MapSection.styled"
 

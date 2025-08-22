@@ -10,7 +10,7 @@ import MapVector from "./MapVector"
 import { FaLocationPin } from "react-icons/fa6"
 import { Modal } from "../Modal"
 import { IoMdClose } from "react-icons/io"
-import { GoArrowUpRight } from "react-icons/go"
+// import { GoArrowUpRight } from "react-icons/go"
 import { RiLink } from "react-icons/ri"
 import { artists, invitedArtists } from "./data"
 // import MapRefsVector from './MapRefsVector';
