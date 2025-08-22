@@ -1,42 +1,42 @@
-import { useInView } from 'motion/react';
-import { AnimatedCharacters } from '../animatedCharacters';
+import { useInView } from "motion/react"
+import { AnimatedCharacters } from "../animatedCharacters"
 import {
   ArtistModalContainer,
   ArtistPinContainer,
   MapSectionContainer,
-} from './MapSection.styled';
-import { useRef, useState } from 'react';
-import MapVector from './MapVector';
-import { FaLocationPin } from 'react-icons/fa6';
-import { artists } from './data';
-import { Modal } from '../Modal';
-import { IoMdClose } from 'react-icons/io';
-import { GoArrowUpRight } from 'react-icons/go';
-import { RiLink } from 'react-icons/ri';
+} from "./MapSection.styled"
+import { useRef, useState } from "react"
+import MapVector from "./MapVector"
+import { FaLocationPin } from "react-icons/fa6"
+import { artists } from "./data.jsx"
+import { Modal } from "../Modal"
+import { IoMdClose } from "react-icons/io"
+import { GoArrowUpRight } from "react-icons/go"
+import { RiLink } from "react-icons/ri"
 // import MapRefsVector from './MapRefsVector';
 
 interface ArtistPinProps {
-  id: number;
-  artistName: string;
-  setIsModalOpen: (isOpen: boolean) => void;
+  id: number
+  artistName: string
+  setIsModalOpen: (isOpen: boolean) => void
 }
 
 const MapSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [activeArtist, setActiveArtist] = useState<{
-    id: number;
-    name: string;
-    description: string;
-    image: string;
-    link: string;
-    studio: string;
+    id: number
+    name: string
+    description: string
+    image: string
+    link: string
+    studio: string
     coordinates: {
-      lat: number;
-      lng: number;
-    };
-  } | null>(null);
+      lat: number
+      lng: number
+    }
+  } | null>(null)
 
   return (
     <>
@@ -65,7 +65,7 @@ const MapSection = () => {
               </div> */}
             </div>
             <ul className="map-section__map-container__artists-grid">
-              {artists.map((artist) => (
+              {artists.map((artist: any) => (
                 <li key={artist.id} onClick={() => setActiveArtist(artist)}>
                   <ArtistPin
                     id={artist.id}
@@ -86,14 +86,16 @@ const MapSection = () => {
             <img src={activeArtist?.image} alt={activeArtist?.name} />
           </div>
           <div className="middle">
-            <p>{activeArtist?.description}</p>
-            <a
-              href={activeArtist?.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <RiLink />
-            </a>
+            <p>{activeArtist?.description ?? ""}</p>
+            {activeArtist?.link && (
+              <a
+                href={activeArtist?.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <RiLink />
+              </a>
+            )}
           </div>
           <hr />
           <div className="bottom">
@@ -104,7 +106,7 @@ const MapSection = () => {
             <div>
               <h6>Decentraland coordinates</h6>
               <p>
-                ({activeArtist?.coordinates.lat.toFixed(2)},{' '}
+                ({activeArtist?.coordinates.lat.toFixed(2)},{" "}
                 {activeArtist?.coordinates.lng.toFixed(2)})
               </p>
             </div>
@@ -128,10 +130,10 @@ const MapSection = () => {
         </ArtistModalContainer>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default MapSection;
+export default MapSection
 
 const ArtistPin = ({ id, artistName, setIsModalOpen }: ArtistPinProps) => {
   return (
@@ -147,5 +149,5 @@ const ArtistPin = ({ id, artistName, setIsModalOpen }: ArtistPinProps) => {
         <span className="artist-pin__name">{artistName}</span>
       </span>
     </ArtistPinContainer>
-  );
-};
+  )
+}

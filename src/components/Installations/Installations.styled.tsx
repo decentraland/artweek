@@ -130,5 +130,22 @@ export const InstallationsContainer = styled.section`
         }
       }
     }
+
+    .installations__no-results {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      margin-top: 24px;
+
+      h2 {
+        color: ${theme.paleBlack};
+      }
+
+      p {
+        color: ${theme.paleBlack};
+      }
+    }
   }
 `

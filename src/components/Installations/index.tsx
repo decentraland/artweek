@@ -70,6 +70,15 @@ const Installations = () => {
             </motion.div>
           ))}
         </div>
+        {filteredData.length === 0 && (
+          <div className="installations__no-results">
+            <h2>No installations found for "{searchTerm}"</h2>
+            <p>
+              Try searching for a different keyword or browse all the
+              installations.
+            </p>
+          </div>
+        )}
       </div>
     </InstallationsContainer>
   )
