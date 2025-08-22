@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-import { styled } from 'styled-components';
-import { breakpoints, theme } from '../../utils/theme';
-import { useLenis } from '../../hooks/useLenis';
+import { useEffect } from "react"
+import { styled } from "styled-components"
+import { breakpoints, theme } from "../../utils/theme"
+import { useLenis } from "../../hooks/useLenis"
 
 // Tipos
 type ModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-  isDownloadModal?: boolean;
-};
+  isOpen: boolean
+  onClose: () => void
+  children: React.ReactNode
+  isDownloadModal?: boolean
+}
 
 const Modal = ({
   isOpen,
@@ -17,20 +17,20 @@ const Modal = ({
   children,
   isDownloadModal = false,
 }: ModalProps) => {
-  const { stop, start } = useLenis();
+  const { stop, start } = useLenis()
   useEffect(() => {
     if (isOpen) {
-      stop();
+      stop()
     } else {
-      start();
+      start()
     }
 
     return () => {
-      start();
-    };
-  }, [isOpen]);
+      start()
+    }
+  }, [isOpen])
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <ModalBackdrop onClick={onClose}>
@@ -41,8 +41,8 @@ const Modal = ({
         {children}
       </ModalContent>
     </ModalBackdrop>
-  );
-};
+  )
+}
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -56,7 +56,7 @@ const ModalBackdrop = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-`;
+`
 
 const ModalContent = styled.div<{ isDownloadModal?: boolean }>`
   position: relative;
@@ -85,11 +85,11 @@ const ModalContent = styled.div<{ isDownloadModal?: boolean }>`
     margin: 0 auto;
   `}
   padding-block: ${({ isDownloadModal }) =>
-    isDownloadModal ? '48px' : '24px'};
+    isDownloadModal ? "48px" : "24px"};
 
   * {
     color: ${theme.black};
   }
-`;
+`
 
-export { Modal };
+export { Modal }

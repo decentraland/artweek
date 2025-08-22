@@ -1,27 +1,27 @@
-import artWeekLogo from '../../../public/img/logos/art-week-logo-sept.png';
-import heroPillsCentered from '../../../public/img/hero/pills-centered.png';
-import heroPills from '../../../public/img/hero/Pills.png';
-import { HeroContainer, HeroInnerContainer } from './Hero.styled';
+import artWeekLogo from "../../../public/img/logos/art-week-logo-sept.png"
+import heroPillsCentered from "../../../public/img/hero/pills-centered.png"
+import heroPills from "../../../public/img/hero/Pills.png"
+import { HeroContainer, HeroInnerContainer } from "./Hero.styled"
 // import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
-import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
-import DiscoverDclBtn from '../DiscoverDclBtn';
+import { motion } from "motion/react"
+import { useEffect, useState } from "react"
+import DiscoverDclBtn from "../DiscoverDclBtn"
 
 const Hero = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+      setIsMobile(window.innerWidth < 768)
+    }
 
-    window.addEventListener('resize', handleResize);
-    handleResize();
+    window.addEventListener("resize", handleResize)
+    handleResize()
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   return (
     <HeroContainer>
@@ -30,7 +30,7 @@ const Hero = () => {
           {/* <TextMaskReveal> */}
           <img src={artWeekLogo} alt="art-week-logo" />
           {/* </TextMaskReveal> */}
-          <motion.div style={{ position: 'relative' }}>
+          <motion.div style={{ position: "relative" }}>
             {/* <TextMaskReveal delay={0.4}> */}
             {/* <h2>SEPT 24 - 27</h2> */}
             {/* </TextMaskReveal> */}
@@ -75,28 +75,28 @@ const Hero = () => {
         <DiscoverDclBtn />
       </div>
     </HeroContainer>
-  );
-};
+  )
+}
 
 interface TextMaskRevealProps {
-  children: React.ReactNode;
-  delay?: number;
+  children: React.ReactNode
+  delay?: number
 }
 
 const TextMaskReveal = ({ children, delay = 0 }: TextMaskRevealProps) => {
   return (
-    <div style={{ position: 'relative', overflow: 'hidden' }}>
+    <div style={{ position: "relative", overflow: "hidden" }}>
       <motion.div
-        initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
-        animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+        initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+        animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
         transition={{ duration: 2, ease: [0.19, 1, 0.22, 1], delay }}
         style={{
-          overflow: 'hidden',
+          overflow: "hidden",
         }}
       >
         <motion.div
-          initial={{ y: '100%' }}
-          animate={{ y: '0%' }}
+          initial={{ y: "100%" }}
+          animate={{ y: "0%" }}
           transition={{
             duration: 1.2,
             ease: [0.19, 1, 0.22, 1],
@@ -107,7 +107,7 @@ const TextMaskReveal = ({ children, delay = 0 }: TextMaskRevealProps) => {
         </motion.div>
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
-export { Hero, TextMaskReveal };
+export { Hero, TextMaskReveal }

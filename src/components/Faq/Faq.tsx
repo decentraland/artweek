@@ -1,22 +1,22 @@
-import { memo, ReactNode, useRef, useState } from 'react';
+import { ReactNode, memo, useRef, useState } from "react"
+import { motion, useInView } from "motion/react"
+import { FaChevronDown } from "react-icons/fa"
+import { questions } from "./questions"
+import { AnimatedCharacters } from "../animatedCharacters"
 import {
   FaqContainerTop,
-  SectionFaqContainer,
   FaqQuestionContainer,
-} from './Faq.styled';
-import { motion, useInView } from 'motion/react';
-import { FaChevronDown } from 'react-icons/fa';
-import { questions } from './questions';
-import { AnimatedCharacters } from '../animatedCharacters';
+  SectionFaqContainer,
+} from "./Faq.styled"
 
 const Faq = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const isInView = useInView(titleRef);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const isInView = useInView(titleRef)
 
   const toggleAnswer = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+    setActiveIndex(activeIndex === index ? null : index)
+  }
 
   return (
     <SectionFaqContainer id="faq">
@@ -41,8 +41,8 @@ const Faq = () => {
         </div>
       </div>
     </SectionFaqContainer>
-  );
-};
+  )
+}
 
 const FaqQuestion = ({
   question,
@@ -50,13 +50,13 @@ const FaqQuestion = ({
   isActive,
   onToggle,
 }: {
-  question: string;
-  answer: () => ReactNode;
-  isActive: boolean;
-  onToggle: () => void;
+  question: string
+  answer: () => ReactNode
+  isActive: boolean
+  onToggle: () => void
 }) => {
-  const lineRef = useRef<HTMLSpanElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLSpanElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   // const { scrollYProgress } = useScroll({
   //   target: containerRef,
@@ -84,11 +84,11 @@ const FaqQuestion = ({
       <motion.div
         initial={{ height: 0, opacity: 0 }}
         animate={{
-          height: isActive ? 'auto' : 0,
+          height: isActive ? "auto" : 0,
           opacity: isActive ? 1 : 0,
         }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        style={{ overflow: 'hidden' }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        style={{ overflow: "hidden" }}
       >
         <motion.div
           className="faq__answer-container"
@@ -109,8 +109,8 @@ const FaqQuestion = ({
         // }}
       />
     </FaqQuestionContainer>
-  );
-};
+  )
+}
 
-memo(Faq);
-export { Faq };
+memo(Faq)
+export { Faq }

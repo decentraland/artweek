@@ -1,5 +1,5 @@
-import { styled } from 'styled-components';
-import { breakpoints, theme } from '../../utils/theme';
+import { styled } from "styled-components"
+import { breakpoints, theme } from "../../utils/theme"
 
 const FooterContainer = styled.div`
   margin-top: auto;
@@ -19,7 +19,7 @@ const FooterContainer = styled.div`
   @media (min-width: ${breakpoints.l}) {
     padding: 20px 60px;
   }
-`;
+`
 
 const FooterLeft = styled.div`
   display: flex;
@@ -42,18 +42,18 @@ const FooterLeft = styled.div`
     flex-direction: row;
     align-items: center;
   }
-`;
+`
 
 const LogoImage = styled.img`
   height: 32px;
   width: auto;
-`;
+`
 
 const FooterRight = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const SocialFooterIcon = styled.a`
   border-radius: 50%;
@@ -78,12 +78,6 @@ const SocialFooterIcon = styled.a`
       height: 24px;
     }
   }
-`;
+`
 
-export {
-  FooterContainer,
-  FooterLeft,
-  LogoImage,
-  FooterRight,
-  SocialFooterIcon,
-};
+export { FooterContainer, FooterLeft, LogoImage, FooterRight, SocialFooterIcon }

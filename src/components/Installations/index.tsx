@@ -1,23 +1,23 @@
-import { useRef, useState } from 'react';
-import { AnimatedCharacters } from '../animatedCharacters';
-import { installationsData } from './data';
-import { InstallationsContainer } from './Installations.styled';
-import { motion, useInView } from 'framer-motion';
-import { MdOutlineSearch } from 'react-icons/md';
+import { useRef, useState } from "react"
+import { AnimatedCharacters } from "../animatedCharacters"
+import { installationsData } from "./data"
+import { InstallationsContainer } from "./Installations.styled"
+import { motion, useInView } from "framer-motion"
+import { MdOutlineSearch } from "react-icons/md"
 
 const Installations = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true });
-  console.log(isInView);
+  const [searchTerm, setSearchTerm] = useState("")
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef, { once: true })
+  console.log(isInView)
 
   // Filter installationsData based on searchTerm
   const filteredData =
-    searchTerm.trim() === ''
+    searchTerm.trim() === ""
       ? installationsData
       : installationsData.filter((item) =>
-          item.name.toLowerCase().includes(searchTerm.toLowerCase()),
-        );
+          item.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
 
   return (
     <InstallationsContainer id="installations">
@@ -72,7 +72,6 @@ const Installations = () => {
         </div>
       </div>
     </InstallationsContainer>
-  );
-};
-
-export default Installations;
+  )
+}
+export default Installations

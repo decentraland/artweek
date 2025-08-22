@@ -1,12 +1,12 @@
-import { ReactNode } from 'react';
-import { AnimatedCharacters } from '../animatedCharacters';
+import { ReactNode } from "react"
+import { AnimatedCharacters } from "../animatedCharacters"
 
 interface AnimatedNavLinkProps {
-  href?: string;
-  delay: number;
-  menuOpen: boolean;
-  children: ReactNode;
-  target?: string;
+  href?: string
+  delay: number
+  menuOpen: boolean
+  children: ReactNode
+  target?: string
 }
 
 const AnimatedNavLink = ({
@@ -18,9 +18,9 @@ const AnimatedNavLink = ({
 }: AnimatedNavLinkProps) => {
   return (
     <a
-      href={href ?? '#'}
+      href={href ?? "#"}
       style={{
-        display: 'inline-block',
+        display: "inline-block",
       }}
       target={target}
       rel="noopener noreferrer"
@@ -34,7 +34,7 @@ const AnimatedNavLink = ({
         {children}
       </AnimatedCharacters>
     </a>
-  );
-};
+  )
+}
 
-export { AnimatedNavLink };
+export { AnimatedNavLink }

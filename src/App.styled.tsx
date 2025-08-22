@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components"
 
 const AppContainer = styled.div`
   background-color: #fcfcfc;
@@ -13,6 +13,6 @@ const AppContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   position: relative;
-`;
+`
 
-export { AppContainer };
+export { AppContainer }
