@@ -18,6 +18,7 @@ const Installations = () => {
   const [activeArtist, setActiveArtist] = useState<{
     id: number
     name: string
+    artworkTitle: string
     description: string
     image: string
     link: string
@@ -51,7 +52,7 @@ const Installations = () => {
             their creations in-world.
             <br />
             <br />
-            <b>SEE INSTALLATION LIST ON MASTER</b>
+            {/* <b>SEE INSTALLATION LIST ON MASTER</b> */}
           </div>
 
           <div className="installations__filters__search">
@@ -118,7 +119,7 @@ const Installations = () => {
         <ArtistModalContainer>
           <div className="top">
             <h2>{activeArtist?.name}</h2>
-            <p>{activeArtist?.studio}</p>
+            <p>{activeArtist?.artworkTitle}</p>
             <img src={activeArtist?.image} alt={activeArtist?.name} />
           </div>
           <div className="middle">
@@ -142,8 +143,8 @@ const Installations = () => {
             <div>
               <h6>Decentraland coordinates</h6>
               <p>
-                ({activeArtist?.coordinates.lat.toFixed(2)},{" "}
-                {activeArtist?.coordinates.lng.toFixed(2)})
+                ({Math.round(activeArtist?.coordinates.lat ?? 0)},{" "}
+                {Math.round(activeArtist?.coordinates.lng ?? 0)})
               </p>
             </div>
           </div>

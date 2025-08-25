@@ -19,6 +19,7 @@ interface ArtistPinProps {
   id: number
   artistName: string
   setIsModalOpen: (isOpen: boolean) => void
+  color?: string
 }
 
 const MapSection = () => {
@@ -36,6 +37,7 @@ const MapSection = () => {
       lat: number
       lng: number
     }
+    artworkTitle: string
   } | null>(null)
 
   return (
@@ -45,13 +47,13 @@ const MapSection = () => {
           <div className="map-section__text-container">
             <h2>
               <AnimatedCharacters isVisible={isInView}>
-                Art Week map
+                Find Your Way
               </AnimatedCharacters>
             </h2>
             <h6>
-              <AnimatedCharacters isVisible={isInView}>
-                Press the installation of an artist to see it&apos;s details.
-              </AnimatedCharacters>
+              The map shows where every Art Week installation is in
+              Decentraland&#8209;click an artist&apos;s name below for details
+              and a link to jump straight to their work.{" "}
             </h6>
           </div>
 
@@ -71,6 +73,7 @@ const MapSection = () => {
                     id={artist.id}
                     artistName={artist.name}
                     setIsModalOpen={setIsModalOpen}
+                    color={artist.color ?? "#000"}
                   />
                 </li>
               ))}
@@ -82,7 +85,7 @@ const MapSection = () => {
         <ArtistModalContainer>
           <div className="top">
             <h2>{activeArtist?.name}</h2>
-            <p>{activeArtist?.studio}</p>
+            <p>{activeArtist?.artworkTitle}</p>
             <img src={activeArtist?.image} alt={activeArtist?.name} />
           </div>
           <div className="middle">
@@ -106,8 +109,8 @@ const MapSection = () => {
             <div>
               <h6>Decentraland coordinates</h6>
               <p>
-                ({activeArtist?.coordinates.lat.toFixed(2)},{" "}
-                {activeArtist?.coordinates.lng.toFixed(2)})
+                ({Math.round(activeArtist?.coordinates.lat ?? 0)},{" "}
+                {Math.round(activeArtist?.coordinates.lng ?? 0)})
               </p>
             </div>
           </div>
@@ -135,7 +138,12 @@ const MapSection = () => {
 
 export default MapSection
 
-const ArtistPin = ({ id, artistName, setIsModalOpen }: ArtistPinProps) => {
+const ArtistPin = ({
+  id,
+  artistName,
+  setIsModalOpen,
+  color,
+}: ArtistPinProps) => {
   return (
     <ArtistPinContainer>
       <span
@@ -143,7 +151,7 @@ const ArtistPin = ({ id, artistName, setIsModalOpen }: ArtistPinProps) => {
         onClick={() => setIsModalOpen(true)}
       >
         <span className="artist-pin__icon">
-          <FaLocationPin width={20} height={20} />
+          <FaLocationPin width={20} height={20} fill={color ?? "#000"} />
           <span className="artist-pin__icon__number">{id}</span>
         </span>
         <span className="artist-pin__name">{artistName}</span>

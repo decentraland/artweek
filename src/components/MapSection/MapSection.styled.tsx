@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { breakpoints, theme } from '../../utils/theme';
+import styled from "styled-components"
+import { breakpoints, theme } from "../../utils/theme"
 
 export const MapSectionContainer = styled.section`
   display: flex;
@@ -53,6 +53,8 @@ export const MapSectionContainer = styled.section`
       font-size: 1.2rem;
       font-weight: 400;
       opacity: 0.8;
+      max-width: 800px;
+      text-align: center;
     }
 
     @media (max-width: ${breakpoints.md}) {
@@ -104,7 +106,7 @@ export const MapSectionContainer = styled.section`
       }
     }
   }
-`;
+`
 
 export const ArtistPinContainer = styled.div`
   display: flex;
@@ -120,7 +122,7 @@ export const ArtistPinContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 4px;
-    min-width: 100px;
+    /* min-width: 100px; */
   }
 
   span.artist-pin__icon {
@@ -147,7 +149,7 @@ export const ArtistPinContainer = styled.div`
       font-weight: 600;
     }
   }
-`;
+`
 
 export const ArtistModalContainer = styled.div`
   display: flex;
@@ -287,4 +289,4 @@ export const ArtistModalContainer = styled.div`
     background-color: ${theme.black};
     margin: 12px 0;
   }
-`;
+`
