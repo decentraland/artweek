@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Artist, schedule } from "./data"
 import { LineUpList } from "./partials/LineUpList"
 // import rightDiamond from "../../img/music-festival/right-diamond.png"
-import { Modal } from "../Modal"
+// import { Modal } from "../Modal"
 // import { Title } from "../Title"
 
 enum DayHighlight {
@@ -19,6 +19,8 @@ function LineUp() {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null)
 
+  console.log(modalOpen)
+  console.log(selectedArtist)
   /**
    * Sets the highlighted day in the lineup.
    * @param day - The day to highlight.
@@ -177,12 +179,12 @@ function LineUp() {
       </Container>
       <LineUpList />
       <div>
-        {modalOpen && (
+        {/* {modalOpen && (
           <Modal
             onClose={() => setModalOpen(false)}
             artist={selectedArtist as Artist}
           />
-        )}
+        )} */}
       </div>
     </SectionWrapper>
   )
@@ -368,13 +370,13 @@ const TimeSlot = styled.div`
   min-width: 100px;
 `
 
-const TimeDiamond = styled.img`
-  width: 24px;
-  height: 24px;
-  top: -15px;
-  z-index: 2;
-  position: relative;
-`
+// const TimeDiamond = styled.img`
+//   width: 24px;
+//   height: 24px;
+//   top: -15px;
+//   z-index: 2;
+//   position: relative;
+// `
 
 const TimeText = styled.div`
   font-size: 0.75rem;

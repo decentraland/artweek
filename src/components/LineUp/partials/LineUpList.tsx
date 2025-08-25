@@ -8,6 +8,7 @@ import styled from "styled-components"
 
 const LineUpList = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+  console.log(isMobile)
   useEffect(() => {
     window.addEventListener("resize", () => {
       setIsMobile(window.innerWidth <= 768)
@@ -49,14 +50,14 @@ const ListContainer = styled.div`
   }
 `
 
-const Background = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-`
+// const Background = styled.img`
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: 0;
+// `
 
 export { LineUpList }
