@@ -88,6 +88,7 @@ const About = () => {
                 variant="cosmicGlass"
                 showAvailableOnText={false}
                 className="download-btn"
+                customText="DOWNLOAD DECENTRALAND"
               />
             </DownloadBtnContainer>
           </div>

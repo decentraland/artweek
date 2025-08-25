@@ -135,7 +135,7 @@ const DownloadBtn = ({
             onClick={handleDownloadLink}
             variant={variant}
           >
-            DOWNLOAD NOW
+            {customText || "DOWNLOAD NOW"}
             {/* DOWNLOAD FOR MAC (INTEL) */}
             <FaApple />
           </DownloadButton>
