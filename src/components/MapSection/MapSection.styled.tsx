@@ -25,6 +25,8 @@ export const MapSectionContainer = styled.section`
       top: 0;
       left: 0;
       z-index: 10;
+      max-width: 1240px;
+      margin: 0 auto;
     }
 
     .map-refs-vector {
@@ -86,6 +88,8 @@ export const MapSectionContainer = styled.section`
       width: 100%;
       height: 100%;
       padding: 24px;
+      max-width: 1240px;
+      margin: 0 auto;
 
       li {
         cursor: pointer;
@@ -204,6 +208,7 @@ export const ArtistModalContainer = styled.div`
     p {
       font-size: 1rem;
       font-weight: 400;
+      line-height: 1.5;
     }
   }
 

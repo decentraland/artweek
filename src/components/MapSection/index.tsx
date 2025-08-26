@@ -13,6 +13,7 @@ import { IoMdClose } from "react-icons/io"
 // import { GoArrowUpRight } from "react-icons/go"
 import { RiLink } from "react-icons/ri"
 import { artists, invitedArtists } from "./data"
+import { GoArrowUpRight } from "react-icons/go"
 // import MapRefsVector from './MapRefsVector';
 
 interface ArtistPinProps {
@@ -52,8 +53,8 @@ const MapSection = () => {
             </h2>
             <h6>
               The map shows where every Art Week installation is in
-              Decentraland&#8209;click an artist&apos;s name below for details
-              and a link to jump straight to their work.{" "}
+              Decentraland—click an artist&apos;s name below for details and a
+              link to jump straight to their work.
             </h6>
           </div>
 
@@ -119,16 +120,16 @@ const MapSection = () => {
             <button onClick={() => setIsModalOpen(false)}>
               Close <IoMdClose />
             </button>
-            {/* <button
-            onClick={() => {
-              window.open(
-                `https://play.decentraland.org/?position=${activeArtist?.coordinates.lat},${activeArtist?.coordinates.lng}`,
-                '_blank',
-              );
-            }}
+            <button
+              onClick={() => {
+                window.open(
+                  `https://decentraland.org/jump/?position=${encodeURIComponent(`${activeArtist?.coordinates.lat},${activeArtist?.coordinates.lng}`)}`,
+                  "_blank"
+                )
+              }}
             >
               Jump in <GoArrowUpRight />
-            </button> */}
+            </button>
           </div>
         </ArtistModalContainer>
       </Modal>

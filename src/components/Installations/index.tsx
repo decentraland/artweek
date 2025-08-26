@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { AnimatedCharacters } from "../animatedCharacters"
-import { artists } from "../MapSection/data"
+import { artists, invitedArtists } from "../MapSection/data"
 import { InstallationsContainer } from "./Installations.styled"
 import { motion, useInView } from "framer-motion"
 import { MdOutlineSearch } from "react-icons/md"
@@ -9,6 +9,7 @@ import { IoMdClose } from "react-icons/io"
 // import { GoArrowUpRight } from "react-icons/go"
 import { RiLink } from "react-icons/ri"
 import { ArtistModalContainer } from "../MapSection/MapSection.styled"
+import { GoArrowUpRight } from "react-icons/go"
 
 const Installations = () => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -30,11 +31,12 @@ const Installations = () => {
   } | null>(null)
   console.log(isInView)
 
-  // Filter installationsData based on searchTerm
+  const allInstallations = [...invitedArtists, ...artists]
+
   const filteredData =
     searchTerm.trim() === ""
-      ? artists
-      : artists.filter((item) =>
+      ? allInstallations
+      : allInstallations.filter((item) =>
           item.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
 
@@ -75,7 +77,7 @@ const Installations = () => {
                 key={item.id}
                 className="installations__grid-item"
                 onClick={() => {
-                  setActiveArtist(item)
+                  setActiveArtist(item as any)
                   setIsModalOpen(true)
                 }}
                 style={{ cursor: "pointer" }}
@@ -96,7 +98,7 @@ const Installations = () => {
                   alt={item.name}
                   style={{ cursor: "pointer" }}
                   onClick={() => {
-                    setActiveArtist(item)
+                    setActiveArtist(item as any)
                     setIsModalOpen(true)
                   }}
                 />
@@ -153,16 +155,16 @@ const Installations = () => {
             <button onClick={() => setIsModalOpen(false)}>
               Close <IoMdClose />
             </button>
-            {/* <button
-            onClick={() => {
-              window.open(
-                `https://play.decentraland.org/?position=${activeArtist?.coordinates.lat},${activeArtist?.coordinates.lng}`,
-                '_blank',
-              );
-            }}
+            <button
+              onClick={() => {
+                window.open(
+                  `https://decentraland.org/jump/?position=${encodeURIComponent(`${activeArtist?.coordinates.lat},${activeArtist?.coordinates.lng}`)}`,
+                  "_blank"
+                )
+              }}
             >
               Jump in <GoArrowUpRight />
-            </button> */}
+            </button>
           </div>
         </ArtistModalContainer>
       </Modal>

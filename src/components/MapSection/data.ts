@@ -40,8 +40,8 @@ const artists = [
     link: "https://www.instagram.com/sarashakeel/",
     studio: "Low Poly Models",
     coordinates: {
-      lat: -150.0,
-      lng: -93.0,
+      lat: -150,
+      lng: -93,
     },
   },
   {
@@ -54,8 +54,8 @@ const artists = [
     link: "https://www.instagram.com/johwska",
     studio: "Nikki Fuego",
     coordinates: {
-      lat: -150.0,
-      lng: -96.0,
+      lat: -150,
+      lng: -96,
     },
   },
   {
@@ -68,8 +68,8 @@ const artists = [
     link: "https://www.instagram.com/amber_vittoria/",
     studio: "DappCraft",
     coordinates: {
-      lat: -149.0,
-      lng: -82.0,
+      lat: -149,
+      lng: -82,
     },
   },
   {
@@ -82,8 +82,8 @@ const artists = [
     link: "https://www.instagram.com/clarabacou",
     studio: "Cansy",
     coordinates: {
-      lat: -148.0,
-      lng: -84.0,
+      lat: -148,
+      lng: -84,
     },
   },
   {
@@ -96,8 +96,8 @@ const artists = [
     link: "micahalhadeff.com",
     studio: "Micah Alhadeff",
     coordinates: {
-      lat: -149.0,
-      lng: -86.0,
+      lat: -149,
+      lng: -86,
     },
   },
   {
@@ -110,8 +110,8 @@ const artists = [
     link: "x.com/sabatobox",
     studio: "Sabato Visconti",
     coordinates: {
-      lat: -135.0,
-      lng: -95.0,
+      lat: -135,
+      lng: -95,
     },
   },
   {
@@ -124,8 +124,8 @@ const artists = [
     link: "https://www.instagram.com/llacerart/",
     studio: "OhMyVerse",
     coordinates: {
-      lat: -133.0,
-      lng: -95.0,
+      lat: -133,
+      lng: -95,
     },
   },
   {
@@ -138,8 +138,8 @@ const artists = [
     link: "https://www.carlaknopp.com/",
     studio: "Carla Knopp",
     coordinates: {
-      lat: -141.0,
-      lng: -93.0,
+      lat: -141,
+      lng: -93,
     },
   },
   {
@@ -152,22 +152,22 @@ const artists = [
     link: "https://linktr.ee/WeightofaShadow",
     studio: "Imagine to Create",
     coordinates: {
-      lat: -142.0,
-      lng: -81.0,
+      lat: -142,
+      lng: -81,
     },
   },
   {
     id: 10,
     name: "Antonio Azzolino",
-    artworkTitle: "Foan Garden",
+    artworkTitle: "Foam Garden",
     description:
-      "This MVP will be perfected and enhanced for the exhibition. Rather than irony or escapism, Foam Garden explores a sincere interpretation of TOUCH GRASS—a longing for grounding, ritual, and presence. It simulates the tactile joy of nature through simple, contemplative actions in a virtual field. Foam Garden is a soft, dreamlike grass field where users can pick and place flowers throughout the space,hear a calming sound. The grass moves subtly underfoot, like dense foam, enhancing a physical sense of presence. This quiet interaction—gathering, harvesting, arranging—channels our primal relationship with land and touch, grounding the visitor in a world made of code.",
+      "Foam Garden is a soft, dreamlike grass field where users can pick and place flowers throughout the space and sound, like dense foam, enhancing a physical sense of presence. This quiet interaction—gathering, harvesting, arranging—channels our primal relation",
     image: AntonioAzzolinoPhoto,
-    link: "undefined",
+    link: "https://www.instagram.com/antonioazzolino/",
     studio: "Antonio Azzolino",
     coordinates: {
-      lat: -142.0,
-      lng: -83.0,
+      lat: -142,
+      lng: -83,
     },
   },
   {
@@ -177,11 +177,11 @@ const artists = [
     description:
       "'Skotoeides is a spatial meditation on shadow, attention, and transformation, an interactive descent-ascent experience within Decentraland, rendered in low-poly metaphysics. It invites participants to 'touch grass' in the deepest sense. Not outwardly, but inwardly by confronting the shadow self before emerging into light.\n“The path up begins below. Step through shadow if you seek ascent.”'",
     image: OgiWorldsPhoto,
-    link: "o-worlds.com",
+    link: "http://o-worlds.com",
     studio: "OgiWorlds",
     coordinates: {
-      lat: -139.0,
-      lng: -81.0,
+      lat: -139,
+      lng: -81,
     },
   },
   {
@@ -194,8 +194,8 @@ const artists = [
     link: "http://impossiblestudio.xyz",
     studio: "Impossible Studios",
     coordinates: {
-      lat: -139.0,
-      lng: -83.0,
+      lat: -139,
+      lng: -83,
     },
   },
   {
@@ -208,8 +208,8 @@ const artists = [
     link: "https://elisavetasivas.com/",
     studio: "Vegas City",
     coordinates: {
-      lat: -142.0,
-      lng: -86.0,
+      lat: -142,
+      lng: -86,
     },
   },
   {
@@ -219,11 +219,11 @@ const artists = [
     description:
       "Touching grass is a meditative state, like the rhythm of crochet. During the 2025 Summer Residency at Bosque Gracias in Patagonia, I gathered tall forest grass and began crocheting by intuition. As the piece took shape, its colors shifted with time, marking quiet transformation and becoming a tactile meditation on landscape, body, and making.",
     image: ClaraOhdePhoto,
-    link: "https://www.instagram.com/ohde____/",
+    link: "https://x.com/ohde__",
     studio: "Metarizk",
     coordinates: {
-      lat: -142.0,
-      lng: -89.0,
+      lat: -142,
+      lng: -89,
     },
   },
   {
@@ -236,8 +236,8 @@ const artists = [
     link: "https://linktr.ee/matteoiacobelli",
     studio: "Metadoge",
     coordinates: {
-      lat: -139.0,
-      lng: -89.0,
+      lat: -139,
+      lng: -89,
     },
   },
   {
@@ -250,8 +250,8 @@ const artists = [
     link: "https://x.com/PepeGawd",
     studio: "PepeGawd",
     coordinates: {
-      lat: -147.0,
-      lng: -95.0,
+      lat: -147,
+      lng: -95,
     },
   },
   {
@@ -264,8 +264,8 @@ const artists = [
     link: "https://linktr.ee/bosquegracias",
     studio: "Coding Cave",
     coordinates: {
-      lat: -136.0,
-      lng: -83.0,
+      lat: -136,
+      lng: -83,
     },
   },
   {
@@ -275,11 +275,11 @@ const artists = [
     description:
       "Tempus Impromptu invites visitors into a surreal dreamscape where time folds and reality shifts. Based on my hand-drawn artwork, the installation transforms intricate lines into an explorable 3D world. A central sculpture, dynamic light, and an interactive swan guide weave together drawing, animation, and sound, creating an immersive journey through memory, improvisation, and the fluid nature of time.",
     image: ParadigmstoriesPhoto,
-    link: "Paradigmstories.com",
+    link: "https://paradigmstories.com",
     studio: "Jeunissemble Studio",
     coordinates: {
-      lat: -133.0,
-      lng: -83.0,
+      lat: -133,
+      lng: -83,
     },
   },
   {
@@ -292,8 +292,8 @@ const artists = [
     link: "https://www.instagram.com/m.de.miel",
     studio: "Monsterhall",
     coordinates: {
-      lat: -135.0,
-      lng: -80.0,
+      lat: -135,
+      lng: -80,
     },
   },
   {
@@ -306,8 +306,8 @@ const artists = [
     link: "https://x.com/Moppundo1",
     studio: "Hayabusa",
     coordinates: {
-      lat: -136.0,
-      lng: -86.0,
+      lat: -136,
+      lng: -86,
     },
   },
   {
@@ -320,8 +320,8 @@ const artists = [
     link: "https://x.com/inceptionfun",
     studio: "REZON",
     coordinates: {
-      lat: -136.0,
-      lng: -89.0,
+      lat: -136,
+      lng: -89,
     },
   },
   {
@@ -334,8 +334,8 @@ const artists = [
     link: "https://x.com/cybermike4",
     studio: "Cybermike",
     coordinates: {
-      lat: -133.0,
-      lng: -88.0,
+      lat: -133,
+      lng: -88,
     },
   },
   {
@@ -345,11 +345,11 @@ const artists = [
     description:
       "An invitation to feel small and vulnerable, to rediscover Mother Nature's power. Surrounded by small yet great beings: fungi, plants, and bugs.",
     image: CarlosMunozPhoto,
-    link: "https://twitter.com/carlosdmunoz",
+    link: "https://x.com/carlosmu_noz",
     studio: "ZCayel",
     coordinates: {
-      lat: -135.0,
-      lng: -91.0,
+      lat: -135,
+      lng: -91,
     },
   },
   {
@@ -362,8 +362,8 @@ const artists = [
     link: "https://x.com/Aeon_Smash",
     studio: "Chrono T",
     coordinates: {
-      lat: -133.0,
-      lng: -91.0,
+      lat: -133,
+      lng: -91,
     },
   },
 ]
@@ -372,7 +372,7 @@ export { artists, invitedArtists }
 
 const invitedArtists = [
   {
-    id: "V",
+    id: "i",
     name: "Art Visitor Centre",
     artworkTitle: "Art Visitor Centre",
     description:
@@ -381,14 +381,14 @@ const invitedArtists = [
     link: "https://www.ova.design/",
     studio: "OVA Design",
     coordinates: {
-      lat: -140.0,
-      lng: -86.0,
+      lat: -140,
+      lng: -86,
     },
     color: "#626285",
   },
   {
     id: "B",
-    name: "Digital Fashion Week",
+    name: "Digital Fashion Week Showroom",
     artworkTitle: "Digital Fashion Week Showroom",
     description:
       "A showcase of new Wearables from innovators in the Digital Fashion Week design community. Featuring the work of Loreine Brand, Right Direction, Stephen Vineburg and Emilija Slavkova.\nDigital Fashion Week is the leading global resource for fashion technology with talks, exhibitions, masterclasses, runway shows and activations. Influencing the future of fashion by showcasing innovation in the fashion industry from design concept to consumer.",
@@ -396,8 +396,8 @@ const invitedArtists = [
     link: "https://digitalfashionweek.xyz",
     studio: "Low Poly Models",
     coordinates: {
-      lat: -147.0,
-      lng: -95.0,
+      lat: -147,
+      lng: -93,
     },
     color: "#856889",
   },
@@ -411,8 +411,8 @@ const invitedArtists = [
     link: "https://www.diyphotography.net/",
     studio: "Carlos Mu",
     coordinates: {
-      lat: -133.0,
-      lng: -86.0,
+      lat: -133,
+      lng: -86,
     },
     color: "#EFC1BD",
   },

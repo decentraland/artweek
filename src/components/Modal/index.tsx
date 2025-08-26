@@ -62,7 +62,7 @@ const ModalContent = styled.div<{ isDownloadModal?: boolean }>`
   position: relative;
   max-width: 600px;
   width: 90%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 8px;
   padding: 32px;
   box-shadow:
