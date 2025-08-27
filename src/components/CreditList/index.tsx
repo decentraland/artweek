@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { breakpoints, theme } from '../../utils/theme';
 import { AnimatedCharacters } from '../animatedCharacters';
 import { artistsAndCurators, studios } from './data';
+import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 
 const CreditListContainer = styled.div`
   width: 100%;
@@ -133,8 +134,33 @@ const CreditList = () => {
           </ColumnsContainer>
         </Section>
       </CreditListContent>
+      <CenteredDownloadButton>
+        <DownloadBtn customText="DOWNLOAD DECENTRALAND" showAvailableOnText={false} variant="cosmicGlass" />
+      </CenteredDownloadButton>
     </CreditListContainer>
   );
 };
+
+const CenteredDownloadButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 0 24px;
+  
+  a {
+    color: white !important;
+    
+    * {
+      color: white !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    margin-top: 32px;
+  }
+`;
 
 export default CreditList;
