@@ -1,7 +1,7 @@
 import { useEffect } from "react"
-import { IoMdClose } from "react-icons/io"
 import { styled } from "styled-components"
-import { breakpoints } from "../../utils/theme"
+import { breakpoints, theme } from "../../utils/theme"
+import { useLenis } from "../../hooks/useLenis"
 
 // Tipos
 type ModalProps = {
@@ -17,15 +17,16 @@ const Modal = ({
   children,
   isDownloadModal = false,
 }: ModalProps) => {
+  const { stop, start } = useLenis()
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"
+      stop()
     } else {
-      document.body.style.overflow = "auto"
+      start()
     }
 
     return () => {
-      document.body.style.overflow = "auto"
+      start()
     }
   }, [isOpen])
 
@@ -37,9 +38,6 @@ const Modal = ({
         onClick={(e) => e.stopPropagation()}
         isDownloadModal={isDownloadModal}
       >
-        <CloseButton onClick={onClose}>
-          <IoMdClose />
-        </CloseButton>
         {children}
       </ModalContent>
     </ModalBackdrop>
@@ -52,7 +50,7 @@ const ModalBackdrop = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
@@ -62,13 +60,19 @@ const ModalBackdrop = styled.div`
 
 const ModalContent = styled.div<{ isDownloadModal?: boolean }>`
   position: relative;
-  max-width: 1200px;
+  max-width: 600px;
   width: 90%;
-  background-color: #0f1417;
-  border-radius: 4px;
-  padding: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  border: 0.5px solid #ebecfa;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+  border: 0.5px solid rgba(255, 255, 255, 0.9);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  will-change: transform;
+  transition: all 300ms;
 
   @media (min-width: ${breakpoints.md}) {
     width: 70%;
@@ -82,27 +86,9 @@ const ModalContent = styled.div<{ isDownloadModal?: boolean }>`
   `}
   padding-block: ${({ isDownloadModal }) =>
     isDownloadModal ? "48px" : "24px"};
-`
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1001;
-
-  &:hover {
-    background-color: #333;
+  * {
+    color: ${theme.black};
   }
 `
 

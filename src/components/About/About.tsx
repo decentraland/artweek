@@ -1,11 +1,16 @@
-import { ReactNode, useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import { aboutList } from "./list"
+import {
+  AboutContainer,
+  AboutInnerContainer,
+  DownloadBtnContainer,
+} from "./About.styled"
 import provisoryMap from "../../../public/img/about/tree.png"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
-import { Marquee } from "../Marquee/Marquee"
+import { useRef } from "react"
+import { aboutList } from "./list"
+import { ReactNode } from "react"
+import { motion, useInView } from "framer-motion"
 import { MarqueeContainerWrapper } from "../Marquee/Marquee.styled"
-import { AboutContainer, AboutInnerContainer } from "./About.styled"
+import { Marquee } from "../Marquee/Marquee"
+import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
 // import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 // import { AnimatedCharacters } from '../animatedCharacters';
 
@@ -52,6 +57,14 @@ const About = () => {
                 journey into presence, connection, and feeling through art in
                 virtual worlds.
               </h4>
+              <DownloadBtnContainer className="mobile-only">
+                <DownloadBtn
+                  variant="cosmicGlass"
+                  showAvailableOnText={false}
+                  className="download-btn"
+                  customText="DOWNLOAD DECENTRALAND"
+                />
+              </DownloadBtnContainer>
             </div>
             <ul className="list">
               {Object.values(aboutList).map((item, index) => (
@@ -70,13 +83,14 @@ const About = () => {
                 </li>
               ))}
             </ul>
-            <div className="download-btn-container">
+            <DownloadBtnContainer className="desktop-only">
               <DownloadBtn
                 variant="cosmicGlass"
                 showAvailableOnText={false}
                 className="download-btn"
+                customText="DOWNLOAD DECENTRALAND"
               />
-            </div>
+            </DownloadBtnContainer>
           </div>
         </div>
       </AboutInnerContainer>

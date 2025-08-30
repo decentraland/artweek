@@ -9,5 +9,19 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [react()],
     ...(command === "build" ? { base: envVariables.VITE_BASE_URL } : undefined),
+    assetsInclude: ["**/*.mp4"],
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: (assetInfo) => {
+            // Keep video files in their original structure
+            if (assetInfo.name?.endsWith(".mp4")) {
+              return "video/[name][extname]"
+            }
+            return "assets/[name]-[hash][extname]"
+          },
+        },
+      },
+    },
   }
 })
