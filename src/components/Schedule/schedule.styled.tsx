@@ -8,7 +8,7 @@ export const ScheduleContainer = styled.section`
   justify-content: center;
   min-height: 100vh;
   width: 100%;
-  padding: 120px 0;
+  padding: 120px 0 120px 0;
   background: ${theme.white};
 
   * {
@@ -17,7 +17,6 @@ export const ScheduleContainer = styled.section`
 
   .schedule__inner-container {
     width: 100%;
-    max-width: 1240px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,19 +130,29 @@ export const ScheduleDisplayContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  width: 100vw;
   background: #FFF;
   overflow-x: auto;
-  margin-left: -24px;
-  margin-right: -24px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 
-  /* Hide scrollbar for webkit browsers */
+  /* Show scrollbar */
   &::-webkit-scrollbar {
-    display: none;
+    height: 8px;
   }
 
-  /* Hide scrollbar for firefox */
-  scrollbar-width: none;
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `
 
 export const TimezoneHeader = styled.div`
@@ -211,10 +220,10 @@ export const TimezoneHeader = styled.div`
 
 export const ScheduleGrid = styled.div`
   display: flex;
-  min-height: 76px;
-  align-items: flex-start;
+  height: 200px;
+  align-items: stretch;
   width: 100%;
-  min-width: 2086px;
+  min-width: calc(106px + 140px * 14);
 
   .stage-label {
     display: flex;
@@ -222,11 +231,12 @@ export const ScheduleGrid = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-self: stretch;
+    height: 200px;
     border-top: 0.75px solid #FFF;
-    border-right: 0.5px solid #FFF;
+    border-right: 1px solid #203455;
     border-bottom: 0.25px solid #FFF;
     background: #33435C;
+    flex-shrink: 0;
 
     .stage-text {
       color: #FCFCFC;
@@ -242,84 +252,84 @@ export const ScheduleGrid = styled.div`
 
   .event-slot {
     display: flex;
-    min-width: 391px;
-    padding: 32px 20px;
+    height: 200px;
+    padding: 16px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 8px;
-    border: 0.75px solid #203455;
-
-    &.span-2 {
-      width: calc(391px * 1);
-    }
-
-    &.span-3 {
-      width: calc(391px * 1.5);
-    }
-
-    &.span-4 {
-      width: calc(391px * 2);
-    }
+    border-right: 1px solid #203455;
+    border-top: 0.75px solid #203455;
+    border-bottom: 0.75px solid #203455;
+    flex-shrink: 0;
+    overflow: hidden;
 
     .event-content {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 24px;
-      align-self: stretch;
+      gap: 12px;
+      width: 100%;
+      height: 100%;
 
       .event-info {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
-        align-self: stretch;
+        gap: 4px;
+        width: 100%;
 
         .event-title {
-          align-self: stretch;
+          width: 100%;
           color: #435475;
           font-family: "Inter", sans-serif;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 700;
-          line-height: normal;
+          line-height: 1.2;
           letter-spacing: -0.5px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
         }
 
         .event-speaker {
-          align-self: stretch;
+          width: 100%;
           color: #435475;
           font-family: "Inter", sans-serif;
-          font-size: 16px;
+          font-size: 12px;
           font-weight: 400;
           line-height: normal;
           letter-spacing: -0.5px;
+          opacity: 0.8;
         }
       }
 
       .event-details {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
         gap: 4px;
-        align-self: stretch;
+        width: 100%;
+        margin-top: auto;
 
         .event-type {
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 4px;
 
           .type-icon {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             flex-shrink: 0;
           }
 
           .type-text {
             color: #43404A;
             font-family: "Inter", sans-serif;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 700;
             line-height: normal;
             letter-spacing: -0.5px;
@@ -329,27 +339,27 @@ export const ScheduleGrid = styled.div`
         .event-time {
           display: flex;
           align-items: center;
-          gap: 6px;
-          align-self: stretch;
+          gap: 4px;
+          width: 100%;
 
           .time-icon {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
           }
 
           .time-text {
-            flex: 1 0 0;
+            flex: 1;
             color: #435475;
             font-family: "Inter", sans-serif;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 500;
             line-height: normal;
             letter-spacing: -0.5px;
           }
 
           .calendar-icon {
-            width: 18px;
-            height: 18px;
+            width: 14px;
+            height: 14px;
           }
         }
       }
@@ -359,11 +369,12 @@ export const ScheduleGrid = styled.div`
   .empty-slot {
     display: flex;
     width: 140px;
-    padding: 12px 10px;
+    height: 200px;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    align-self: stretch;
-    border: 0.75px solid #203455;
+    border-right: 1px solid #203455;
+    border-top: 0.75px solid #203455;
+    border-bottom: 0.75px solid #203455;
+    flex-shrink: 0;
   }
 `
