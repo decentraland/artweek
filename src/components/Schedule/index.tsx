@@ -7,98 +7,7 @@ import {
   TimezoneHeader,
   ScheduleGrid,
 } from "./schedule.styled"
-
-// Mock data for schedule
-const scheduleData = {
-  "sept-23": [
-    {
-      id: 1,
-      title: "Pre-Event Setup",
-      speaker: "Art Week Team",
-      type: "prep",
-      time: "UTC: 10.00 - 18.00",
-      icon: "🔧"
-    }
-  ],
-  "sept-24": [
-    {
-      id: 1,
-      title: "The 101 on Decentraland Art Week: Launch Your Own Gallery!",
-      speaker: "Bay Backner",
-      type: "X Space",
-      time: "UTC: 11.00 - 12.00",
-      icon: "✨"
-    },
-    {
-      id: 2,
-      title: "Behind the Build: How 7 Artists Turned Ideas into Immersive Art",
-      speaker: "Dana Mart",
-      type: "Workshop",
-      time: "UTC: 12.00 - 13.00",
-      icon: "🎨"
-    },
-    {
-      id: 3,
-      title: "Gallery Tour: Featured Artists Showcase",
-      speaker: "Dana Mart",
-      type: "Tour",
-      time: "UTC: 14.00 - 15.00",
-      icon: "❤️"
-    },
-    {
-      id: 4,
-      title: "Community Meetup: Artists & Collectors",
-      speaker: "Community Team",
-      type: "Community",
-      time: "UTC: 16.00 - 17.00",
-      icon: "👥"
-    }
-  ],
-  "sept-25": [
-    {
-      id: 1,
-      title: "Digital Art Creation Workshop",
-      speaker: "Various Artists",
-      type: "Workshop",
-      time: "UTC: 13.00 - 15.00",
-      icon: "🎨"
-    }
-  ],
-  "sept-26": [
-    {
-      id: 1,
-      title: "NFT Marketplace Deep Dive",
-      speaker: "Marketplace Experts",
-      type: "Tour",
-      time: "UTC: 14.00 - 16.00",
-      icon: "❤️"
-    }
-  ],
-  "sept-27": [
-    {
-      id: 1,
-      title: "Art Week Closing Ceremony",
-      speaker: "Art Week Team",
-      type: "Community",
-      time: "UTC: 19.00 - 21.00",
-      icon: "👥"
-    }
-  ]
-}
-
-const dateOptions = [
-  { key: "sept-23", date: "SEPT 23", label: "Pre event" },
-  { key: "sept-24", date: "SEPT 24", label: "Day One" },
-  { key: "sept-25", date: "SEPT 25", label: "Day Two" },
-  { key: "sept-26", date: "SEPT 26", label: "Day Three" },
-  { key: "sept-27", date: "SEPT 27", label: "Day Four" },
-]
-
-const timeSlots = [
-  "11:00 am", "Midday", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", 
-  "5:00 pm", "6:00 pm", "8:00 pm", "9:00 pm", "10:00 pm", "11:00 pm", 
-  "Midnight", "1:00 am"
-]
+import { scheduleData, dateOptions, timeSlots, ScheduleEvent } from "./data"
 
 const getEventIcon = (type: string) => {
   switch (type) {
@@ -160,11 +69,63 @@ const Schedule = () => {
   const [activeDate, setActiveDate] = useState("sept-24")
   const selectedEvents = scheduleData[activeDate as keyof typeof scheduleData] || []
 
+  // Create grid layout with proper time slot coverage
+  const renderScheduleGrid = () => {
+    const grid = Array(timeSlots.length).fill(null)
+    const usedSlots = new Set<number>()
+
+    // Place events in their time slots
+    selectedEvents.forEach((event: ScheduleEvent) => {
+      for (let i = event.timeSlotStart; i < event.timeSlotStart + event.duration && i < timeSlots.length; i++) {
+        if (i === event.timeSlotStart) {
+          grid[i] = event
+        } else {
+          usedSlots.add(i)
+        }
+      }
+    })
+
+    return grid.map((item, index) => {
+      if (usedSlots.has(index)) {
+        return null // Skip slots that are part of a multi-slot event
+      }
+
+      if (item) {
+        const event = item as ScheduleEvent
+        const spanClass = event.duration > 2 ? `span-${Math.min(event.duration, 4)}` : ''
+
+        return (
+          <div key={`event-${event.id}`} className={`event-slot ${spanClass}`}>
+            <div className="event-content">
+              <div className="event-info">
+                <div className="event-title">{event.title}</div>
+                <div className="event-speaker">{event.speaker}</div>
+              </div>
+              <div className="event-details">
+                <div className="event-type">
+                  <div className="type-icon">{getEventIcon(event.type)}</div>
+                  <div className="type-text">{event.type}</div>
+                </div>
+                <div className="event-time">
+                  <div className="time-icon">{getTimeIcon()}</div>
+                  <div className="time-text">UTC: {event.startTime} - {event.endTime}</div>
+                  <div className="calendar-icon">{getCalendarIcon()}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+
+      return <div key={`empty-${index}`} className="empty-slot" />
+    })
+  }
+
   return (
     <ScheduleContainer>
       <div className="schedule__inner-container">
         <h2>Schedule</h2>
-        
+
         {/* Component 1: Date Picker */}
         <DatePickerContainer>
           {dateOptions.map((option) => (
@@ -201,37 +162,8 @@ const Schedule = () => {
             <div className="stage-label">
               <div className="stage-text">MainStage</div>
             </div>
-            
-            {selectedEvents.map((event) => (
-              <div key={event.id} className="event-slot">
-                <div className="event-content">
-                  <div className="event-info">
-                    <div className="event-title">{event.title}</div>
-                    <div className="event-speaker">{event.speaker}</div>
-                  </div>
-                  <div className="event-details">
-                    <div className="event-type">
-                      <div className="type-icon">{getEventIcon(event.type)}</div>
-                      <div className="type-text">{event.type}</div>
-                    </div>
-                    <div className="event-time">
-                      <div className="time-icon">{getTimeIcon()}</div>
-                      <div className="time-text">{event.time}</div>
-                      <div className="calendar-icon">{getCalendarIcon()}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-            
-            {/* Fill remaining slots if fewer than 4 events */}
-            {Array.from({ length: Math.max(0, 4 - selectedEvents.length) }).map((_, index) => (
-              <div key={`empty-${index}`} className="empty-slot" />
-            ))}
-            
-            {/* Empty slots for time padding */}
-            <div className="empty-slot" />
-            <div className="empty-slot" />
+
+            {renderScheduleGrid()}
           </ScheduleGrid>
         </ScheduleDisplayContainer>
       </div>
