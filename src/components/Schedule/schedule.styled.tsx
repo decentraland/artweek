@@ -8,8 +8,12 @@ export const ScheduleContainer = styled.section`
   justify-content: center;
   min-height: 100vh;
   width: 100%;
-  padding: 100px 24px;
-  background: ${theme.black};
+  padding: 120px 0;
+  background: ${theme.white};
+
+  * {
+    color: ${theme.black};
+  }
 
   .schedule__inner-container {
     width: 100%;
@@ -18,14 +22,19 @@ export const ScheduleContainer = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    padding: 0 24px;
 
     h2 {
-      font-size: 40px;
+      font-size: 4rem;
       font-weight: 700;
       line-height: 1.2;
-      color: ${theme.white};
+      color: ${theme.black};
       text-align: center;
       margin-bottom: 0;
+
+      @media (max-width: ${breakpoints.md}) {
+        font-size: 2.5rem;
+      }
     }
   }
 `
@@ -121,18 +130,18 @@ export const DateButton = styled.button<{ $isActive?: boolean }>`
 export const ScheduleDisplayContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   background: #FFF;
-  border-radius: 8px;
-  overflow: hidden;
   overflow-x: auto;
-  
+  margin-left: -24px;
+  margin-right: -24px;
+
   /* Hide scrollbar for webkit browsers */
   &::-webkit-scrollbar {
     display: none;
   }
-  
+
   /* Hide scrollbar for firefox */
   scrollbar-width: none;
 `
@@ -233,13 +242,25 @@ export const ScheduleGrid = styled.div`
 
   .event-slot {
     display: flex;
-    width: 391px;
+    min-width: 391px;
     padding: 32px 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8px;
     border: 0.75px solid #203455;
+
+    &.span-2 {
+      width: calc(391px * 1);
+    }
+
+    &.span-3 {
+      width: calc(391px * 1.5);
+    }
+
+    &.span-4 {
+      width: calc(391px * 2);
+    }
 
     .event-content {
       display: flex;
@@ -286,7 +307,6 @@ export const ScheduleGrid = styled.div`
 
         .event-type {
           display: flex;
-          width: 135px;
           align-items: center;
           gap: 6px;
 
@@ -297,7 +317,6 @@ export const ScheduleGrid = styled.div`
           }
 
           .type-text {
-            flex: 1 0 0;
             color: #43404A;
             font-family: "Inter", sans-serif;
             font-size: 16px;
