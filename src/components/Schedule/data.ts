@@ -41,13 +41,46 @@ export const scheduleData: DaySchedule = {
       speaker: "Art Week Team",
       type: "Community",
       startTime: "11:00",
-      endTime: "18:00",
+      endTime: "13:00",
       timeSlotStart: 0,
-      timeSlotEnd: 7,
-      duration: 8
+      timeSlotEnd: 2,
+      duration: 2
+    },
+    {
+      id: 2,
+      title: "Artist Registration & Check-in",
+      speaker: "Registration Team",
+      type: "Community",
+      startTime: "14:00",
+      endTime: "16:00",
+      timeSlotStart: 3,
+      timeSlotEnd: 5,
+      duration: 2
+    },
+    {
+      id: 3,
+      title: "Technical Rehearsal for Main Stage",
+      speaker: "Technical Team",
+      type: "Workshop",
+      startTime: "17:00",
+      endTime: "20:00",
+      timeSlotStart: 6,
+      timeSlotEnd: 8,
+      duration: 3
+    },
+    {
+      id: 4,
+      title: "Welcome Reception for Artists",
+      speaker: "Art Week Team",
+      type: "Community",
+      startTime: "21:00",
+      endTime: "23:00",
+      timeSlotStart: 9,
+      timeSlotEnd: 11,
+      duration: 2
     }
   ],
-  
+
   "sept-24": [
     {
       id: 1,
@@ -58,7 +91,7 @@ export const scheduleData: DaySchedule = {
       endTime: "12:00",
       timeSlotStart: 0,
       timeSlotEnd: 1,
-      duration: 2
+      duration: 1
     },
     {
       id: 2,
@@ -66,9 +99,9 @@ export const scheduleData: DaySchedule = {
       speaker: "Dana Mart",
       type: "Workshop",
       startTime: "12:00",
-      endTime: "13:00",
+      endTime: "14:00",
       timeSlotStart: 1,
-      timeSlotEnd: 2,
+      timeSlotEnd: 3,
       duration: 2
     },
     {
@@ -80,7 +113,7 @@ export const scheduleData: DaySchedule = {
       endTime: "15:00",
       timeSlotStart: 3,
       timeSlotEnd: 4,
-      duration: 2
+      duration: 1
     },
     {
       id: 4,
@@ -88,41 +121,107 @@ export const scheduleData: DaySchedule = {
       speaker: "Community Team",
       type: "Community",
       startTime: "16:00",
-      endTime: "17:00",
+      endTime: "18:00",
       timeSlotStart: 5,
-      timeSlotEnd: 6,
+      timeSlotEnd: 7,
       duration: 2
+    },
+    {
+      id: 5,
+      title: "Opening Night Gala",
+      speaker: "Art Week Team",
+      type: "Community",
+      startTime: "20:00",
+      endTime: "24:00",
+      timeSlotStart: 8,
+      timeSlotEnd: 12,
+      duration: 4
     }
   ],
-  
+
   "sept-25": [
     {
       id: 1,
-      title: "Digital Art Creation Workshop",
+      title: "Morning Coffee Chat with Artists",
       speaker: "Various Artists",
+      type: "Community",
+      startTime: "11:00",
+      endTime: "12:00",
+      timeSlotStart: 0,
+      timeSlotEnd: 1,
+      duration: 1
+    },
+    {
+      id: 2,
+      title: "Digital Art Creation Workshop",
+      speaker: "Clara Bacou",
       type: "Workshop",
       startTime: "13:00",
       endTime: "15:00",
       timeSlotStart: 2,
       timeSlotEnd: 4,
-      duration: 3
+      duration: 2
     },
     {
-      id: 2,
+      id: 3,
       title: "VR Gallery Experience",
       speaker: "Tech Team",
       type: "Tour",
+      startTime: "16:00",
+      endTime: "17:00",
+      timeSlotStart: 5,
+      timeSlotEnd: 6,
+      duration: 1
+    },
+    {
+      id: 4,
+      title: "NFT Minting Workshop",
+      speaker: "Blockchain Experts",
+      type: "Workshop",
       startTime: "18:00",
       endTime: "20:00",
       timeSlotStart: 7,
       timeSlotEnd: 8,
       duration: 2
+    },
+    {
+      id: 5,
+      title: "Evening Artist Talks",
+      speaker: "Johanna Jaskowska",
+      type: "X Space",
+      startTime: "21:00",
+      endTime: "22:00",
+      timeSlotStart: 9,
+      timeSlotEnd: 10,
+      duration: 1
     }
   ],
-  
+
   "sept-26": [
     {
       id: 1,
+      title: "Collector's Breakfast",
+      speaker: "Art Collectors",
+      type: "Community",
+      startTime: "11:00",
+      endTime: "12:00",
+      timeSlotStart: 0,
+      timeSlotEnd: 1,
+      duration: 1
+    },
+    {
+      id: 2,
+      title: "Interactive Art Installation Demo",
+      speaker: "Sara Shakeel",
+      type: "Workshop",
+      startTime: "13:00",
+      endTime: "14:00",
+      timeSlotStart: 2,
+      timeSlotEnd: 3,
+      duration: 1
+    },
+    {
+      id: 3,
       title: "NFT Marketplace Deep Dive",
       speaker: "Marketplace Experts",
       type: "X Space",
@@ -130,10 +229,21 @@ export const scheduleData: DaySchedule = {
       endTime: "16:00",
       timeSlotStart: 3,
       timeSlotEnd: 5,
-      duration: 3
+      duration: 2
     },
     {
-      id: 2,
+      id: 4,
+      title: "Guided Gallery Tour",
+      speaker: "Gallery Curators",
+      type: "Tour",
+      startTime: "17:00",
+      endTime: "18:00",
+      timeSlotStart: 6,
+      timeSlotEnd: 7,
+      duration: 1
+    },
+    {
+      id: 5,
       title: "Artist Panel Discussion",
       speaker: "Featured Artists",
       type: "Community",
@@ -141,24 +251,46 @@ export const scheduleData: DaySchedule = {
       endTime: "22:00",
       timeSlotStart: 8,
       timeSlotEnd: 10,
-      duration: 3
+      duration: 2
+    },
+    {
+      id: 6,
+      title: "Late Night Networking",
+      speaker: "Community",
+      type: "Community",
+      startTime: "23:00",
+      endTime: "01:00",
+      timeSlotStart: 11,
+      timeSlotEnd: 13,
+      duration: 2
     }
   ],
-  
+
   "sept-27": [
     {
       id: 1,
-      title: "Art Week Closing Ceremony",
+      title: "Final Day Kickoff",
       speaker: "Art Week Team",
       type: "Community",
-      startTime: "19:00",
-      endTime: "21:00",
-      timeSlotStart: 8,
-      timeSlotEnd: 10,
-      duration: 3
+      startTime: "11:00",
+      endTime: "12:00",
+      timeSlotStart: 0,
+      timeSlotEnd: 1,
+      duration: 1
     },
     {
       id: 2,
+      title: "Artist Portfolio Review Session",
+      speaker: "Art Critics",
+      type: "Workshop",
+      startTime: "13:00",
+      endTime: "15:00",
+      timeSlotStart: 2,
+      timeSlotEnd: 4,
+      duration: 2
+    },
+    {
+      id: 3,
       title: "Final Gallery Tours",
       speaker: "Gallery Curators",
       type: "Tour",
@@ -166,7 +298,29 @@ export const scheduleData: DaySchedule = {
       endTime: "18:00",
       timeSlotStart: 4,
       timeSlotEnd: 7,
-      duration: 4
+      duration: 3
+    },
+    {
+      id: 4,
+      title: "Awards Ceremony",
+      speaker: "Art Week Team",
+      type: "X Space",
+      startTime: "19:00",
+      endTime: "20:00",
+      timeSlotStart: 8,
+      timeSlotEnd: 9,
+      duration: 1
+    },
+    {
+      id: 5,
+      title: "Art Week Closing Ceremony",
+      speaker: "Art Week Team",
+      type: "Community",
+      startTime: "21:00",
+      endTime: "24:00",
+      timeSlotStart: 9,
+      timeSlotEnd: 12,
+      duration: 3
     }
   ]
 }
