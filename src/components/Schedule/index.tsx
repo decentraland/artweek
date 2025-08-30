@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   ScheduleContainer,
   DatePickerContainer,
@@ -6,8 +6,12 @@ import {
   ScheduleDisplayContainer,
   TimezoneHeader,
   ScheduleGrid,
+  ScheduleRow,
+  StageLabel,
+  EventSlot,
+  EmptySlot,
 } from "./schedule.styled"
-import { scheduleData, dateOptions, timeSlots, ScheduleEvent } from "./data"
+import { scheduleData, dateOptions, timeSlots, stages, ScheduleEvent } from "./data"
 
 const getEventIcon = (type: string) => {
   switch (type) {
@@ -65,22 +69,39 @@ const getDropdownIcon = () => (
   </svg>
 )
 
+// Function to detect current date and return appropriate default
+const getDefaultDate = () => {
+  const today = new Date()
+  const currentMonth = today.getMonth() + 1 // getMonth() is 0-indexed
+  const currentDay = today.getDate()
+  
+  // Check if we're in September and within the date range
+  if (currentMonth === 9) { // September
+    if (currentDay >= 23 && currentDay <= 27) {
+      return `sept-${currentDay}`
+    }
+  }
+  
+  // Default to September 23 if not in range
+  return "sept-23"
+}
+
 const Schedule = () => {
-  const [activeDate, setActiveDate] = useState("sept-24")
-  const selectedEvents = scheduleData[activeDate as keyof typeof scheduleData] || []
+  const [activeDate, setActiveDate] = useState(getDefaultDate())
 
   // Calculate cell width based on time duration (140px per hour slot)
   const calculateCellWidth = (duration: number) => {
     return 140 * duration
   }
 
-  // Create grid layout with proper time slot coverage
-  const renderScheduleGrid = () => {
+  // Create grid layout for a specific stage
+  const renderStageRow = (stageName: string) => {
+    const stageEvents = scheduleData[activeDate]?.[stageName] || []
     const grid = Array(timeSlots.length).fill(null)
     const usedSlots = new Set<number>()
 
     // Place events in their time slots
-    selectedEvents.forEach((event: ScheduleEvent) => {
+    stageEvents.forEach((event: ScheduleEvent) => {
       for (let i = event.timeSlotStart; i < event.timeSlotStart + event.duration && i < timeSlots.length; i++) {
         if (i === event.timeSlotStart) {
           grid[i] = event
@@ -90,7 +111,7 @@ const Schedule = () => {
       }
     })
 
-    return grid.map((item, index) => {
+    const stageContent = grid.map((item, index) => {
       if (usedSlots.has(index)) {
         return null // Skip slots that are part of a multi-slot event
       }
@@ -100,10 +121,9 @@ const Schedule = () => {
         const cellWidth = calculateCellWidth(event.duration)
 
         return (
-          <div
-            key={`event-${event.id}`}
-            className="event-slot"
-            style={{ width: `${cellWidth}px` }}
+          <EventSlot 
+            key={`event-${event.id}`} 
+            width={cellWidth}
           >
             <div className="event-content">
               <div className="event-info">
@@ -122,12 +142,21 @@ const Schedule = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </EventSlot>
         )
       }
 
-      return <div key={`empty-${index}`} className="empty-slot" />
+      return <EmptySlot key={`empty-${stageName}-${index}`} />
     })
+
+    return (
+      <ScheduleRow key={stageName}>
+        <StageLabel>
+          <div className="stage-text">{stageName}</div>
+        </StageLabel>
+        {stageContent}
+      </ScheduleRow>
+    )
   }
 
   return (
@@ -168,10 +197,7 @@ const Schedule = () => {
           </TimezoneHeader>
 
           <ScheduleGrid>
-            <div className="stage-label">
-              <div className="stage-text">MainStage</div>
-            </div>
-            {renderScheduleGrid()}
+            {stages.map(stageName => renderStageRow(stageName))}
           </ScheduleGrid>
         </ScheduleDisplayContainer>
       </div>
