@@ -69,6 +69,11 @@ const Schedule = () => {
   const [activeDate, setActiveDate] = useState("sept-24")
   const selectedEvents = scheduleData[activeDate as keyof typeof scheduleData] || []
 
+  // Calculate cell width based on time duration (140px per hour slot)
+  const calculateCellWidth = (duration: number) => {
+    return 140 * duration
+  }
+
   // Create grid layout with proper time slot coverage
   const renderScheduleGrid = () => {
     const grid = Array(timeSlots.length).fill(null)
@@ -92,10 +97,14 @@ const Schedule = () => {
 
       if (item) {
         const event = item as ScheduleEvent
-        const spanClass = event.duration > 2 ? `span-${Math.min(event.duration, 4)}` : ''
+        const cellWidth = calculateCellWidth(event.duration)
 
         return (
-          <div key={`event-${event.id}`} className={`event-slot ${spanClass}`}>
+          <div
+            key={`event-${event.id}`}
+            className="event-slot"
+            style={{ width: `${cellWidth}px` }}
+          >
             <div className="event-content">
               <div className="event-info">
                 <div className="event-title">{event.title}</div>
@@ -162,7 +171,6 @@ const Schedule = () => {
             <div className="stage-label">
               <div className="stage-text">MainStage</div>
             </div>
-
             {renderScheduleGrid()}
           </ScheduleGrid>
         </ScheduleDisplayContainer>
