@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   BiggerPictureSectionContainer,
   TitleSection,
@@ -21,6 +21,24 @@ import {
 import { artistLocations, artistCards } from "./data"
 
 const BiggerPictureSection: React.FC = () => {
+  const [highlightedArtist, setHighlightedArtist] = useState<string | null>(null)
+
+  const handleArtistClick = (artistId: string) => {
+    setHighlightedArtist(artistId === highlightedArtist ? null : artistId)
+  }
+
+  const getLocationIdForCard = (cardId: string): string => {
+    // Map card IDs to their corresponding location IDs
+    const mapping: Record<string, string> = {
+      "shefi-cohort-14": "shefi-cohort-14",
+      "llsky": "llsky",
+      "canessa": "canessa",
+      "ai-fusion": "ai-fusion-main",
+      "oartistanft": "oartistanft",
+      "farcaster": "farcaster-2"
+    }
+    return mapping[cardId] || cardId
+  }
   return (
     <BiggerPictureSectionContainer>
       <TitleSection>
