@@ -47,15 +47,15 @@ export const DatePickerContainer = styled.div`
   justify-content: center;
   overflow-x: auto;
   padding: 0 10px;
-  
+
   /* Hide scrollbar for webkit browsers */
   &::-webkit-scrollbar {
     display: none;
   }
-  
+
   /* Hide scrollbar for firefox */
   scrollbar-width: none;
-  
+
   @media (max-width: ${breakpoints.md}) {
     justify-content: flex-start;
     padding: 0 5px;
@@ -71,16 +71,25 @@ export const DateButton = styled.button<{ $isActive?: boolean }>`
   flex-shrink: 0;
   min-width: 180px;
   border-radius: 40px;
-  border: 1px solid rgba(55, 89, 144, 0.80);
-  background: ${props => props.$isActive 
-    ? 'linear-gradient(180deg, rgba(156, 171, 195, 0.80) 0%, rgba(156, 171, 195, 0.48) 100%), linear-gradient(180deg, rgba(156, 171, 195, 0.20) 0%, rgba(156, 171, 195, 0.12) 100%)'
-    : 'linear-gradient(180deg, rgba(156, 171, 195, 0.20) 0%, rgba(156, 171, 195, 0.12) 100%)'
-  };
+  border: 1px solid rgba(55, 89, 144, 0.8);
+  background: ${(props) =>
+    props.$isActive
+      ? "linear-gradient(180deg, rgba(156, 171, 195, 0.80) 0%, rgba(156, 171, 195, 0.48) 100%), linear-gradient(180deg, rgba(156, 171, 195, 0.20) 0%, rgba(156, 171, 195, 0.12) 100%)"
+      : "linear-gradient(180deg, rgba(156, 171, 195, 0.20) 0%, rgba(156, 171, 195, 0.12) 100%)"};
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background: linear-gradient(180deg, rgba(156, 171, 195, 0.80) 0%, rgba(156, 171, 195, 0.48) 100%), linear-gradient(180deg, rgba(156, 171, 195, 0.20) 0%, rgba(156, 171, 195, 0.12) 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(156, 171, 195, 0.8) 0%,
+        rgba(156, 171, 195, 0.48) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(156, 171, 195, 0.2) 0%,
+        rgba(156, 171, 195, 0.12) 100%
+      );
   }
 
   .date-content {
@@ -91,7 +100,7 @@ export const DateButton = styled.button<{ $isActive?: boolean }>`
     gap: 2px;
 
     .date {
-      color: #2F3A51;
+      color: #2f3a51;
       font-family: "Inter", sans-serif;
       font-size: 16px;
       font-weight: 700;
@@ -113,12 +122,12 @@ export const DateButton = styled.button<{ $isActive?: boolean }>`
   @media (max-width: ${breakpoints.s}) {
     padding: 12px 40px;
     min-width: 150px;
-    
+
     .date-content {
       .date {
         font-size: 14px;
       }
-      
+
       .day-label {
         font-size: 10px;
       }
@@ -132,7 +141,7 @@ export const ScheduleDisplayContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100vw;
-  background: #FFF;
+  background: #fff;
   overflow-x: auto;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
@@ -167,7 +176,7 @@ export const TimezoneHeader = styled.div`
   min-width: calc(106px + 140px * 14);
   border-top: 1px solid #203455;
   border-bottom: 1px solid #203455;
-  background: #33435C;
+  background: #33435c;
   position: relative;
 
   .timezone-selector {
@@ -181,12 +190,12 @@ export const TimezoneHeader = styled.div`
     left: 13px;
     top: 16px;
     border-radius: 3.736px;
-    border: 0.35px solid rgba(51, 67, 92, 0.20);
-    background: #FCFCFC;
+    border: 0.35px solid rgba(51, 67, 92, 0.2);
+    background: #fcfcfc;
     cursor: pointer;
 
     .timezone-text {
-      color: #33435C;
+      color: #33435c;
       text-align: center;
       font-family: "Inter", sans-serif;
       font-size: 7.472px;
@@ -209,7 +218,7 @@ export const TimezoneHeader = styled.div`
 
     .time-slot {
       width: 140px;
-      color: #FCFCFC;
+      color: #fcfcfc;
       text-shadow: 0 4px 2px rgba(255, 255, 255, 0.15);
       font-family: "Inter", sans-serif;
       font-size: 13px;
@@ -243,14 +252,14 @@ export const StageLabel = styled.div`
   justify-content: center;
   align-items: center;
   height: 200px;
-  border-top: 0.75px solid #FFF;
+  border-top: 0.75px solid #fff;
   border-right: 1px solid #203455;
   border-bottom: 0.75px solid #203455;
-  background: #33435C;
+  background: #33435c;
   flex-shrink: 0;
 
   .stage-text {
-    color: #FCFCFC;
+    color: #fcfcfc;
     text-shadow: 0 1px 7.6px rgba(255, 255, 255, 0.15);
     font-family: "Inter", sans-serif;
     font-size: 14px;
@@ -276,7 +285,7 @@ export const EventSlot = styled.div<{ width?: number }>`
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
-  width: ${props => props.width ? `${props.width}px` : '140px'};
+  width: ${(props) => (props.width ? `${props.width}px` : "140px")};
 
   &:hover {
     background-color: rgba(128, 128, 128, 0.1);
@@ -345,7 +354,7 @@ export const EventSlot = styled.div<{ width?: number }>`
         }
 
         .type-text {
-          color: #43404A;
+          color: #43404a;
           font-family: "Inter", sans-serif;
           font-size: 12px;
           font-weight: 700;
@@ -394,7 +403,7 @@ export const EmptySlot = styled.div`
   border-top: 0.75px solid #203455;
   border-bottom: 0.75px solid #203455;
   flex-shrink: 0;
-  background-color: #FFF;
+  background-color: #fff;
   transition: all 0.3s ease;
   cursor: pointer;
 
