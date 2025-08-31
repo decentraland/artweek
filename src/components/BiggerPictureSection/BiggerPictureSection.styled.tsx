@@ -151,17 +151,18 @@ const ArtistLocation = styled.div<{
   }
 `
 
-const ArtistLabel = styled.div<{ 
-  left: number; 
-  top: number; 
+const ArtistLabel = styled.div<{
+  left: number;
+  top: number;
   width?: number;
   centered?: boolean;
+  $isHighlighted?: boolean;
 }>`
   position: absolute;
   left: ${props => props.left}px;
   top: ${props => props.top}px;
   width: ${props => props.width || 'auto'}px;
-  color: ${theme.black};
+  color: ${props => props.$isHighlighted ? '#8b7877' : theme.black};
   font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 15.228px;
   font-weight: 700;
@@ -170,6 +171,7 @@ const ArtistLabel = styled.div<{
   pointer-events: auto;
   cursor: pointer;
   ${props => props.centered && `text-align: center;`}
+  transition: color 0.2s ease;
 
   @media (max-width: ${breakpoints.l}) {
     transform: scale(0.7);
