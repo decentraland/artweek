@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/decentraland/artweek/issues"
   },
-  "homepage": "",
+  "homepage": "https://cdn.decentraland.org/@dcl/art-week-site/0.0.1",
   "engines": {
     "node": "20.*",
     "npm": "8.* || 9.*"

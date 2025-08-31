@@ -5,7 +5,10 @@ import { useLenis } from "./hooks/useLenis"
 // CSS
 import "./css/global.css"
 import { config } from "./config"
-import { getAnalytics } from "./modules/analytics/segment"
+import {
+  getAnalytics,
+  shouldEnableAnalytics,
+} from "./modules/analytics/segment"
 import { AppContainer } from "./App.styled"
 import { MarqueeContainerWrapper } from "./components/Marquee/Marquee.styled"
 import { Marquee } from "./components/Marquee/Marquee"
@@ -13,6 +16,7 @@ import { About } from "./components/About/About"
 import { Faq } from "./components/Faq/Faq"
 import Installations from "./components/Installations"
 import Schedule from "./components/Schedule"
+import { BiggerPictureSection } from "./components/BiggerPictureSection"
 import MapSection from "./components/MapSection"
 import CreditList from "./components/CreditList"
 import { Navbar } from "./components/Navbar/Navbar"
@@ -52,18 +56,21 @@ const App = () => {
   useLenis()
 
   useEffect(() => {
-    // Initialize analytics after component mounts to avoid race conditions
-    const initializeAnalytics = () => {
-      const analytics = getAnalytics()
-      if (analytics) {
-        analytics.load(config.get("SEGMENT_API_KEY"))
+    const initializeAnalytics = async () => {
+      try {
+        if (!shouldEnableAnalytics()) return
+        await import("./modules/analytics/snippet")
+        const analytics = getAnalytics()
+        const key = config.get("SEGMENT_API_KEY")
+        if (!analytics || !key) return
+        analytics.load(key)
         analytics.page()
+      } catch {
+        /* swallow analytics errors */
       }
     }
 
-    // Small delay to ensure snippet is fully loaded
     const timer = setTimeout(initializeAnalytics, 0)
-
     return () => clearTimeout(timer)
   }, [])
 
@@ -78,6 +85,7 @@ const App = () => {
         </MarqueeContainerWrapper>
         <Installations />
         <Schedule />
+        <BiggerPictureSection />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
