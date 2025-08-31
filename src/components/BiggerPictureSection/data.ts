@@ -80,8 +80,8 @@ export const artistLocations: ArtistLocation[] = [
     height: 52,
     left: 424,
     top: 48,
-    labelLeft: 606,
-    labelTop: 91,
+    labelLeft: 580,
+    labelTop: 76,
     labelWidth: 66
   },
   {
