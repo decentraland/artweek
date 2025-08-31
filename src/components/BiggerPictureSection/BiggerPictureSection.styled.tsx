@@ -120,25 +120,15 @@ const ArtistLocation = styled.div<{
   height: number;
   left: number;
   top: number;
-  $isHighlighted?: boolean;
 }>`
   position: absolute;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
   left: ${props => props.left}px;
   top: ${props => props.top}px;
-  background: ${props => props.$isHighlighted ? '#c5b8b7' : '#EEDDDC'};
+  background: #EEDDDC;
   border-radius: 3.384px;
-  pointer-events: auto;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: ${props => props.$isHighlighted ? '2px solid #8b7877' : 'none'};
-  box-shadow: ${props => props.$isHighlighted ? '0 0 15px rgba(139, 120, 119, 0.5)' : 'none'};
-
-  &:hover {
-    background: ${props => props.$isHighlighted ? '#b5a8a7' : '#dcc8c7'};
-    transform: scale(1.02);
-  }
+  pointer-events: none;
 
   @media (max-width: ${breakpoints.l}) {
     transform: scale(0.7);
@@ -156,22 +146,19 @@ const ArtistLabel = styled.div<{
   top: number;
   width?: number;
   centered?: boolean;
-  $isHighlighted?: boolean;
 }>`
   position: absolute;
   left: ${props => props.left}px;
   top: ${props => props.top}px;
   width: ${props => props.width || 'auto'}px;
-  color: ${props => props.$isHighlighted ? '#8b7877' : theme.black};
+  color: ${theme.black};
   font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 15.228px;
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.423px;
-  pointer-events: auto;
-  cursor: pointer;
+  pointer-events: none;
   ${props => props.centered && `text-align: center;`}
-  transition: color 0.2s ease;
 
   @media (max-width: ${breakpoints.l}) {
     transform: scale(0.7);
@@ -226,23 +213,14 @@ const ArtistCardsGrid = styled.div`
   }
 `
 
-const ArtistCard = styled.div<{ $isHighlighted?: boolean }>`
+const ArtistCard = styled.div`
   display: flex;
   min-width: 140px;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   flex: 1 0 0;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
   border-radius: 8px;
-  padding: ${props => props.$isHighlighted ? '8px' : '0'};
-  background: ${props => props.$isHighlighted ? 'rgba(139, 120, 119, 0.1)' : 'transparent'};
-  box-shadow: ${props => props.$isHighlighted ? '0 4px 20px rgba(139, 120, 119, 0.2)' : 'none'};
-
-  &:hover {
-    transform: translateY(-2px);
-  }
 
   @media (max-width: ${breakpoints.md}) {
     flex: 0 0 280px;

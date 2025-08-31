@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import {
   BiggerPictureSectionContainer,
   TitleSection,
@@ -21,24 +21,6 @@ import {
 import { artistLocations, artistCards } from "./data"
 
 const BiggerPictureSection: React.FC = () => {
-  const [highlightedArtist, setHighlightedArtist] = useState<string | null>(null)
-
-  const handleArtistClick = (artistId: string) => {
-    setHighlightedArtist(artistId === highlightedArtist ? null : artistId)
-  }
-
-  const getLocationIdForCard = (cardId: string): string => {
-    // Map card IDs to their corresponding location IDs
-    const mapping: Record<string, string> = {
-      "shefi-cohort-14": "shefi-cohort-14",
-      "llsky": "llsky",
-      "canessa": "canessa",
-      "ai-fusion": "ai-fusion-main",
-      "oartistanft": "oartistanft",
-      "farcaster": "farcaster-2"
-    }
-    return mapping[cardId] || cardId
-  }
   return (
     <BiggerPictureSectionContainer>
       <TitleSection>
@@ -59,8 +41,6 @@ const BiggerPictureSection: React.FC = () => {
                   height={location.height}
                   left={location.left}
                   top={location.top}
-                  $isHighlighted={highlightedArtist === location.id}
-                  onClick={() => location.name && handleArtistClick(location.id)}
                 />
                 {location.name && (
                   <ArtistLabel
@@ -68,8 +48,6 @@ const BiggerPictureSection: React.FC = () => {
                     top={location.labelTop}
                     width={location.labelWidth}
                     centered={location.labelCentered}
-                    $isHighlighted={highlightedArtist === location.id}
-                    onClick={() => handleArtistClick(location.id)}
                   >
                     {location.name}
                   </ArtistLabel>
@@ -82,16 +60,8 @@ const BiggerPictureSection: React.FC = () => {
 
       <ArtistCardsContainer>
         <ArtistCardsGrid>
-          {artistCards.map((artist) => {
-            const locationId = getLocationIdForCard(artist.id)
-            const isHighlighted = highlightedArtist === locationId
-
-            return (
-              <ArtistCard
-                key={artist.id}
-                $isHighlighted={isHighlighted}
-                onClick={() => handleArtistClick(locationId)}
-              >
+          {artistCards.map((artist) => (
+              <ArtistCard key={artist.id}>
                 <ArtistImage
                   src={artist.image}
                   alt={artist.name}
@@ -104,8 +74,7 @@ const BiggerPictureSection: React.FC = () => {
                   </ArtistDetails>
                 </ArtistInfo>
               </ArtistCard>
-            )
-          })}
+          ))}
         </ArtistCardsGrid>
       </ArtistCardsContainer>
     </BiggerPictureSectionContainer>
