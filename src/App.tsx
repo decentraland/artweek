@@ -12,6 +12,7 @@ import { Marquee } from "./components/Marquee/Marquee"
 import { About } from "./components/About/About"
 import { Faq } from "./components/Faq/Faq"
 import Installations from "./components/Installations"
+import Schedule from "./components/Schedule"
 import MapSection from "./components/MapSection"
 import CreditList from "./components/CreditList"
 import { Navbar } from "./components/Navbar/Navbar"
@@ -76,6 +77,7 @@ const App = () => {
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
         <Installations />
+        <Schedule />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
