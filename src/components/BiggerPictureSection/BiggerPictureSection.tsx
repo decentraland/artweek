@@ -82,21 +82,30 @@ const BiggerPictureSection: React.FC = () => {
 
       <ArtistCardsContainer>
         <ArtistCardsGrid>
-          {artistCards.map((artist) => (
-            <ArtistCard key={artist.id}>
-              <ArtistImage
-                src={artist.image}
-                alt={artist.name}
-                loading="lazy"
-              />
-              <ArtistInfo>
-                <ArtistDetails>
-                  <ArtistName>{artist.name}</ArtistName>
-                  <ArtistDescription>{artist.description}</ArtistDescription>
-                </ArtistDetails>
-              </ArtistInfo>
-            </ArtistCard>
-          ))}
+          {artistCards.map((artist) => {
+            const locationId = getLocationIdForCard(artist.id)
+            const isHighlighted = highlightedArtist === locationId
+
+            return (
+              <ArtistCard
+                key={artist.id}
+                $isHighlighted={isHighlighted}
+                onClick={() => handleArtistClick(locationId)}
+              >
+                <ArtistImage
+                  src={artist.image}
+                  alt={artist.name}
+                  loading="lazy"
+                />
+                <ArtistInfo>
+                  <ArtistDetails>
+                    <ArtistName>{artist.name}</ArtistName>
+                    <ArtistDescription>{artist.description}</ArtistDescription>
+                  </ArtistDetails>
+                </ArtistInfo>
+              </ArtistCard>
+            )
+          })}
         </ArtistCardsGrid>
       </ArtistCardsContainer>
     </BiggerPictureSectionContainer>
