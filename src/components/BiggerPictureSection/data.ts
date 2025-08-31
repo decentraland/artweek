@@ -28,7 +28,7 @@ export const artistLocations: ArtistLocation[] = [
     top: 338,
     labelLeft: 20,
     labelTop: 408,
-    labelWidth: 113
+    labelWidth: 113,
   },
   {
     id: "llsky",
@@ -39,7 +39,7 @@ export const artistLocations: ArtistLocation[] = [
     top: 48,
     labelLeft: 240,
     labelTop: 67,
-    labelWidth: 44
+    labelWidth: 44,
   },
   {
     id: "canessa",
@@ -50,7 +50,7 @@ export const artistLocations: ArtistLocation[] = [
     top: 182,
     labelLeft: 231,
     labelTop: 210,
-    labelWidth: 63
+    labelWidth: 63,
   },
   {
     id: "oartistanft",
@@ -61,7 +61,7 @@ export const artistLocations: ArtistLocation[] = [
     top: 397,
     labelLeft: 374,
     labelTop: 426,
-    labelWidth: 87
+    labelWidth: 87,
   },
   {
     id: "ai-fusion-building",
@@ -71,7 +71,7 @@ export const artistLocations: ArtistLocation[] = [
     left: 378,
     top: 48,
     labelLeft: 0,
-    labelTop: 0
+    labelTop: 0,
   },
   {
     id: "ai-fusion-main",
@@ -82,7 +82,7 @@ export const artistLocations: ArtistLocation[] = [
     top: 48,
     labelLeft: 580,
     labelTop: 76,
-    labelWidth: 66
+    labelWidth: 66,
   },
   {
     id: "farcaster-1",
@@ -92,7 +92,7 @@ export const artistLocations: ArtistLocation[] = [
     left: 574,
     top: 442,
     labelLeft: 0,
-    labelTop: 0
+    labelTop: 0,
   },
   {
     id: "farcaster-2",
@@ -104,7 +104,7 @@ export const artistLocations: ArtistLocation[] = [
     labelLeft: 638,
     labelTop: 470,
     labelWidth: 118,
-    labelCentered: true
+    labelCentered: true,
   },
   {
     id: "building-1",
@@ -114,7 +114,7 @@ export const artistLocations: ArtistLocation[] = [
     left: 533,
     top: 0,
     labelLeft: 0,
-    labelTop: 0
+    labelTop: 0,
   },
   {
     id: "building-2",
@@ -124,7 +124,7 @@ export const artistLocations: ArtistLocation[] = [
     left: 533,
     top: 97,
     labelLeft: 0,
-    labelTop: 0
+    labelTop: 0,
   },
   {
     id: "building-3",
@@ -134,8 +134,8 @@ export const artistLocations: ArtistLocation[] = [
     left: 676,
     top: 159,
     labelLeft: 0,
-    labelTop: 0
-  }
+    labelTop: 0,
+  },
 ]
 
 export const artistCards: ArtistCard[] = [
@@ -143,36 +143,42 @@ export const artistCards: ArtistCard[] = [
     id: "shefi-cohort-14",
     name: "SheFi Cohort 14",
     description: "Spark",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353",
   },
   {
     id: "llsky",
     name: "LLSky",
     description: "Green Dreams",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353",
   },
   {
     id: "canessa",
     name: "Canessa",
     description: "Create/Destroy",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353",
   },
   {
     id: "ai-fusion",
     name: "Ai Fusion",
     description: "AI Fusion Collective Exhibition",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353",
   },
   {
     id: "oartistanft",
     name: "oArtistaNFT",
     description: "Pixels & Beyond",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353"
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353",
   },
   {
     id: "farcaster",
     name: "Farcaster by AwedJob",
     description: "Farcaster Featured Artists",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353"
-  }
+    image:
+      "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353",
+  },
 ]

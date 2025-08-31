@@ -32,7 +32,12 @@ const TitleSection = styled.div`
 
 const MainTitle = styled.h2`
   color: ${theme.black};
-  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
   font-size: 40px;
   font-weight: 800;
   line-height: 1.1;
@@ -48,7 +53,12 @@ const MainTitle = styled.h2`
 
 const Subtitle = styled.p`
   color: ${theme.paleBlack};
-  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
@@ -67,7 +77,7 @@ const MapContainer = styled.div`
   margin: 0 auto;
   position: relative;
   background: lightgray;
-  background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/cde5fc716f12202372b19e97a33413478e1e86b7?width=2320');
+  background-image: url("https://api.builder.io/api/v1/image/assets/TEMP/cde5fc716f12202372b19e97a33413478e1e86b7?width=2320");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -116,17 +126,17 @@ const ArtistLocationsContainer = styled.div`
 `
 
 const ArtistLocation = styled.div<{
-  width: number;
-  height: number;
-  left: number;
-  top: number;
+  width: number
+  height: number
+  left: number
+  top: number
 }>`
   position: absolute;
-  width: ${props => props.width}px;
-  height: ${props => props.height}px;
-  left: ${props => props.left}px;
-  top: ${props => props.top}px;
-  background: #EEDDDC;
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
+  left: ${(props) => props.left}px;
+  top: ${(props) => props.top}px;
+  background: #eedddc;
   border-radius: 3.384px;
   pointer-events: none;
 
@@ -142,23 +152,28 @@ const ArtistLocation = styled.div<{
 `
 
 const ArtistLabel = styled.div<{
-  left: number;
-  top: number;
-  width?: number;
-  centered?: boolean;
+  left: number
+  top: number
+  width?: number
+  centered?: boolean
 }>`
   position: absolute;
-  left: ${props => props.left}px;
-  top: ${props => props.top}px;
-  width: ${props => props.width || 'auto'}px;
+  left: ${(props) => props.left}px;
+  top: ${(props) => props.top}px;
+  width: ${(props) => props.width || "auto"}px;
   color: ${theme.black};
-  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
   font-size: 15.228px;
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.423px;
   pointer-events: none;
-  ${props => props.centered && `text-align: center;`}
+  ${(props) => props.centered && `text-align: center;`}
 
   @media (max-width: ${breakpoints.l}) {
     transform: scale(0.7);
@@ -260,7 +275,12 @@ const ArtistDetails = styled.div`
 const ArtistName = styled.h3`
   width: 100%;
   color: ${theme.black};
-  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: normal;
@@ -271,7 +291,12 @@ const ArtistName = styled.h3`
 const ArtistDescription = styled.p`
   width: 100%;
   color: ${theme.paleBlack};
-  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: normal;

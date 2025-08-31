@@ -26,8 +26,9 @@ const BiggerPictureSection: React.FC = () => {
       <TitleSection>
         <MainTitle>The bigger picture</MainTitle>
         <Subtitle>
-          Zoom out to see how Art Week unfolds across Decentraland—with user-created
-          parties, performances, and activations across Genesis City.
+          Zoom out to see how Art Week unfolds across Decentraland—with
+          user-created parties, performances, and activations across Genesis
+          City.
         </Subtitle>
       </TitleSection>
 
@@ -61,19 +62,19 @@ const BiggerPictureSection: React.FC = () => {
       <ArtistCardsContainer>
         <ArtistCardsGrid>
           {artistCards.map((artist) => (
-              <ArtistCard key={artist.id}>
-                <ArtistImage
-                  src={artist.image}
-                  alt={artist.name}
-                  loading="lazy"
-                />
-                <ArtistInfo>
-                  <ArtistDetails>
-                    <ArtistName>{artist.name}</ArtistName>
-                    <ArtistDescription>{artist.description}</ArtistDescription>
-                  </ArtistDetails>
-                </ArtistInfo>
-              </ArtistCard>
+            <ArtistCard key={artist.id}>
+              <ArtistImage
+                src={artist.image}
+                alt={artist.name}
+                loading="lazy"
+              />
+              <ArtistInfo>
+                <ArtistDetails>
+                  <ArtistName>{artist.name}</ArtistName>
+                  <ArtistDescription>{artist.description}</ArtistDescription>
+                </ArtistDetails>
+              </ArtistInfo>
+            </ArtistCard>
           ))}
         </ArtistCardsGrid>
       </ArtistCardsContainer>

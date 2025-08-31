@@ -5,7 +5,10 @@ import { useLenis } from "./hooks/useLenis"
 // CSS
 import "./css/global.css"
 import { config } from "./config"
-import { getAnalytics, shouldEnableAnalytics } from "./modules/analytics/segment"
+import {
+  getAnalytics,
+  shouldEnableAnalytics,
+} from "./modules/analytics/segment"
 import { AppContainer } from "./App.styled"
 import { MarqueeContainerWrapper } from "./components/Marquee/Marquee.styled"
 import { Marquee } from "./components/Marquee/Marquee"
