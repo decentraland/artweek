@@ -226,13 +226,23 @@ const ArtistCardsGrid = styled.div`
   }
 `
 
-const ArtistCard = styled.div`
+const ArtistCard = styled.div<{ $isHighlighted?: boolean }>`
   display: flex;
   min-width: 140px;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   flex: 1 0 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+  padding: ${props => props.$isHighlighted ? '8px' : '0'};
+  background: ${props => props.$isHighlighted ? 'rgba(139, 120, 119, 0.1)' : 'transparent'};
+  box-shadow: ${props => props.$isHighlighted ? '0 4px 20px rgba(139, 120, 119, 0.2)' : 'none'};
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 
   @media (max-width: ${breakpoints.md}) {
     flex: 0 0 280px;
