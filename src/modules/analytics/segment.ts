@@ -16,11 +16,10 @@ export function shouldEnableAnalytics(): boolean {
     (navigator as unknown as { msDoNotTrack?: string }).msDoNotTrack
   if (dnt === "1") return false
 
-  // Only enable when we have a valid key and are not in development env
+  // Only enable when explicitly allowed and we have a valid key
   const writeKey = config.get("SEGMENT_API_KEY")
-  const env = config.getCurrentEnv?.() || "dev"
-  if (!writeKey) return false
-  if (String(env).toLowerCase() !== "prd" && import.meta.env.DEV) return false
+  const enabledFlag = Boolean(config.get("ENABLE_ANALYTICS"))
+  if (!writeKey || !enabledFlag) return false
 
   return true
 }
