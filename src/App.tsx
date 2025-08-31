@@ -82,6 +82,7 @@ const App = () => {
         </MarqueeContainerWrapper>
         <Installations />
         <Schedule />
+        <BiggerPictureSection />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
