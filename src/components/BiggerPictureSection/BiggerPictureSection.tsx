@@ -59,6 +59,8 @@ const BiggerPictureSection: React.FC = () => {
                   height={location.height}
                   left={location.left}
                   top={location.top}
+                  $isHighlighted={highlightedArtist === location.id}
+                  onClick={() => location.name && handleArtistClick(location.id)}
                 />
                 {location.name && (
                   <ArtistLabel
@@ -66,6 +68,8 @@ const BiggerPictureSection: React.FC = () => {
                     top={location.labelTop}
                     width={location.labelWidth}
                     centered={location.labelCentered}
+                    $isHighlighted={highlightedArtist === location.id}
+                    onClick={() => handleArtistClick(location.id)}
                   >
                     {location.name}
                   </ArtistLabel>
