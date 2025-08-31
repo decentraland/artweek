@@ -21,7 +21,7 @@ export const ScheduleContainer = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    padding: 0 24px;
+    padding: 0 0 0 24px;
 
     h2 {
       font-size: 4rem;
@@ -44,6 +44,7 @@ export const DatePickerContainer = styled.div`
   align-items: flex-start;
   gap: 20px;
   align-self: stretch;
+  justify-content: center;
   overflow-x: auto;
   padding: 0 10px;
   
@@ -393,7 +394,7 @@ export const EmptySlot = styled.div`
   border-top: 0.75px solid #203455;
   border-bottom: 0.75px solid #203455;
   flex-shrink: 0;
-  background-color: #33435C;
+  background-color: #FFF;
   transition: all 0.3s ease;
   cursor: pointer;
 
