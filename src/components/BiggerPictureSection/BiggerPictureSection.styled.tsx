@@ -72,7 +72,6 @@ const MapContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   height: 500px;
-  border-radius: 8px;
   overflow: hidden;
   margin-bottom: 40px;
 
