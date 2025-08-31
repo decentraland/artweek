@@ -115,25 +115,28 @@ const ArtistLocationsContainer = styled.div`
   }
 `
 
-const ArtistLocation = styled.div<{ 
-  width: number; 
-  height: number; 
-  left: number; 
-  top: number; 
+const ArtistLocation = styled.div<{
+  width: number;
+  height: number;
+  left: number;
+  top: number;
+  $isHighlighted?: boolean;
 }>`
   position: absolute;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
   left: ${props => props.left}px;
   top: ${props => props.top}px;
-  background: #EEDDDC;
+  background: ${props => props.$isHighlighted ? '#c5b8b7' : '#EEDDDC'};
   border-radius: 3.384px;
   pointer-events: auto;
   cursor: pointer;
   transition: all 0.2s ease;
+  border: ${props => props.$isHighlighted ? '2px solid #8b7877' : 'none'};
+  box-shadow: ${props => props.$isHighlighted ? '0 0 15px rgba(139, 120, 119, 0.5)' : 'none'};
 
   &:hover {
-    background: #dcc8c7;
+    background: ${props => props.$isHighlighted ? '#b5a8a7' : '#dcc8c7'};
     transform: scale(1.02);
   }
 
