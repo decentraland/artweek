@@ -7,8 +7,8 @@ import { useResizePage } from "../../hooks/useResizePage"
 import { theme } from "../../utils/theme"
 
 enum DownloadLinks {
-  MAC_X64 = "https://explorer-artifacts.decentraland.org/launcher/dcl/Decentraland%20Outdated-mac-x64.dmg",
   MAC_ARM64 = "https://explorer-artifacts.decentraland.org/launcher-rust/Decentraland_installer.dmg",
+  MAC_X64 = "https://explorer-artifacts.decentraland.org/launcher/dcl/Decentraland%20Outdated-mac-x64.dmg",
   WIN_X64 = "https://explorer-artifacts.decentraland.org/launcher-rust/Decentraland_installer.exe",
   UNKNOWN = "",
   MOBILE_REDIRECT = "https://decentraland.org/download/",
