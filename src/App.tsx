@@ -46,7 +46,7 @@ const VideoSectionLoader = () => {
         fontSize: "18px",
       }}
     >
-      Cargando video...
+      Loading video...
     </div>
   )
 }
@@ -84,6 +84,9 @@ const App = () => {
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
         <Installations />
+        <MarqueeContainerWrapper>
+          <Marquee variant="light" />
+        </MarqueeContainerWrapper>
         <Schedule />
         <BiggerPictureSection />
         <MarqueeContainerWrapper>

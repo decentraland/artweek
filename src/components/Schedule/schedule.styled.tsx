@@ -21,7 +21,7 @@ export const ScheduleContainer = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    padding: 0 0 0 24px;
+    /* padding: 0 0 0 24px; */
 
     h2 {
       font-size: 4rem;
