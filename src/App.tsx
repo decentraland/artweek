@@ -15,8 +15,6 @@ import { Marquee } from "./components/Marquee/Marquee"
 import { About } from "./components/About/About"
 import { Faq } from "./components/Faq/Faq"
 import Installations from "./components/Installations"
-import Schedule from "./components/Schedule"
-import { BiggerPictureSection } from "./components/BiggerPictureSection"
 import MapSection from "./components/MapSection"
 import CreditList from "./components/CreditList"
 import { Navbar } from "./components/Navbar/Navbar"
@@ -50,7 +48,6 @@ const VideoSectionLoader = () => {
     </div>
   )
 }
-
 const App = () => {
   // Initialize Lenis smooth scrolling
   useLenis()
@@ -87,8 +84,6 @@ const App = () => {
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
-        <Schedule />
-        <BiggerPictureSection />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
