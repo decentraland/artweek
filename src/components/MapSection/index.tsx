@@ -1,21 +1,21 @@
+import { useRef, useState } from "react"
 import { useInView } from "motion/react"
+import { FaLocationPin } from "react-icons/fa6"
+import { GoArrowUpRight } from "react-icons/go"
+import { IoMdClose } from "react-icons/io"
+// import { GoArrowUpRight } from "react-icons/go"
+import { RiLink } from "react-icons/ri"
+import { styled } from "styled-components"
+import { artists, invitedArtists } from "./data"
+import { MapVector } from "./MapVector"
 import { AnimatedCharacters } from "../animatedCharacters"
+import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
+import { Modal } from "../Modal"
 import {
   ArtistModalContainer,
   ArtistPinContainer,
   MapSectionContainer,
 } from "./MapSection.styled"
-import { useRef, useState } from "react"
-import MapVector from "./MapVector"
-import { FaLocationPin } from "react-icons/fa6"
-import { Modal } from "../Modal"
-import { IoMdClose } from "react-icons/io"
-// import { GoArrowUpRight } from "react-icons/go"
-import { RiLink } from "react-icons/ri"
-import { artists, invitedArtists } from "./data"
-import { GoArrowUpRight } from "react-icons/go"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
-import { styled } from "styled-components"
 // import MapRefsVector from './MapRefsVector';
 
 interface ArtistPinProps {
@@ -84,7 +84,11 @@ const MapSection = () => {
           </div>
         </div>
         <CenteredDownloadButton>
-          <DownloadBtn customText="DOWNLOAD DECENTRALAND" showAvailableOnText={false} variant="cosmicGlass" />
+          <DownloadBtn
+            customText="DOWNLOAD DECENTRALAND"
+            showAvailableOnText={false}
+            variant="cosmicGlass"
+          />
         </CenteredDownloadButton>
       </MapSectionContainer>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
@@ -142,8 +146,6 @@ const MapSection = () => {
   )
 }
 
-export default MapSection
-
 const ArtistPin = ({
   id,
   artistName,
@@ -173,16 +175,18 @@ const CenteredDownloadButton = styled.div`
   width: 100%;
   margin-top: 48px;
   padding: 0 24px;
-  
+
   a {
     color: white !important;
-    
+
     * {
       color: white !important;
     }
   }
-  
+
   @media (max-width: 768px) {
     margin-top: 32px;
   }
 `
+
+export { MapSection }

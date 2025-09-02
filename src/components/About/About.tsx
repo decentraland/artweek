@@ -1,16 +1,15 @@
+import { ReactNode, useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { aboutList } from "./list"
+import provisoryMap from "../../../public/img/about/tree.png"
+import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
+import { Marquee } from "../Marquee/Marquee"
+import { MarqueeContainerWrapper } from "../Marquee/Marquee.styled"
 import {
   AboutContainer,
   AboutInnerContainer,
   DownloadBtnContainer,
 } from "./About.styled"
-import provisoryMap from "../../../public/img/about/tree.png"
-import { useRef } from "react"
-import { aboutList } from "./list"
-import { ReactNode } from "react"
-import { motion, useInView } from "framer-motion"
-import { MarqueeContainerWrapper } from "../Marquee/Marquee.styled"
-import { Marquee } from "../Marquee/Marquee"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
 // import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
 // import { AnimatedCharacters } from '../animatedCharacters';
 

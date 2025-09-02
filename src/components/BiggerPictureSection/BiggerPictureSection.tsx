@@ -1,26 +1,26 @@
-import React from "react"
+import { FC, Fragment } from "react"
+import { artistCards, artistLocations } from "./data"
 import {
-  BiggerPictureSectionContainer,
-  TitleSection,
-  MainTitle,
-  Subtitle,
-  MapContainer,
-  MapOverlay,
-  ArtistLocationsContainer,
-  ArtistLocation,
-  ArtistLabel,
+  ArtistCard,
   ArtistCardsContainer,
   ArtistCardsGrid,
-  ArtistCard,
+  ArtistDescription,
+  ArtistDetails,
   ArtistImage,
   ArtistInfo,
-  ArtistDetails,
+  ArtistLabel,
+  ArtistLocation,
+  ArtistLocationsContainer,
   ArtistName,
-  ArtistDescription,
+  BiggerPictureSectionContainer,
+  MainTitle,
+  MapContainer,
+  MapOverlay,
+  Subtitle,
+  TitleSection,
 } from "./BiggerPictureSection.styled"
-import { artistLocations, artistCards } from "./data"
 
-const BiggerPictureSection: React.FC = () => {
+const BiggerPictureSection: FC = () => {
   return (
     <BiggerPictureSectionContainer>
       <TitleSection>
@@ -36,7 +36,7 @@ const BiggerPictureSection: React.FC = () => {
         <MapOverlay>
           <ArtistLocationsContainer>
             {artistLocations.map((location) => (
-              <React.Fragment key={location.id}>
+              <Fragment key={location.id}>
                 <ArtistLocation
                   width={location.width}
                   height={location.height}
@@ -53,7 +53,7 @@ const BiggerPictureSection: React.FC = () => {
                     {location.name}
                   </ArtistLabel>
                 )}
-              </React.Fragment>
+              </Fragment>
             ))}
           </ArtistLocationsContainer>
         </MapOverlay>

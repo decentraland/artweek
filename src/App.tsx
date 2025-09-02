@@ -1,25 +1,25 @@
 // Styled Components
-import { lazy, Suspense, useEffect } from "react"
+import { Suspense, lazy, useEffect } from "react"
+import { About } from "./components/About/About"
+import { CreditList } from "./components/CreditList"
+import { Faq } from "./components/Faq/Faq"
+import { Footer } from "./components/Footer/Footer"
+import { Hero } from "./components/Hero/Hero"
+import { Installations } from "./components/Installations"
+import { MapSection } from "./components/MapSection"
+import { Marquee } from "./components/Marquee/Marquee"
+import { MarqueeContainerWrapper } from "./components/Marquee/Marquee.styled"
+import { Navbar } from "./components/Navbar/Navbar"
+import { config } from "./config"
 import { useLenis } from "./hooks/useLenis"
 // Components
 // CSS
 import "./css/global.css"
-import { config } from "./config"
 import {
   getAnalytics,
   shouldEnableAnalytics,
 } from "./modules/analytics/segment"
 import { AppContainer } from "./App.styled"
-import { MarqueeContainerWrapper } from "./components/Marquee/Marquee.styled"
-import { Marquee } from "./components/Marquee/Marquee"
-import { About } from "./components/About/About"
-import { Faq } from "./components/Faq/Faq"
-import Installations from "./components/Installations"
-import MapSection from "./components/MapSection"
-import CreditList from "./components/CreditList"
-import { Navbar } from "./components/Navbar/Navbar"
-import { Hero } from "./components/Hero/Hero"
-import { Footer } from "./components/Footer/Footer"
 // import { VideoSection } from './components/VideoSection/VideoSection';
 
 // Lazy load VideoSection component

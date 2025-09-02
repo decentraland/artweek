@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { breakpoints, theme } from '../../utils/theme';
-import { AnimatedCharacters } from '../animatedCharacters';
-import { artistsAndCurators, studios } from './data';
-import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
+import { styled } from "styled-components"
+import { artistsAndCurators, studios } from "./data"
+import { breakpoints, theme } from "../../utils/theme"
+import { AnimatedCharacters } from "../animatedCharacters"
+import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
 
 const CreditListContainer = styled.div`
   width: 100%;
@@ -30,7 +30,7 @@ const CreditListContainer = styled.div`
   @media (min-width: ${breakpoints.md}) {
     padding: 48px;
   }
-`;
+`
 
 const CreditListContent = styled.div`
   display: flex;
@@ -43,14 +43,14 @@ const CreditListContent = styled.div`
     flex-direction: column;
     gap: 40px;
   }
-`;
+`
 
 const Section = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 24px;
-`;
+`
 
 const SectionTitle = styled.h3`
   font-size: 2rem;
@@ -58,19 +58,19 @@ const SectionTitle = styled.h3`
   text-transform: uppercase;
   opacity: 0.8;
   font-weight: 600;
-`;
+`
 
 const ColumnsContainer = styled.div`
   display: flex;
   gap: 40px;
-`;
+`
 
 const Column = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 4px;
-`;
+`
 
 const Name = styled.div`
   font-size: 1.2rem;
@@ -80,21 +80,21 @@ const Name = styled.div`
   @media (max-width: ${breakpoints.md}) {
     font-size: 1rem;
   }
-`;
+`
 
 const CreditList = () => {
   // Split artists and curators into two columns
   const artistsColumn1 = artistsAndCurators.slice(
     0,
-    Math.ceil(artistsAndCurators.length / 2),
-  );
+    Math.ceil(artistsAndCurators.length / 2)
+  )
   const artistsColumn2 = artistsAndCurators.slice(
-    Math.ceil(artistsAndCurators.length / 2),
-  );
+    Math.ceil(artistsAndCurators.length / 2)
+  )
 
   // Split studios into two columns
-  const studiosColumn1 = studios.slice(0, Math.ceil(studios.length / 2));
-  const studiosColumn2 = studios.slice(Math.ceil(studios.length / 2));
+  const studiosColumn1 = studios.slice(0, Math.ceil(studios.length / 2))
+  const studiosColumn2 = studios.slice(Math.ceil(studios.length / 2))
 
   return (
     <CreditListContainer>
@@ -135,11 +135,15 @@ const CreditList = () => {
         </Section>
       </CreditListContent>
       <CenteredDownloadButton>
-        <DownloadBtn customText="DOWNLOAD DECENTRALAND" showAvailableOnText={false} variant="cosmicGlass" />
+        <DownloadBtn
+          customText="DOWNLOAD DECENTRALAND"
+          showAvailableOnText={false}
+          variant="cosmicGlass"
+        />
       </CenteredDownloadButton>
     </CreditListContainer>
-  );
-};
+  )
+}
 
 const CenteredDownloadButton = styled.div`
   display: flex;
@@ -149,18 +153,18 @@ const CenteredDownloadButton = styled.div`
   max-width: 1200px;
   margin: 48px auto 0;
   padding: 0 24px;
-  
+
   a {
     color: white !important;
-    
+
     * {
       color: white !important;
     }
   }
-  
+
   @media (max-width: 768px) {
     margin-top: 32px;
   }
-`;
+`
 
-export default CreditList;
+export { CreditList }

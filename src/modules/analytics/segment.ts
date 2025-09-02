@@ -1,11 +1,11 @@
 import { isbot } from "isbot"
 import { config } from "../../config"
 
-export interface AnalyticsWindow extends Window {
+interface AnalyticsWindow extends Window {
   analytics: SegmentAnalytics.AnalyticsJS
 }
 
-export function shouldEnableAnalytics(): boolean {
+function shouldEnableAnalytics(): boolean {
   if (typeof window === "undefined") return false
 
   // Respect bots and Do Not Track
@@ -24,7 +24,7 @@ export function shouldEnableAnalytics(): boolean {
   return true
 }
 
-export function getAnalytics() {
+function getAnalytics() {
   try {
     if (!shouldEnableAnalytics()) return undefined
     return (window as unknown as AnalyticsWindow).analytics
@@ -32,3 +32,5 @@ export function getAnalytics() {
     return undefined
   }
 }
+
+export { getAnalytics, shouldEnableAnalytics }

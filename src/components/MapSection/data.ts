@@ -1,29 +1,28 @@
 // Images import
-import SaraShakeelPhoto from "../../../public/img/artists/Sara-Shakeel-photo.png"
-import JohannaJaskowskaPhoto from "../../../public/img/artists/Johanna-Jaskowska-photo.png"
-import AmberVittoriaPhoto from "../../../public/img/artists/Amber-Vittoria-photo.jpg"
-import ClaraBacouPhoto from "../../../public/img/artists/Clara-Bacou-photo.png"
-import OgiWorldsPhoto from "../../../public/img/artists/OgiWorlds-photo.jpg"
-import MicahAlhadeffPhoto from "../../../public/img/artists/Micah-Alhadeff-photo.jpg"
-import SabatoViscontiPhoto from "../../../public/img/artists/Sabato-Visconti-photo.jpg"
-import LLACERARTPhoto from "../../../public/img/artists/LLACERART-photo.jpg"
-import CarlaKnoppPhoto from "../../../public/img/artists/Carla-Knopp-photo.png"
-import EmmaShapiroSavannahSpiritPhoto from "../../../public/img/artists/Emma-Shapiro-&-Savannah-Spirit-photo.png"
-import AntonioAzzolinoPhoto from "../../../public/img/artists/Antonio-Azzolino-photo.jpeg"
-import MafinLazaroPhoto from "../../../public/img/artists/Mafin-&-Lazaro-photo.png"
-import ElisavetaSivasPhoto from "../../../public/img/artists/Elisaveta-Sivas-photo.jpg"
-import ClaraOhdePhoto from "../../../public/img/artists/Clara-Ohde-photo.jpg"
-import IacobVisualPhoto from "../../../public/img/artists/Iacob-Visual-photo.png"
-import PepeGawdPhoto from "../../../public/img/artists/PepeGawd-photo.jpg"
-import BosqueGraciasPhoto from "../../../public/img/artists/Bosque-Gracias-photo.png"
-import ParadigmstoriesPhoto from "../../../public/img/artists/Paradigmstories-photo.jpeg"
 import AgustinDiLucianoMelinaOjagnanPhoto from "../../../public/img/artists/AgustinDiLuciano-&-MelinaOjagnan-photo.png"
-import HayabusaPhoto from "../../../public/img/artists/Hayabusa-photo.png"
-import REZONPhoto from "../../../public/img/artists/REZON-photo.jpg"
-import CybermikePhoto from "../../../public/img/artists/Cybermike-photo.jpg"
+import AmberVittoriaPhoto from "../../../public/img/artists/Amber-Vittoria-photo.jpg"
+import AntonioAzzolinoPhoto from "../../../public/img/artists/Antonio-Azzolino-photo.jpeg"
+import BosqueGraciasPhoto from "../../../public/img/artists/Bosque-Gracias-photo.png"
+import CarlaKnoppPhoto from "../../../public/img/artists/Carla-Knopp-photo.png"
 import CarlosMunozPhoto from "../../../public/img/artists/Carlos-Munoz-photo.png"
 import ChronoTPhoto from "../../../public/img/artists/Chrono-T-photo.png"
-
+import ClaraBacouPhoto from "../../../public/img/artists/Clara-Bacou-photo.png"
+import ClaraOhdePhoto from "../../../public/img/artists/Clara-Ohde-photo.jpg"
+import CybermikePhoto from "../../../public/img/artists/Cybermike-photo.jpg"
+import ElisavetaSivasPhoto from "../../../public/img/artists/Elisaveta-Sivas-photo.jpg"
+import EmmaShapiroSavannahSpiritPhoto from "../../../public/img/artists/Emma-Shapiro-&-Savannah-Spirit-photo.png"
+import HayabusaPhoto from "../../../public/img/artists/Hayabusa-photo.png"
+import IacobVisualPhoto from "../../../public/img/artists/Iacob-Visual-photo.png"
+import JohannaJaskowskaPhoto from "../../../public/img/artists/Johanna-Jaskowska-photo.png"
+import LLACERARTPhoto from "../../../public/img/artists/LLACERART-photo.jpg"
+import MafinLazaroPhoto from "../../../public/img/artists/Mafin-&-Lazaro-photo.png"
+import MicahAlhadeffPhoto from "../../../public/img/artists/Micah-Alhadeff-photo.jpg"
+import OgiWorldsPhoto from "../../../public/img/artists/OgiWorlds-photo.jpg"
+import ParadigmstoriesPhoto from "../../../public/img/artists/Paradigmstories-photo.jpeg"
+import PepeGawdPhoto from "../../../public/img/artists/PepeGawd-photo.jpg"
+import REZONPhoto from "../../../public/img/artists/REZON-photo.jpg"
+import SabatoViscontiPhoto from "../../../public/img/artists/Sabato-Visconti-photo.jpg"
+import SaraShakeelPhoto from "../../../public/img/artists/Sara-Shakeel-photo.png"
 // invited artists
 import ArtVisitorCentrePhoto from "../../../public/img/invited-artists/Art-Visitor-Centre-photo.png"
 import DigitalFashionWeekPhoto from "../../../public/img/invited-artists/Digital-Fashion-Week-photo.png"
@@ -368,8 +367,6 @@ const artists = [
   },
 ]
 
-export { artists, invitedArtists }
-
 const invitedArtists = [
   {
     id: "i",
@@ -417,3 +414,5 @@ const invitedArtists = [
     color: "#EFC1BD",
   },
 ]
+
+export { artists, invitedArtists }

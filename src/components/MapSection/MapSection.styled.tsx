@@ -1,7 +1,7 @@
-import styled from "styled-components"
+import { styled } from "styled-components"
 import { breakpoints, theme } from "../../utils/theme"
 
-export const MapSectionContainer = styled.section`
+const MapSectionContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,7 +112,7 @@ export const MapSectionContainer = styled.section`
   }
 `
 
-export const ArtistPinContainer = styled.div`
+const ArtistPinContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -155,7 +155,7 @@ export const ArtistPinContainer = styled.div`
   }
 `
 
-export const ArtistModalContainer = styled.div`
+const ArtistModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -295,3 +295,5 @@ export const ArtistModalContainer = styled.div`
     margin: 12px 0;
   }
 `
+
+export { MapSectionContainer, ArtistPinContainer, ArtistModalContainer }

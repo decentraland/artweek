@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 import { breakpoints, theme } from "../../utils/theme"
 
-export const ScheduleContainer = styled.section`
+const ScheduleContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +39,7 @@ export const ScheduleContainer = styled.section`
 `
 
 // Component 1: Date Picker
-export const DatePickerContainer = styled.div`
+const DatePickerContainer = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 20px;
@@ -62,7 +62,7 @@ export const DatePickerContainer = styled.div`
   }
 `
 
-export const DateButton = styled.button<{ $isActive?: boolean }>`
+const DateButton = styled.button<{ $isActive?: boolean }>`
   display: flex;
   padding: 16px 62px;
   flex-direction: column;
@@ -136,7 +136,7 @@ export const DateButton = styled.button<{ $isActive?: boolean }>`
 `
 
 // Component 2: Schedule Display
-export const ScheduleDisplayContainer = styled.div`
+const ScheduleDisplayContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -166,7 +166,7 @@ export const ScheduleDisplayContainer = styled.div`
   }
 `
 
-export const TimezoneHeader = styled.div`
+const TimezoneHeader = styled.div`
   display: flex;
   height: 54px;
   padding: 16px 0;
@@ -229,14 +229,14 @@ export const TimezoneHeader = styled.div`
   }
 `
 
-export const ScheduleGrid = styled.div`
+const ScheduleGrid = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   min-width: calc(106px + 140px * 14);
 `
 
-export const ScheduleRow = styled.div`
+const ScheduleRow = styled.div`
   display: flex;
   height: 200px;
   align-items: stretch;
@@ -245,7 +245,7 @@ export const ScheduleRow = styled.div`
   transition: all 0.3s ease;
 `
 
-export const StageLabel = styled.div`
+const StageLabel = styled.div`
   display: flex;
   width: 106px;
   flex-direction: column;
@@ -270,7 +270,7 @@ export const StageLabel = styled.div`
   }
 `
 
-export const EventSlot = styled.div<{ width?: number }>`
+const EventSlot = styled.div<{ width?: number }>`
   display: flex;
   height: 200px;
   padding: 16px;
@@ -393,7 +393,7 @@ export const EventSlot = styled.div<{ width?: number }>`
   }
 `
 
-export const EmptySlot = styled.div`
+const EmptySlot = styled.div`
   display: flex;
   width: 140px;
   height: 200px;
@@ -411,3 +411,16 @@ export const EmptySlot = styled.div`
     background-color: rgba(128, 128, 128, 0.2);
   }
 `
+
+export {
+  ScheduleContainer,
+  DatePickerContainer,
+  DateButton,
+  ScheduleDisplayContainer,
+  TimezoneHeader,
+  ScheduleGrid,
+  ScheduleRow,
+  StageLabel,
+  EventSlot,
+  EmptySlot,
+}

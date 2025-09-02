@@ -1,15 +1,15 @@
 import { useRef, useState } from "react"
+import { motion, useInView } from "framer-motion"
+import { GoArrowUpRight } from "react-icons/go"
+import { IoMdClose } from "react-icons/io"
+import { MdOutlineSearch } from "react-icons/md"
+import { RiLink } from "react-icons/ri"
 import { AnimatedCharacters } from "../animatedCharacters"
 import { artists, invitedArtists } from "../MapSection/data"
-import { InstallationsContainer } from "./Installations.styled"
-import { motion, useInView } from "framer-motion"
-import { MdOutlineSearch } from "react-icons/md"
-import { Modal } from "../Modal"
-import { IoMdClose } from "react-icons/io"
-// import { GoArrowUpRight } from "react-icons/go"
-import { RiLink } from "react-icons/ri"
 import { ArtistModalContainer } from "../MapSection/MapSection.styled"
-import { GoArrowUpRight } from "react-icons/go"
+import { Modal } from "../Modal"
+import { InstallationsContainer } from "./Installations.styled"
+// import { GoArrowUpRight } from "react-icons/go"
 
 const Installations = () => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -109,7 +109,7 @@ const Installations = () => {
         </div>
         {filteredData.length === 0 && (
           <div className="installations__no-results">
-            <h2>No installations found for "{searchTerm}"</h2>
+            <h2>No installations found for &apos;{searchTerm}&apos;</h2>
             <p>
               Try searching for a different keyword or browse all the
               installations.
@@ -171,4 +171,4 @@ const Installations = () => {
     </InstallationsContainer>
   )
 }
-export default Installations
+export { Installations }
