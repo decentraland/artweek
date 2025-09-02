@@ -1,11 +1,11 @@
-import artWeekLogo from "../../../public/img/logos/art-week-logo-sept.png"
+import { useEffect, useState } from "react"
+import { motion } from "motion/react"
 import heroPillsCentered from "../../../public/img/hero/pills-centered.png"
 import heroPills from "../../../public/img/hero/Pills.png"
+import artWeekLogo from "../../../public/img/logos/art-week-logo-sept.png"
+import { DiscoverDclBtn } from "../DiscoverDclBtn"
 import { HeroContainer, HeroInnerContainer } from "./Hero.styled"
 // import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
-import { motion } from "motion/react"
-import { useEffect, useState } from "react"
-import DiscoverDclBtn from "../DiscoverDclBtn"
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false)

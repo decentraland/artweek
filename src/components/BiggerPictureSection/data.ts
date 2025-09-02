@@ -1,4 +1,4 @@
-export interface ArtistLocation {
+interface ArtistLocation {
   id: string
   name: string
   width: number
@@ -11,14 +11,14 @@ export interface ArtistLocation {
   labelCentered?: boolean
 }
 
-export interface ArtistCard {
+interface ArtistCard {
   id: string
   name: string
   description: string
   image: string
 }
 
-export const artistLocations: ArtistLocation[] = [
+const artistLocations: ArtistLocation[] = [
   {
     id: "shefi-cohort-14",
     name: "SheFi Cohort 14",
@@ -138,7 +138,7 @@ export const artistLocations: ArtistLocation[] = [
   },
 ]
 
-export const artistCards: ArtistCard[] = [
+const artistCards: ArtistCard[] = [
   {
     id: "shefi-cohort-14",
     name: "SheFi Cohort 14",
@@ -182,3 +182,7 @@ export const artistCards: ArtistCard[] = [
       "https://api.builder.io/api/v1/image/assets/TEMP/ce5872e785416e29e173cd9cfae233ca3b6f8a73?width=353",
   },
 ]
+
+export type { ArtistLocation, ArtistCard }
+
+export { artistLocations, artistCards }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import styled from "styled-components"
+import { styled } from "styled-components"
 // assets
 // import bgLineUp from "../../../img/lineup/bg.png"
 // import imgDesktop from "../../../img/lineup/lineup-desktop.png"

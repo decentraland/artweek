@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styled from "styled-components"
+import { styled } from "styled-components"
 import { Artist, schedule } from "./data"
 import { LineUpList } from "./partials/LineUpList"
 // import rightDiamond from "../../img/music-festival/right-diamond.png"

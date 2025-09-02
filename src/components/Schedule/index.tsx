@@ -1,23 +1,23 @@
 import { useState } from "react"
 import {
-  ScheduleContainer,
-  DatePickerContainer,
+  ScheduleEvent,
+  dateOptions,
+  scheduleData,
+  stages,
+  timeSlots,
+} from "./data"
+import {
   DateButton,
+  DatePickerContainer,
+  EmptySlot,
+  EventSlot,
+  ScheduleContainer,
   ScheduleDisplayContainer,
-  TimezoneHeader,
   ScheduleGrid,
   ScheduleRow,
   StageLabel,
-  EventSlot,
-  EmptySlot,
+  TimezoneHeader,
 } from "./schedule.styled"
-import {
-  scheduleData,
-  dateOptions,
-  timeSlots,
-  stages,
-  ScheduleEvent,
-} from "./data"
 
 const getEventIcon = (type: string) => {
   switch (type) {
@@ -283,4 +283,4 @@ const Schedule = () => {
   )
 }
 
-export default Schedule
+export { Schedule }

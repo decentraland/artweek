@@ -1,15 +1,15 @@
-import React from 'react';
-import { styled } from 'styled-components';
-import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
-import { breakpoints } from '../../utils/theme';
+import { FC } from "react"
+import { styled } from "styled-components"
+import { breakpoints } from "../../utils/theme"
+import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
 
 interface DiscoverDclBtnProps {
-  className?: string;
-  title?: string;
-  description?: string;
+  className?: string
+  title?: string
+  description?: string
 }
 
-const DiscoverDclBtn: React.FC<DiscoverDclBtnProps> = ({ className }) => {
+const DiscoverDclBtn: FC<DiscoverDclBtnProps> = ({ className }) => {
   return (
     <DiscoverDclBtnContainer className={className}>
       <ContentWrapper>
@@ -18,12 +18,12 @@ const DiscoverDclBtn: React.FC<DiscoverDclBtnProps> = ({ className }) => {
           <p>Explore on your computer—it’s free.</p>
         </div>
         <DownloadBtnWrapper>
-          <DownloadBtn variant={'default'} showAvailableOnText={false} />
+          <DownloadBtn variant={"default"} showAvailableOnText={false} />
         </DownloadBtnWrapper>
       </ContentWrapper>
     </DiscoverDclBtnContainer>
-  );
-};
+  )
+}
 
 const DiscoverDclBtnContainer = styled.div`
   position: relative;
@@ -42,7 +42,7 @@ const DiscoverDclBtnContainer = styled.div`
   margin-top: 12px;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -75,7 +75,7 @@ const DiscoverDclBtnContainer = styled.div`
     left: 50%;
     transform: translateX(-50%);
   }
-`;
+`
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -111,7 +111,7 @@ const ContentWrapper = styled.div`
     align-items: center;
     justify-content: center;
   }
-`;
+`
 
 const DownloadBtnWrapper = styled.div`
   display: flex;
@@ -121,6 +121,6 @@ const DownloadBtnWrapper = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
-`;
+`
 
-export default DiscoverDclBtn;
+export { DiscoverDclBtn }

@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from "react"
 import { useInView } from "react-intersection-observer"
-// import { IoVolumeHigh, IoVolumeMute } from "react-icons/io5"
 import { VideoContainer, VideoSectionContainer } from "./VideoSection.styled"
-
+// import { IoVolumeHigh, IoVolumeMute } from "react-icons/io5"
 // Import videos as Vite assets to ensure they're included in the build
+// eslint-disable-next-line import/no-unresolved
 import videoDesktopNoTextUrl from "/public/video/2025_DCL_Art_Week_Promo_Video_1920x1080_No_sound.mp4"
+// eslint-disable-next-line import/no-unresolved
 import videoMobileUrl from "/public/video/2025_DCL_Art_Week_Promo_Video_1080x1080_No_sound.mp4"
 
 // Handle base URL for production deployments
@@ -85,7 +86,6 @@ const VideoSection = () => {
           loop
           playsInline
           muted
-          webkit-playsinline="true"
           preload="metadata"
           src={isMobile ? videoMobile : videoDesktopNoText}
         />

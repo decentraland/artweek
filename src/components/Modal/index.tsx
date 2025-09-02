@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { styled } from "styled-components"
-import { breakpoints, theme } from "../../utils/theme"
 import { useLenis } from "../../hooks/useLenis"
+import { breakpoints, theme } from "../../utils/theme"
 
 // Tipos
 type ModalProps = {
