@@ -25,7 +25,6 @@ const FooterLeft = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  /* border: 2px solid lime; */
 
   .footer__logo-img {
     height: 52px;

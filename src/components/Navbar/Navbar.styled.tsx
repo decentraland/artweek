@@ -12,13 +12,19 @@ const NavbarContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
-  background-color: ${theme.paleBlack};
+  /* background-color: ${theme.paleBlack}; */
 
-  /* background: rgba(252, 252, 252, 0.25); */
-  /* border: 0.5px solid rgba(0, 0, 0, 0.2); */
+  background: rgba(252, 252, 252, 0.25);
   will-change: transform;
   transition: all 300ms;
-  /* backdrop-filter: blur(6px); */
+  backdrop-filter: blur(6px);
+  background: linear-gradient(
+      0deg,
+      rgba(128, 134, 155, 0.7),
+      rgba(128, 134, 155, 0.7)
+    ),
+    rgba(252, 252, 252, 0.1);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
 
   @media (min-width: ${breakpoints.l}) {
     padding: 20px 40px;

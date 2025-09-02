@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
-import { motion } from "motion/react"
+import artWeekLogo from "../../../public/img/logos/art-week-logo-sept.png"
 import heroPillsCentered from "../../../public/img/hero/pills-centered.png"
 import heroPills from "../../../public/img/hero/Pills.png"
-import artWeekLogo from "../../../public/img/logos/art-week-logo-sept.png"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
 import { HeroContainer, HeroInnerContainer } from "./Hero.styled"
+// import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
+import { motion } from "motion/react"
+import { useEffect, useState } from "react"
+import DiscoverDclBtn from "../DiscoverDclBtn"
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -45,7 +46,6 @@ const Hero = () => {
             A free, four-day festival exploring art in virtual worlds—and your
             place within them.
             <br />
-            <span>Hosted by Decentraland, the social virtual world.</span>
           </p>
           {/* </TextMaskReveal> */}
           {/* <TextMaskReveal delay={1}> */}
@@ -66,11 +66,13 @@ const Hero = () => {
           }}
         > */}
         <div className="hero-bottom-btn">
-          <DownloadBtn showAvailableOnText={false} />
-          <p>You’ll need to download Decentraland to explore the festival.</p>
+          <span>Hosted by Decentraland, the social virtual world.</span>
         </div>
         {/* </motion.div> */}
       </HeroInnerContainer>
+      <div className="hero-discover-dcl-btn">
+        <DiscoverDclBtn />
+      </div>
     </HeroContainer>
   )
 }

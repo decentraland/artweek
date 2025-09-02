@@ -18,12 +18,14 @@ interface DownloadBtnProps {
   className?: string
   showAvailableOnText?: boolean
   variant?: "cosmicGlass" | "default"
+  customText?: string
 }
 
 const DownloadBtn = ({
   className,
   showAvailableOnText = true,
   variant = "default",
+  customText,
 }: DownloadBtnProps) => {
   const [downloadLink, setDownloadLink] = useState("")
   const { isMobile } = useResizePage({ size: 568 })
@@ -106,7 +108,7 @@ const DownloadBtn = ({
           onClick={handleDownloadLink}
           variant={variant}
         >
-          DOWNLOAD DECENTRALAND
+          {customText || "DOWNLOAD DECENTRALAND"}
         </DownloadButton>
       )
     }
@@ -133,7 +135,8 @@ const DownloadBtn = ({
             onClick={handleDownloadLink}
             variant={variant}
           >
-            DOWNLOAD FOR MAC (INTEL)
+            {customText || "DOWNLOAD NOW"}
+            {/* DOWNLOAD FOR MAC (INTEL) */}
             <FaApple />
           </DownloadButton>
         </div>
@@ -152,14 +155,16 @@ const DownloadBtn = ({
         >
           {isMac && !isWindows ? (
             <>
-              DOWNLOAD FOR MAC OS
-              <FaApple />
+              {customText || "DOWNLOAD NOW"}
+              {/* DOWNLOAD FOR MAC OS */}
+              {/* <FaApple /> */}
             </>
           ) : null}
           {isWindows ? (
             <>
-              DOWNLOAD FOR WINDOWS
-              <FaWindows />
+              {customText || "DOWNLOAD NOW"}
+              {/* DOWNLOAD FOR WINDOWS */}
+              {/* <FaWindows /> */}
             </>
           ) : null}
         </DownloadButton>
