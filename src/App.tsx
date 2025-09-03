@@ -84,13 +84,13 @@ const App = () => {
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
-        <MarqueeContainerWrapper>
-          <Marquee variant="light" />
-        </MarqueeContainerWrapper>
         <About />
         <Suspense fallback={<VideoSectionLoader />}>
           <VideoSection />
         </Suspense>
+        <MarqueeContainerWrapper>
+          <Marquee variant="light" />
+        </MarqueeContainerWrapper>
         <CreditList />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
