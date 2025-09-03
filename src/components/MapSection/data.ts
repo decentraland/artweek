@@ -1,4 +1,5 @@
-import ElisavetaSivasPhoto from "../../../public/img/artists/Elisaveta-Sivas-photo.jpg"
+const ElisavetaSivasPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756903932846_Art-Week_Elisaveta-Sivas-photo.jpg"
 const SaraShakeelPhoto =
   "https://marketing-files.decentraland.org/uploads/1756887261869_Art-Week_Sara-Shakeel-photo.jpg"
 const JohannaJaskowskaPhoto =
