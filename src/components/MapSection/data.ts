@@ -1,32 +1,60 @@
-// Images import
-import AgustinDiLucianoMelinaOjagnanPhoto from "../../../public/img/artists/AgustinDiLuciano-&-MelinaOjagnan-photo.png"
-import AmberVittoriaPhoto from "../../../public/img/artists/Amber-Vittoria-photo.jpg"
-import AntonioAzzolinoPhoto from "../../../public/img/artists/Antonio-Azzolino-photo.jpeg"
-import BosqueGraciasPhoto from "../../../public/img/artists/Bosque-Gracias-photo.png"
-import CarlaKnoppPhoto from "../../../public/img/artists/Carla-Knopp-photo.png"
-import CarlosMunozPhoto from "../../../public/img/artists/Carlos-Munoz-photo.png"
-import ChronoTPhoto from "../../../public/img/artists/Chrono-T-photo.png"
-import ClaraBacouPhoto from "../../../public/img/artists/Clara-Bacou-photo.png"
-import ClaraOhdePhoto from "../../../public/img/artists/Clara-Ohde-photo.jpg"
-import CybermikePhoto from "../../../public/img/artists/Cybermike-photo.jpg"
-import ElisavetaSivasPhoto from "../../../public/img/artists/Elisaveta-Sivas-photo.jpg"
-import EmmaShapiroSavannahSpiritPhoto from "../../../public/img/artists/Emma-Shapiro-&-Savannah-Spirit-photo.png"
-import HayabusaPhoto from "../../../public/img/artists/Hayabusa-photo.png"
-import IacobVisualPhoto from "../../../public/img/artists/Iacob-Visual-photo.png"
-import JohannaJaskowskaPhoto from "../../../public/img/artists/Johanna-Jaskowska-photo.png"
-import LLACERARTPhoto from "../../../public/img/artists/LLACERART-photo.jpg"
-import MafinLazaroPhoto from "../../../public/img/artists/Mafin-&-Lazaro-photo.png"
-import MicahAlhadeffPhoto from "../../../public/img/artists/Micah-Alhadeff-photo.jpg"
-import OgiWorldsPhoto from "../../../public/img/artists/OgiWorlds-photo.jpg"
-import ParadigmstoriesPhoto from "../../../public/img/artists/Paradigmstories-photo.jpeg"
-import PepeGawdPhoto from "../../../public/img/artists/PepeGawd-photo.jpg"
-import REZONPhoto from "../../../public/img/artists/REZON-photo.jpg"
-import SabatoViscontiPhoto from "../../../public/img/artists/Sabato-Visconti-photo.jpg"
-import SaraShakeelPhoto from "../../../public/img/artists/Sara-Shakeel-photo.png"
-// invited artists
-import ArtVisitorCentrePhoto from "../../../public/img/invited-artists/Art-Visitor-Centre-photo.png"
-import DigitalFashionWeekPhoto from "../../../public/img/invited-artists/Digital-Fashion-Week-photo.png"
-import ThePhotographyGalleryPhoto from "../../../public/img/invited-artists/ThePhotographyGallery-photo.png"
+const ElisavetaSivasPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756903932846_Art-Week_Elisaveta-Sivas-photo.jpg"
+const SaraShakeelPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261869_Art-Week_Sara-Shakeel-photo.jpg"
+const JohannaJaskowskaPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261809_Art-Week_Johanna-Jaskowska-photo.jpg"
+const AmberVittoriaPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261599_Art-Week_Amber-Vittoria-photo.jpg"
+const ClaraBacouPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261841_Art-Week_Clara-Bacou-photo.jpg"
+const OgiWorldsPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261780_Art-Week_OgiWorlds-photo.jpg"
+const MicahAlhadeffPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261610_Art-Week_Micah-Alhadeff-photo.jpg"
+const SabatoViscontiPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261773_Art-Week_Sabato-Visconti-photo.jpg"
+const LLACERARTPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261836_Art-Week_LLACERART-photo.jpg"
+const CarlaKnoppPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261604_Art-Week_Carla-Knopp-photo.jpg"
+const EmmaShapiroSavannahSpiritPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261696_Art-Week_Emma-Shapiro-_-Savannah-Spirit-photo.jpg"
+const AntonioAzzolinoPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261622_Art-Week_Antonio-Azzolino-photo.jpeg"
+const MafinLazaroPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261809_Art-Week_Mafin-_-Lazaro-photo.jpg"
+// const ElisavetaSivasPhoto = "" // No URL provided for Elisaveta Sivas
+const ClaraOhdePhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887918908_Art-Week_Clara-Ohde-photo.jpg"
+const IacobVisualPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261685_Art-Week_Iacob-Visual-photo.jpg"
+const PepeGawdPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261843_Art-Week_PepeGawd-photo.jpg"
+const BosqueGraciasPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261780_Art-Week_Bosque-Gracias-photo.jpg"
+const ParadigmstoriesPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261839_Art-Week_Paradigmstories-photo.jpeg"
+const AgustinDiLucianoMelinaOjagnanPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261679_Art-Week_AgustinDiLuciano-_-MelinaOjagnan-photo.jpg"
+const HayabusaPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887260959_Art-Week_Hayabusa-photo.jpg"
+const REZONPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261088_Art-Week_REZON-photo.jpg"
+const CybermikePhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261564_Art-Week_Cybermike-photo.jpg"
+const CarlosMunozPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261981_Art-Week_Carlos-Mun_oz-photo.jpg"
+const ChronoTPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261600_Art-Week_Chrono-T-photo.jpg"
+
+// Invited artists images (remote URLs)
+const ArtVisitorCentrePhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261287_Art-Week_Art-Visitor-Centre-photo.jpg"
+const DigitalFashionWeekPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887260878_Art-Week_Digital-Fashion-Week-photo.jpg"
+const ThePhotographyGalleryPhoto =
+  "https://marketing-files.decentraland.org/uploads/1756887261837_Art-Week_ThePhotographyGallery-photo.jpeg"
 
 const artists = [
   {
