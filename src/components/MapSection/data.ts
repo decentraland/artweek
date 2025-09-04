@@ -24,7 +24,6 @@ const AntonioAzzolinoPhoto =
   "https://marketing-files.decentraland.org/uploads/1756887261622_Art-Week_Antonio-Azzolino-photo.jpeg"
 const MafinLazaroPhoto =
   "https://marketing-files.decentraland.org/uploads/1756887261809_Art-Week_Mafin-_-Lazaro-photo.jpg"
-// const ElisavetaSivasPhoto = "" // No URL provided for Elisaveta Sivas
 const ClaraOhdePhoto =
   "https://marketing-files.decentraland.org/uploads/1756887918908_Art-Week_Clara-Ohde-photo.jpg"
 const IacobVisualPhoto =
