@@ -1,5 +1,10 @@
 import { styled } from "styled-components"
 import { artistsAndCurators, studios } from "./data"
+import logoOne from "../../../public/img/credits/logo-1.png"
+import logoTwo from "../../../public/img/credits/logo-2.png"
+import logoThree from "../../../public/img/credits/logo-3.png"
+import logoFour from "../../../public/img/credits/logo-4.png"
+import logoFive from "../../../public/img/credits/logo-5.png"
 import { breakpoints, theme } from "../../utils/theme"
 import { AnimatedCharacters } from "../animatedCharacters"
 import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
@@ -24,7 +29,14 @@ const CreditListContainer = styled.div`
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    /* margin: 0 auto; */
+  }
+  h4 {
+    font-size: 1.2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 400;
+    margin-top: 16px;
   }
 
   @media (min-width: ${breakpoints.md}) {
@@ -82,6 +94,35 @@ const Name = styled.div`
   }
 `
 
+const LogosContainer = styled.div`
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  gap: 48px;
+  padding-bottom: 120px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 160px;
+  }
+`
+
+const PartnersTitle = styled.h3`
+  font-size: 2.2rem;
+  margin: 0;
+  text-transform: uppercase;
+  opacity: 0.8;
+  font-weight: 600;
+  color: ${theme.black};
+  margin-bottom: 48px;
+`
+
 const CreditList = () => {
   // Split artists and curators into two columns
   const artistsColumn1 = artistsAndCurators.slice(
@@ -97,51 +138,67 @@ const CreditList = () => {
   const studiosColumn2 = studios.slice(Math.ceil(studios.length / 2))
 
   return (
-    <CreditListContainer>
-      <h2>
-        <AnimatedCharacters isVisible={true}>Credit List</AnimatedCharacters>
-      </h2>
-      <CreditListContent>
-        <Section>
-          <SectionTitle>Artists & Curators</SectionTitle>
-          <ColumnsContainer>
-            <Column>
-              {artistsColumn1.map((name, index) => (
-                <Name key={index}>{name}</Name>
-              ))}
-            </Column>
-            <Column>
-              {artistsColumn2.map((name, index) => (
-                <Name key={index}>{name}</Name>
-              ))}
-            </Column>
-          </ColumnsContainer>
-        </Section>
+    <>
+      <CreditListContainer>
+        <h2>
+          <AnimatedCharacters isVisible={true}>Credit List</AnimatedCharacters>
+        </h2>
+        <CreditListContent>
+          <Section>
+            <SectionTitle>Artists & Curators</SectionTitle>
 
-        <Section>
-          <SectionTitle>Studios</SectionTitle>
-          <ColumnsContainer>
-            <Column>
-              {studiosColumn1.map((name, index) => (
-                <Name key={index}>{name}</Name>
-              ))}
-            </Column>
-            <Column>
-              {studiosColumn2.map((name, index) => (
-                <Name key={index}>{name}</Name>
-              ))}
-            </Column>
-          </ColumnsContainer>
-        </Section>
-      </CreditListContent>
-      <CenteredDownloadButton>
-        <DownloadBtn
-          customText="DOWNLOAD DECENTRALAND"
-          showAvailableOnText={false}
-          variant="cosmicGlass"
-        />
-      </CenteredDownloadButton>
-    </CreditListContainer>
+            <ColumnsContainer>
+              <Column>
+                {artistsColumn1.map((name, index) => (
+                  <Name key={index}>{name}</Name>
+                ))}
+              </Column>
+              <Column>
+                {artistsColumn2.map((name, index) => (
+                  <Name key={index}>{name}</Name>
+                ))}
+              </Column>
+            </ColumnsContainer>
+          </Section>
+
+          <Section>
+            <SectionTitle>Studios</SectionTitle>
+            <ColumnsContainer>
+              <Column>
+                {studiosColumn1.map((name, index) => (
+                  <Name key={index}>{name}</Name>
+                ))}
+              </Column>
+              <Column>
+                {studiosColumn2.map((name, index) => (
+                  <Name key={index}>{name}</Name>
+                ))}
+              </Column>
+            </ColumnsContainer>
+          </Section>
+        </CreditListContent>
+        <h4>
+          Alongside the artists and studios listed here, Art Week is made
+          possible by the creativity and contributions of the Decentraland
+          community.
+        </h4>
+        <CenteredDownloadButton>
+          <DownloadBtn
+            customText="DOWNLOAD DECENTRALAND"
+            showAvailableOnText={false}
+            variant="cosmicGlass"
+          />
+        </CenteredDownloadButton>
+      </CreditListContainer>
+      <PartnersTitle>Partners</PartnersTitle>
+      <LogosContainer>
+        <img src={logoOne} alt="logo" />
+        <img src={logoTwo} alt="logo" />
+        <img src={logoThree} alt="logo" />
+        <img src={logoFour} alt="logo" />
+        <img src={logoFive} alt="logo" />
+      </LogosContainer>
+    </>
   )
 }
 

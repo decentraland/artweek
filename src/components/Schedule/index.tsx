@@ -1,6 +1,7 @@
 import { useState } from "react"
 import {
   ScheduleEvent,
+  // ScheduleEvent,
   dateOptions,
   scheduleData,
   stages,
@@ -113,35 +114,20 @@ const getTimeIcon = () => (
   </svg>
 )
 
-const getCalendarIcon = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 18 18"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M6.75 0.75V2.25H11.25V0.75H12.75V2.25H15.75C16.1642 2.25 16.5 2.58579 16.5 3V15C16.5 15.4142 16.1642 15.75 15.75 15.75H2.25C1.83579 15.75 1.5 15.4142 1.5 15V3C1.5 2.58579 1.83579 2.25 2.25 2.25H5.25V0.75H6.75ZM15 8.25H3V14.25H15V8.25ZM5.25 3.75H3V6.75H15V3.75H12.75V5.25H11.25V3.75H6.75V5.25H5.25V3.75Z"
-      fill="#161518"
-    />
-  </svg>
-)
-
-const getDropdownIcon = () => (
-  <svg
-    width="10"
-    height="10"
-    viewBox="0 0 10 10"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M2.82368 5.02059L3.16395 4.70103C3.24902 4.62114 3.38513 4.62114 3.47019 4.70103L4.94185 6.08314C5.02692 6.16303 5.16302 6.16303 5.24809 6.08314L6.71975 4.70902C6.80481 4.62913 6.94092 4.62913 7.02599 4.70902L7.36625 5.02858C7.45132 5.10847 7.45132 5.2363 7.36625 5.31619L5.24809 7.30546C5.16302 7.38535 5.02692 7.38535 4.94185 7.30546L2.82368 5.31619C2.73862 5.2363 2.73862 5.10847 2.82368 5.02059Z"
-      fill="#33435C"
-    />
-  </svg>
-)
+// const getCalendarIcon = () => (
+//   <svg
+//     width="18"
+//     height="18"
+//     viewBox="0 0 18 18"
+//     fill="none"
+//     xmlns="http://www.w3.org/2000/svg"
+//   >
+//     <path
+//       d="M6.75 0.75V2.25H11.25V0.75H12.75V2.25H15.75C16.1642 2.25 16.5 2.58579 16.5 3V15C16.5 15.4142 16.1642 15.75 15.75 15.75H2.25C1.83579 15.75 1.5 15.4142 1.5 15V3C1.5 2.58579 1.83579 2.25 2.25 2.25H5.25V0.75H6.75ZM15 8.25H3V14.25H15V8.25ZM5.25 3.75H3V6.75H15V3.75H12.75V5.25H11.25V3.75H6.75V5.25H5.25V3.75Z"
+//       fill="#161518"
+//     />
+//   </svg>
+// )
 
 // Function to detect current date and return appropriate default
 const getDefaultDate = () => {
@@ -152,21 +138,21 @@ const getDefaultDate = () => {
   // Check if we're in September and within the date range
   if (currentMonth === 9) {
     // September
-    if (currentDay >= 23 && currentDay <= 27) {
+    if (currentDay >= 24 && currentDay <= 27) {
       return `sept-${currentDay}`
     }
   }
 
-  // Default to September 23 if not in range
-  return "sept-23"
+  // Default to September 24 if not in range
+  return "sept-24"
 }
 
 const Schedule = () => {
   const [activeDate, setActiveDate] = useState(getDefaultDate())
 
-  // Calculate cell width based on time duration (140px per hour slot)
+  // Calculate cell width based on time duration (200px per hour slot)
   const calculateCellWidth = (duration: number) => {
-    return 140 * duration
+    return 200 * duration
   }
 
   // Create grid layout for a specific stage
@@ -213,10 +199,7 @@ const Schedule = () => {
                 </div>
                 <div className="event-time">
                   <div className="time-icon">{getTimeIcon()}</div>
-                  <div className="time-text">
-                    UTC: {event.startTime} - {event.endTime}
-                  </div>
-                  <div className="calendar-icon">{getCalendarIcon()}</div>
+                  <div className="time-text">UTC: {event.startTime}</div>
                 </div>
               </div>
             </div>
@@ -240,7 +223,13 @@ const Schedule = () => {
   return (
     <ScheduleContainer>
       <div className="schedule__inner-container">
-        <h2>Schedule</h2>
+        <div>
+          <h2>Plan Your Week </h2>
+          <h4>
+            See what’s happening each day of Art Week—tours, workshops, parties,
+            and more.
+          </h4>
+        </div>
 
         {/* Component 1: Date Picker */}
         <DatePickerContainer>
@@ -263,7 +252,7 @@ const Schedule = () => {
           <TimezoneHeader>
             <div className="timezone-selector">
               <div className="timezone-text">Timezone (UTC)</div>
-              <div className="dropdown-icon">{getDropdownIcon()}</div>
+              {/* <div className="dropdown-icon">{getDropdownIcon()}</div> */}
             </div>
             <div className="time-slots">
               {timeSlots.map((time, index) => (
