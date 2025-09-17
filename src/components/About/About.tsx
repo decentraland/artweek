@@ -3,8 +3,6 @@ import { motion, useInView } from "framer-motion"
 import { aboutList } from "./list"
 import provisoryMap from "../../../public/img/about/tree.png"
 import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
-import { Marquee } from "../Marquee/Marquee"
-import { MarqueeContainerWrapper } from "../Marquee/Marquee.styled"
 import {
   AboutContainer,
   AboutInnerContainer,
@@ -93,14 +91,6 @@ const About = () => {
           </div>
         </div>
       </AboutInnerContainer>
-
-      <MarqueeContainerWrapper
-        style={{
-          marginTop: "auto",
-        }}
-      >
-        <Marquee variant="light" />
-      </MarqueeContainerWrapper>
     </AboutContainer>
   )
 }

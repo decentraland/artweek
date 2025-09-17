@@ -2,7 +2,7 @@ interface ScheduleEvent {
   id: number
   title: string
   speaker: string
-  type: "X Space" | "Workshop" | "Tour" | "Community"
+  type: "X Space" | "Workshop" | "Tour" | "Party"
   stage: "MainStage"
   startTime: string
   endTime: string
@@ -174,7 +174,7 @@ const scheduleData: DaySchedule = {
         id: 10,
         title: "RAGE! Art & Industrial Music",
         speaker: "RAGE",
-        type: "Community",
+        type: "Party",
         stage: "MainStage",
         startTime: "01:00",
         endTime: "02:00",
@@ -336,7 +336,7 @@ const scheduleData: DaySchedule = {
         id: 21,
         title: "Grass to the Moon - DJ Abillitea live in Facemoon Gallery",
         speaker: "Facemoon",
-        type: "Community",
+        type: "Party",
         stage: "MainStage",
         startTime: "01:00",
         endTime: "02:00",
@@ -487,7 +487,7 @@ const scheduleData: DaySchedule = {
         id: 31,
         title: "Meta Beast Roaming Party @ Roustan Gallery",
         speaker: "Roustan/DJ Make",
-        type: "Community",
+        type: "Party",
         stage: "MainStage",
         startTime: "01:00",
         endTime: "02:00",
@@ -641,7 +641,7 @@ const scheduleData: DaySchedule = {
         id: 42,
         title: "Audio Hot Lab Party w/ Silvio De Candia",
         speaker: "AudioHotLab",
-        type: "Community",
+        type: "Party",
         stage: "MainStage",
         startTime: "23:00",
         endTime: "00:00",

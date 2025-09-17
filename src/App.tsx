@@ -11,6 +11,7 @@ import { MapSection } from "./components/MapSection"
 import { Marquee } from "./components/Marquee/Marquee"
 import { MarqueeContainerWrapper } from "./components/Marquee/Marquee.styled"
 import { Navbar } from "./components/Navbar/Navbar"
+import { Partners } from "./components/Partners"
 import { Schedule } from "./components/Schedule"
 import { config } from "./config"
 import { useLenis } from "./hooks/useLenis"
@@ -77,34 +78,45 @@ const App = () => {
     <div className="app-container">
       <Navbar />
       <AppContainer>
+        {/* 1. Hero */}
         <Hero />
-        <MapSection />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
-        <Installations />
-        <MarqueeContainerWrapper>
-          <Marquee variant="light" />
-        </MarqueeContainerWrapper>
-        <Schedule />
-        <MarqueeContainerWrapper>
-          <Marquee variant="light" />
-        </MarqueeContainerWrapper>
-        <BiggerPictureSection />
-        <MarqueeContainerWrapper>
-          <Marquee variant="light" />
-        </MarqueeContainerWrapper>
-        <About />
+
+        {/* 2. Video */}
         <Suspense fallback={<VideoSectionLoader />}>
           <VideoSection />
         </Suspense>
+
+        {/* 3. About - Experience Art Week (Download DCL button) */}
+        <About />
+
+        {/* 4. Partner Logos */}
+        <Partners />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
+
+        {/* 5. Schedule */}
+        <Schedule />
+
+        {/* 6. Installations */}
+        <Installations />
+
+        {/* 7. Map (Download DCL button) */}
+        <MapSection />
+
+        {/* 8. Bigger Picture Map */}
+        <BiggerPictureSection />
+
+        {/* 9. Credit List (Download DCL button) */}
         <CreditList />
         <MarqueeContainerWrapper>
           <Marquee variant="light" />
         </MarqueeContainerWrapper>
+
+        {/* 10. FAQs */}
         <Faq />
         <Footer />
       </AppContainer>

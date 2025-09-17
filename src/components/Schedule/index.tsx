@@ -79,7 +79,7 @@ const getEventIcon = (type: string) => {
           />
         </svg>
       )
-    case "Community":
+    case "Party":
       return (
         <svg
           width="16"
@@ -221,7 +221,7 @@ const Schedule = () => {
   }
 
   return (
-    <ScheduleContainer>
+    <ScheduleContainer id="schedule">
       <div className="schedule__inner-container">
         <div>
           <h2>Plan Your Week </h2>

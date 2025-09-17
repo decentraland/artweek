@@ -72,11 +72,11 @@ const Navbar = () => {
               <ul className="navbar-navigation">
                 <li>
                   <AnimatedNavLink
-                    href="#map"
+                    href="#schedule"
                     delay={BASE_DELAY * 2}
                     menuOpen={true}
                   >
-                    Map
+                    Schedule
                   </AnimatedNavLink>
                 </li>
                 <li>
@@ -90,11 +90,11 @@ const Navbar = () => {
                 </li>
                 <li>
                   <AnimatedNavLink
-                    href="#about"
+                    href="#map"
                     delay={BASE_DELAY * 2}
                     menuOpen={true}
                   >
-                    About
+                    Map
                   </AnimatedNavLink>
                 </li>
                 <li>
@@ -147,8 +147,12 @@ const Navbar = () => {
         <MobileMenuContainer $menuOpen={menuOpen}>
           <ul className="mobile-links">
             <li onClick={handleNavigation}>
-              <AnimatedNavLink href="#map" delay={0.15} menuOpen={menuOpen}>
-                Map
+              <AnimatedNavLink
+                href="#schedule"
+                delay={0.15}
+                menuOpen={menuOpen}
+              >
+                Schedule
               </AnimatedNavLink>
             </li>
             <li onClick={handleNavigation}>
@@ -161,8 +165,8 @@ const Navbar = () => {
               </AnimatedNavLink>
             </li>
             <li onClick={handleNavigation}>
-              <AnimatedNavLink href="#about" delay={0.35} menuOpen={menuOpen}>
-                About
+              <AnimatedNavLink href="#map" delay={0.35} menuOpen={menuOpen}>
+                Map
               </AnimatedNavLink>
             </li>
             <li onClick={handleNavigation}>
