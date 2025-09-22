@@ -4,7 +4,7 @@ const artistsAndCurators = [
   "Amber Vittoria",
   "Clara Bacou",
   "Micah Alhadeff",
-  "Sabato Visconti",
+  "The ConTEMPLATE Gallery",
   "Luis Llácer",
   "Carla Knopp",
   "Emma Shapiro & Savannah",

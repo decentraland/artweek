@@ -2,7 +2,7 @@ import { styled } from "styled-components"
 import { artistsAndCurators, studios } from "./data"
 import { breakpoints, theme } from "../../utils/theme"
 import { AnimatedCharacters } from "../animatedCharacters"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
+import { JumpInBtn } from "../JumpInBtn/JumpInBtn"
 
 const CreditListContainer = styled.div`
   width: 100%;
@@ -146,18 +146,14 @@ const CreditList = () => {
         Alongside the artists and studios listed here, Art Week is made possible
         by the creativity and contributions of the Decentraland community.
       </h4>
-      <CenteredDownloadButton>
-        <DownloadBtn
-          customText="DOWNLOAD DECENTRALAND"
-          showAvailableOnText={false}
-          variant="cosmicGlass"
-        />
-      </CenteredDownloadButton>
+      <CenteredJumpInButton>
+        <JumpInBtn customText="JUMP IN" variant="cosmicGlass" />
+      </CenteredJumpInButton>
     </CreditListContainer>
   )
 }
 
-const CenteredDownloadButton = styled.div`
+const CenteredJumpInButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

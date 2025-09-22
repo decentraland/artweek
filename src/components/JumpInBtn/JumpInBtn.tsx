@@ -1,153 +1,135 @@
-import { useState } from "react"
-import { styled } from "styled-components"
+import { css, styled } from "styled-components"
+import btnBg from "../../../public/img/about/tree.png"
+import { useAdvancedUserAgentData } from "../../hooks/useAdvancedUserAgentData"
 import { useResizePage } from "../../hooks/useResizePage"
 import { theme } from "../../utils/theme"
-import { launchDesktopApp } from "../../utils/utils"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
-import { Modal } from "../Modal"
 
-interface DownloadBtnProps {
+interface JumpInBtnProps {
   className?: string
-  showAvailableOnText?: boolean
+  variant?: "cosmicGlass" | "default"
+  customText?: string
 }
 
-const JumpInBtn = ({ className }: DownloadBtnProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+const JumpInBtn = ({
+  className,
+  variant = "default",
+  customText,
+}: JumpInBtnProps) => {
   const { isMobile } = useResizePage({ size: 568 })
+  const [isLoadingUserAgentData, userAgentData] = useAdvancedUserAgentData()
+  const jumpInUrl = "https://decentraland.org/jump/?position=-140%2C-86"
 
-  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (isMobile) {
-      window.location.href = "https://decentraland.org/download"
-      return
+  const handleJumpInClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    try {
+      if (typeof analytics !== "undefined" && !isMobile) {
+        analytics.track("Jump In", {
+          href: e.currentTarget.href,
+          section: "Jump In Button",
+        })
+      }
+    } catch (error) {
+      window.open(e.currentTarget.href, "_blank")
     }
-    //TODO: change position
-    const resp = await launchDesktopApp(
-      e.currentTarget,
-      "decentraland://?position=6%2C89"
-    )
-    if (resp) return
-    setIsModalOpen(true)
   }
 
-  return (
-    <>
-      <DownloadButtonsContainer>
-        <DownloadButton
-          className={className}
-          onMouseDown={(e) =>
-            handleClick(e as React.MouseEvent<HTMLButtonElement>)
-          }
-        >
-          <ButtonContent>JUMP IN</ButtonContent>
-        </DownloadButton>
-      </DownloadButtonsContainer>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        isDownloadModal
+  const renderJumpInButton = () => {
+    return (
+      <JumpInButton
+        className={className}
+        href={jumpInUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={handleJumpInClick}
+        variant={variant}
       >
-        <ModalContent>
-          <div>
-            <h1>Launcher not installed</h1>
-            <p>Please install the launcher to jump in</p>
-          </div>
-          <DownloadBtn showAvailableOnText={false} />
-        </ModalContent>
-      </Modal>
-    </>
-  )
+        {customText || "JUMP IN"}
+      </JumpInButton>
+    )
+  }
+
+  if (isLoadingUserAgentData || !userAgentData) return null
+
+  return <JumpInButtonsContainer>{renderJumpInButton()}</JumpInButtonsContainer>
 }
 
+const JumpInButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+`
+
+const JumpInButton = styled.a<{ variant?: "cosmicGlass" | "default" }>`
+  position: relative;
+  background: ${({ variant }) =>
+    variant !== "cosmicGlass" && "rgba(252, 252, 252, 0.25)"};
+  background-image: ${({ variant }) =>
+    variant === "cosmicGlass" && `url(${btnBg})`};
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: ${theme.white};
+  cursor: pointer;
+  will-change: transform;
+  transition: all 300ms;
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+
+  &:hover {
+    backdrop-filter: blur(1px);
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
+  }
+
+  ${({ variant }) =>
+    variant === "cosmicGlass" &&
+    css`
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to top,
+          rgba(255, 255, 255, 0.5) 0%,
+          rgba(255, 255, 255, 0.1) 60%,
+          rgba(255, 255, 255, 0.1) 100%
+        );
+        opacity: 0.9;
+        z-index: -1;
+        pointer-events: none;
+      }
+    `}
+
+  svg {
+    height: 18px;
+    width: 18px;
+    position: relative;
+    top: -2px;
+  }
+`
+
 const StyledJumpInBtn = styled(JumpInBtn)`
-  .download-buttons-container {
+  .jump-in-buttons-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 12px;
   }
-
-  .mac-buttons-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-  }
-
-  .available-on-text {
-    font-size: 16px;
-    margin-top: 16px;
-    color: ${theme.white};
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    border: 1px solid ${theme.white};
-  }
-
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-`
-
-const DownloadButtonsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-`
-
-const DownloadButton = styled.button`
-  min-width: 340px;
-  padding: 16px 20px;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  background: rgba(252, 252, 252, 0.25);
-  border: 0.5px solid rgba(0, 0, 0, 0.2);
-  border-radius: 40px;
-  will-change: transform;
-  transition: all 300ms;
-  backdrop-filter: blur(6px);
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
-
-  &:hover {
-    backdrop-filter: blur(2px);
-  }
-
-  @media (min-width: 568px) {
-    min-width: 340px;
-  }
-`
-
-const ButtonContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-`
-
-const ModalContent = styled.div`
-  > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
 `
 
 export { StyledJumpInBtn as JumpInBtn }

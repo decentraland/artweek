@@ -9,6 +9,8 @@ interface ScheduleEvent {
   timeSlotStart: number
   timeSlotEnd: number
   duration: number
+  startTimePST: string
+  endTimePST: string
 }
 
 interface StageSchedule {
@@ -17,6 +19,24 @@ interface StageSchedule {
 
 interface DaySchedule {
   [key: string]: StageSchedule
+}
+
+// Helper function to convert UTC time to PST (UTC - 7 hours)
+const convertToPST = (utcTime: string): string => {
+  if (utcTime === "Midday") return "05:00"
+  if (utcTime === "Midnight") return "17:00"
+
+  const hour = parseInt(utcTime.split(":")[0])
+  let pstHour = hour - 7
+
+  // Handle day boundary crossing
+  if (pstHour < 0) {
+    pstHour += 24
+  }
+
+  // Format with leading zero if needed
+  const formattedHour = pstHour.toString().padStart(2, "0")
+  return `${formattedHour}:00`
 }
 
 const timeSlots: string[] = [
@@ -55,6 +75,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 1,
         timeSlotEnd: 1,
         duration: 1,
+        startTimePST: "04:00",
+        endTimePST: "05:00",
       },
       {
         id: 2,
@@ -68,6 +90,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 2,
         timeSlotEnd: 2,
         duration: 1,
+        startTimePST: "05:00",
+        endTimePST: "06:00",
       },
       {
         id: 3,
@@ -80,6 +104,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 3,
         timeSlotEnd: 3,
         duration: 1,
+        startTimePST: "06:00",
+        endTimePST: "07:00",
       },
       {
         id: 4,
@@ -93,6 +119,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 4,
         timeSlotEnd: 4,
         duration: 1,
+        startTimePST: "07:00",
+        endTimePST: "08:00",
       },
       {
         id: 5,
@@ -106,6 +134,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 5,
         timeSlotEnd: 5,
         duration: 1,
+        startTimePST: "08:00",
+        endTimePST: "09:00",
       },
       {
         id: 6,
@@ -118,6 +148,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 10,
         timeSlotEnd: 10,
         duration: 1,
+        startTimePST: "13:00",
+        endTimePST: "14:00",
       },
       {
         id: 7,
@@ -130,6 +162,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 11,
         timeSlotEnd: 11,
         duration: 1,
+        startTimePST: "14:00",
+        endTimePST: "15:00",
       },
       {
         id: 8,
@@ -143,6 +177,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 12,
         timeSlotEnd: 12,
         duration: 1,
+        startTimePST: "15:00",
+        endTimePST: "16:00",
       },
       {
         id: 9,
@@ -156,6 +192,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 13,
         timeSlotEnd: 13,
         duration: 1,
+        startTimePST: "16:00",
+        endTimePST: "17:00",
       },
       {
         id: Math.random(),
@@ -169,6 +207,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 14,
         timeSlotEnd: 14,
         duration: 1,
+        startTimePST: "17:00",
+        endTimePST: "18:00",
       },
       {
         id: 10,
@@ -181,6 +221,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 15,
         timeSlotEnd: 15,
         duration: 1,
+        startTimePST: "18:00",
+        endTimePST: "19:00",
       },
     ],
   },
@@ -197,6 +239,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 1,
         timeSlotEnd: 1,
         duration: 1,
+        startTimePST: "04:00",
+        endTimePST: "05:00",
       },
       {
         id: 12,
@@ -209,6 +253,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 2,
         timeSlotEnd: 2,
         duration: 1,
+        startTimePST: "05:00",
+        endTimePST: "06:00",
       },
       {
         id: 13,
@@ -221,6 +267,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 3,
         timeSlotEnd: 3,
         duration: 1,
+        startTimePST: "06:00",
+        endTimePST: "07:00",
       },
       {
         id: 14,
@@ -233,6 +281,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 4,
         timeSlotEnd: 4,
         duration: 1,
+        startTimePST: "07:00",
+        endTimePST: "08:00",
       },
       {
         id: 15,
@@ -245,6 +295,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 5,
         timeSlotEnd: 5,
         duration: 1,
+        startTimePST: "08:00",
+        endTimePST: "09:00",
       },
       {
         id: 16,
@@ -258,6 +310,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 6,
         timeSlotEnd: 6,
         duration: 1,
+        startTimePST: "09:00",
+        endTimePST: "10:00",
       },
       {
         id: Math.random(),
@@ -270,6 +324,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 9,
         timeSlotEnd: 9,
         duration: 1,
+        startTimePST: "12:00",
+        endTimePST: "13:00",
       },
       {
         id: 17,
@@ -282,6 +338,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 10,
         timeSlotEnd: 10,
         duration: 1,
+        startTimePST: "13:00",
+        endTimePST: "14:00",
       },
       {
         id: 18,
@@ -294,6 +352,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 11,
         timeSlotEnd: 11,
         duration: 1,
+        startTimePST: "14:00",
+        endTimePST: "15:00",
       },
       {
         id: 19,
@@ -306,6 +366,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 12,
         timeSlotEnd: 12,
         duration: 1,
+        startTimePST: "15:00",
+        endTimePST: "16:00",
       },
       {
         id: 20,
@@ -318,6 +380,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 13,
         timeSlotEnd: 13,
         duration: 1,
+        startTimePST: "16:00",
+        endTimePST: "17:00",
       },
       {
         id: Math.random(),
@@ -331,6 +395,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 14,
         timeSlotEnd: 14,
         duration: 1,
+        startTimePST: "17:00",
+        endTimePST: "18:00",
       },
       {
         id: 21,
@@ -343,6 +409,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 15,
         timeSlotEnd: 15,
         duration: 1,
+        startTimePST: "18:00",
+        endTimePST: "19:00",
       },
       {
         id: 43,
@@ -355,6 +423,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 16,
         timeSlotEnd: 16,
         duration: 1,
+        startTimePST: "19:00",
+        endTimePST: "19:00",
       },
     ],
   },
@@ -371,6 +441,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 1,
         timeSlotEnd: 1,
         duration: 1,
+        startTimePST: "04:00",
+        endTimePST: "05:00",
       },
       {
         id: 23,
@@ -384,6 +456,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 2,
         timeSlotEnd: 2,
         duration: 1,
+        startTimePST: "05:00",
+        endTimePST: "06:00",
       },
       {
         id: 24,
@@ -396,6 +470,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 3,
         timeSlotEnd: 3,
         duration: 1,
+        startTimePST: "06:00",
+        endTimePST: "07:00",
       },
       {
         id: 25,
@@ -408,6 +484,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 4,
         timeSlotEnd: 4,
         duration: 1,
+        startTimePST: "07:00",
+        endTimePST: "08:00",
       },
       {
         id: 26,
@@ -420,6 +498,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 5,
         timeSlotEnd: 5,
         duration: 1,
+        startTimePST: "08:00",
+        endTimePST: "09:00",
       },
       {
         id: 27,
@@ -432,6 +512,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 10,
         timeSlotEnd: 10,
         duration: 1,
+        startTimePST: "13:00",
+        endTimePST: "14:00",
       },
       {
         id: 28,
@@ -444,6 +526,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 11,
         timeSlotEnd: 11,
         duration: 1,
+        startTimePST: "14:00",
+        endTimePST: "15:00",
       },
       {
         id: 29,
@@ -457,6 +541,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 12,
         timeSlotEnd: 12,
         duration: 1,
+        startTimePST: "15:00",
+        endTimePST: "16:00",
       },
       {
         id: 30,
@@ -469,6 +555,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 13,
         timeSlotEnd: 13,
         duration: 1,
+        startTimePST: "16:00",
+        endTimePST: "17:00",
       },
       {
         id: Math.random(),
@@ -481,8 +569,9 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 14,
         timeSlotEnd: 14,
         duration: 1,
+        startTimePST: "16:00",
+        endTimePST: "17:00",
       },
-
       {
         id: 31,
         title: "Meta Beast Roaming Party @ Roustan Gallery",
@@ -494,6 +583,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 15,
         timeSlotEnd: 15,
         duration: 1,
+        startTimePST: "18:00",
+        endTimePST: "19:00",
       },
     ],
   },
@@ -511,6 +602,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 2,
         timeSlotEnd: 2,
         duration: 1,
+        startTimePST: "05:00",
+        endTimePST: "06:00",
       },
       {
         id: 33,
@@ -524,6 +617,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 3,
         timeSlotEnd: 3,
         duration: 1,
+        startTimePST: "06:00",
+        endTimePST: "07:00",
       },
       {
         id: 34,
@@ -536,6 +631,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 4,
         timeSlotEnd: 4,
         duration: 1,
+        startTimePST: "07:00",
+        endTimePST: "08:00",
       },
       {
         id: 35,
@@ -549,6 +646,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 5,
         timeSlotEnd: 5,
         duration: 1,
+        startTimePST: "08:00",
+        endTimePST: "09:00",
       },
       {
         id: 36,
@@ -561,6 +660,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 6,
         timeSlotEnd: 6,
         duration: 1,
+        startTimePST: "09:00",
+        endTimePST: "10:00",
       },
       {
         id: 37,
@@ -574,6 +675,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 7,
         timeSlotEnd: 7,
         duration: 1,
+        startTimePST: "10:00",
+        endTimePST: "11:00",
       },
       {
         id: 38,
@@ -586,6 +689,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 8,
         timeSlotEnd: 8,
         duration: 1,
+        startTimePST: "11:00",
+        endTimePST: "12:00",
       },
       {
         id: Math.random(),
@@ -599,6 +704,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 9,
         timeSlotEnd: 9,
         duration: 1,
+        startTimePST: "12:00",
+        endTimePST: "13:00",
       },
       {
         id: 39,
@@ -611,6 +718,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 10,
         timeSlotEnd: 10,
         duration: 1,
+        startTimePST: "13:00",
+        endTimePST: "14:00",
       },
       {
         id: 40,
@@ -624,6 +733,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 11,
         timeSlotEnd: 11,
         duration: 1,
+        startTimePST: "14:00",
+        endTimePST: "15:00",
       },
       {
         id: 41,
@@ -636,6 +747,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 12,
         timeSlotEnd: 12,
         duration: 1,
+        startTimePST: "15:00",
+        endTimePST: "16:00",
       },
       {
         id: 42,
@@ -648,6 +761,8 @@ const scheduleData: DaySchedule = {
         timeSlotStart: 13,
         timeSlotEnd: 13,
         duration: 1,
+        startTimePST: "16:00",
+        endTimePST: "17:00",
       },
     ],
   },
@@ -662,4 +777,4 @@ const dateOptions = [
 
 export type { ScheduleEvent, StageSchedule, DaySchedule }
 
-export { timeSlots, stages, scheduleData, dateOptions }
+export { timeSlots, stages, scheduleData, dateOptions, convertToPST }

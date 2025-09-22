@@ -2,13 +2,13 @@ import { ReactNode, useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { aboutList } from "./list"
 import provisoryMap from "../../../public/img/about/tree.png"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
+import { JumpInBtn } from "../JumpInBtn/JumpInBtn"
 import {
   AboutContainer,
   AboutInnerContainer,
-  DownloadBtnContainer,
+  ButtonContainer,
 } from "./About.styled"
-// import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
+// import { JumpInBtn } from '../JumpInBtn/JumpInBtn';
 // import { AnimatedCharacters } from '../animatedCharacters';
 
 // const BASE_DELAY_ANI_1 = 0.5;
@@ -54,14 +54,13 @@ const About = () => {
                 journey into presence, connection, and feeling through art in
                 virtual worlds.
               </h4>
-              <DownloadBtnContainer className="mobile-only">
-                <DownloadBtn
+              <ButtonContainer className="mobile-only">
+                <JumpInBtn
                   variant="cosmicGlass"
-                  showAvailableOnText={false}
                   className="download-btn"
-                  customText="DOWNLOAD DECENTRALAND"
+                  customText="JUMP IN"
                 />
-              </DownloadBtnContainer>
+              </ButtonContainer>
             </div>
             <ul className="list">
               {Object.values(aboutList).map((item, index) => (
@@ -80,14 +79,13 @@ const About = () => {
                 </li>
               ))}
             </ul>
-            <DownloadBtnContainer className="desktop-only">
-              <DownloadBtn
+            <ButtonContainer className="desktop-only">
+              <JumpInBtn
                 variant="cosmicGlass"
-                showAvailableOnText={false}
                 className="download-btn"
-                customText="DOWNLOAD DECENTRALAND"
+                customText="JUMP IN"
               />
-            </DownloadBtnContainer>
+            </ButtonContainer>
           </div>
         </div>
       </AboutInnerContainer>

@@ -5,7 +5,7 @@ import heroPills from "../../../public/img/hero/Pills.png"
 import artWeekLogo from "../../../public/img/logos/art-week-logo-sept.png"
 import { DiscoverDclBtn } from "../DiscoverDclBtn"
 import { HeroContainer, HeroInnerContainer } from "./Hero.styled"
-// import { DownloadBtn } from '../DownloadBtn/DownloadBtn';
+// import { JumpInBtn } from '../JumpInBtn/JumpInBtn';
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false)

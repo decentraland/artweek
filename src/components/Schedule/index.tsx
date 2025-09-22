@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import {
   ScheduleEvent,
   // ScheduleEvent,
@@ -6,6 +6,7 @@ import {
   scheduleData,
   stages,
   timeSlots,
+  convertToPST,
 } from "./data"
 import {
   DateButton,
@@ -114,20 +115,23 @@ const getTimeIcon = () => (
   </svg>
 )
 
-// const getCalendarIcon = () => (
-//   <svg
-//     width="18"
-//     height="18"
-//     viewBox="0 0 18 18"
-//     fill="none"
-//     xmlns="http://www.w3.org/2000/svg"
-//   >
-//     <path
-//       d="M6.75 0.75V2.25H11.25V0.75H12.75V2.25H15.75C16.1642 2.25 16.5 2.58579 16.5 3V15C16.5 15.4142 16.1642 15.75 15.75 15.75H2.25C1.83579 15.75 1.5 15.4142 1.5 15V3C1.5 2.58579 1.83579 2.25 2.25 2.25H5.25V0.75H6.75ZM15 8.25H3V14.25H15V8.25ZM5.25 3.75H3V6.75H15V3.75H12.75V5.25H11.25V3.75H6.75V5.25H5.25V3.75Z"
-//       fill="#161518"
-//     />
-//   </svg>
-// )
+const getDropdownIcon = () => (
+  <svg
+    width="12"
+    height="8"
+    viewBox="0 0 12 8"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M1 1L6 6L11 1"
+      stroke="#435475"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
 
 // Function to detect current date and return appropriate default
 const getDefaultDate = () => {
@@ -149,6 +153,125 @@ const getDefaultDate = () => {
 
 const Schedule = () => {
   const [activeDate, setActiveDate] = useState(getDefaultDate())
+  const [selectedTimezone, setSelectedTimezone] = useState<"UTC" | "PST">("UTC")
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const scheduleContainerRef = useRef<HTMLDivElement>(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStart, setDragStart] = useState({ x: 0, scrollLeft: 0 })
+  const animationFrameRef = useRef<number | null>(null)
+
+  // PST time slots (UTC - 8 hours) - generated dynamically
+  const timeSlotsPST: string[] = timeSlots.map((slot) => convertToPST(slot))
+
+  // Get current time slots based on selected timezone
+  const getCurrentTimeSlots = () => {
+    return selectedTimezone === "UTC" ? timeSlots : timeSlotsPST
+  }
+
+  // Handle timezone selection
+  const handleTimezoneSelect = (timezone: "UTC" | "PST") => {
+    setSelectedTimezone(timezone)
+    setIsDropdownOpen(false)
+  }
+
+  // Toggle dropdown
+  const handleDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen)
+  }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
+
+  // Drag to scroll functionality
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scheduleContainerRef.current) return
+    setIsDragging(true)
+    setDragStart({
+      x: e.pageX - scheduleContainerRef.current.offsetLeft,
+      scrollLeft: scheduleContainerRef.current.scrollLeft,
+    })
+    scheduleContainerRef.current.style.cursor = "grabbing"
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scheduleContainerRef.current) return
+    e.preventDefault()
+
+    // Cancel any pending animation frame
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current)
+    }
+
+    // Use requestAnimationFrame for smoother scrolling
+    animationFrameRef.current = requestAnimationFrame(() => {
+      if (!scheduleContainerRef.current) return
+      const x = e.pageX - scheduleContainerRef.current.offsetLeft
+      const walk = (x - dragStart.x) * 1 // Reduced scroll speed multiplier for smoothness
+      scheduleContainerRef.current.scrollLeft = dragStart.scrollLeft - walk
+    })
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current)
+      animationFrameRef.current = null
+    }
+    if (scheduleContainerRef.current) {
+      scheduleContainerRef.current.style.cursor = "grab"
+    }
+  }
+
+  const handleMouseLeave = () => {
+    setIsDragging(false)
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current)
+      animationFrameRef.current = null
+    }
+    if (scheduleContainerRef.current) {
+      scheduleContainerRef.current.style.cursor = "grab"
+    }
+  }
+
+  // Touch support for mobile devices
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!scheduleContainerRef.current) return
+    setIsDragging(true)
+    setDragStart({
+      x: e.touches[0].pageX - scheduleContainerRef.current.offsetLeft,
+      scrollLeft: scheduleContainerRef.current.scrollLeft,
+    })
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !scheduleContainerRef.current) return
+    const x = e.touches[0].pageX - scheduleContainerRef.current.offsetLeft
+    const walk = (x - dragStart.x) * 12 // Reduced scroll speed multiplier for smoothness
+    scheduleContainerRef.current.scrollLeft = dragStart.scrollLeft - walk
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current)
+      animationFrameRef.current = null
+    }
+  }
 
   // Calculate cell width based on time duration (200px per hour slot)
   const calculateCellWidth = (duration: number) => {
@@ -199,7 +322,12 @@ const Schedule = () => {
                 </div>
                 <div className="event-time">
                   <div className="time-icon">{getTimeIcon()}</div>
-                  <div className="time-text">UTC: {event.startTime}</div>
+                  <div className="time-text">
+                    <div className="time-line">UTC: {event.startTime}</div>
+                    <div className="time-line">
+                      PST: {convertToPST(event.startTime)}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -248,14 +376,60 @@ const Schedule = () => {
         </DatePickerContainer>
 
         {/* Component 2: Schedule Display */}
-        <ScheduleDisplayContainer>
+        <ScheduleDisplayContainer
+          ref={scheduleContainerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{ cursor: isDragging ? "grabbing" : "grab" }}
+        >
           <TimezoneHeader>
-            <div className="timezone-selector">
-              <div className="timezone-text">Timezone (UTC)</div>
-              {/* <div className="dropdown-icon">{getDropdownIcon()}</div> */}
+            <div className="timezone-selector" ref={dropdownRef}>
+              <div
+                className="timezone-dropdown-trigger"
+                onClick={handleDropdownToggle}
+              >
+                <div className="timezone-text">
+                  Timezone ({selectedTimezone})
+                </div>
+                <div
+                  className="dropdown-icon"
+                  style={{
+                    transform: isDropdownOpen
+                      ? "rotate(180deg)"
+                      : "rotate(0deg)",
+                    transition: "transform 0.2s ease",
+                  }}
+                >
+                  {getDropdownIcon()}
+                </div>
+              </div>
+
+              {isDropdownOpen && (
+                <div className="timezone-dropdown-menu">
+                  <div
+                    className="timezone-option"
+                    onClick={() => handleTimezoneSelect("UTC")}
+                    data-active={selectedTimezone === "UTC"}
+                  >
+                    Timezone (UTC)
+                  </div>
+                  <div
+                    className="timezone-option"
+                    onClick={() => handleTimezoneSelect("PST")}
+                    data-active={selectedTimezone === "PST"}
+                  >
+                    Timezone (PST)
+                  </div>
+                </div>
+              )}
             </div>
             <div className="time-slots">
-              {timeSlots.map((time, index) => (
+              {getCurrentTimeSlots().map((time, index) => (
                 <div key={index} className="time-slot">
                   {time}
                 </div>

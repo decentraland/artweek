@@ -1,7 +1,7 @@
 import { FC } from "react"
 import { styled } from "styled-components"
 import { breakpoints } from "../../utils/theme"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
+import { JumpInBtn } from "../JumpInBtn/JumpInBtn"
 
 interface DiscoverDclBtnProps {
   className?: string
@@ -17,9 +17,9 @@ const DiscoverDclBtn: FC<DiscoverDclBtnProps> = ({ className }) => {
           <h3>Discover Decentraland</h3>
           <p>Explore on your computer—it’s free.</p>
         </div>
-        <DownloadBtnWrapper>
-          <DownloadBtn variant={"default"} showAvailableOnText={false} />
-        </DownloadBtnWrapper>
+        <JumpInBtnWrapper>
+          <JumpInBtn variant={"default"} />
+        </JumpInBtnWrapper>
       </ContentWrapper>
     </DiscoverDclBtnContainer>
   )
@@ -113,7 +113,7 @@ const ContentWrapper = styled.div`
   }
 `
 
-const DownloadBtnWrapper = styled.div`
+const JumpInBtnWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 8px;

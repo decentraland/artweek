@@ -157,25 +157,24 @@ const ScheduleDisplayContainer = styled.div`
   overflow-x: auto;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  transition: all 0.3s ease;
+  user-select: none; /* Prevent text selection during drag */
 
-  /* Show scrollbar */
+  /* Hide scrollbar completely */
   &::-webkit-scrollbar {
-    height: 8px;
+    display: none;
   }
 
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
 
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-  }
+  /* Hide scrollbar for IE and Edge */
+  -ms-overflow-style: none;
 
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  /* Remove smooth scrolling for better drag performance */
+  scroll-behavior: auto;
+
+  /* Optimize rendering during drag */
+  will-change: scroll-position;
 `
 
 const TimezoneHeader = styled.div`
@@ -192,19 +191,27 @@ const TimezoneHeader = styled.div`
   position: relative;
 
   .timezone-selector {
-    display: flex;
-    /* height: 18.681px; */
-    padding: 4.67px 6.227px;
-    justify-content: center;
-    align-items: center;
-    gap: 1.868px;
     position: absolute;
     left: 13px;
     top: 16px;
-    border-radius: 3.736px;
-    border: 0.35px solid rgba(51, 67, 92, 0.2);
-    background: #fcfcfc;
-    cursor: pointer;
+    z-index: 1001;
+
+    .timezone-dropdown-trigger {
+      display: flex;
+      padding: 4.67px 6.227px;
+      justify-content: center;
+      align-items: center;
+      gap: 1.868px;
+      border-radius: 3.736px;
+      border: 0.35px solid rgba(51, 67, 92, 0.2);
+      background: #fcfcfc;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f8f8f8;
+      }
+    }
 
     .timezone-text {
       color: #33435c;
@@ -219,6 +226,54 @@ const TimezoneHeader = styled.div`
     .dropdown-icon {
       width: 9.34px;
       height: 9.34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 8px;
+        height: 6px;
+      }
+    }
+
+    .timezone-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fcfcfc;
+      border: 0.35px solid rgba(51, 67, 92, 0.2);
+      border-radius: 3.736px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      z-index: 1002;
+      min-width: 120px;
+      margin-top: 2px;
+      overflow: hidden;
+    }
+
+    .timezone-option {
+      padding: 6px 10px;
+      cursor: pointer;
+      color: #33435c;
+      font-family: "Inter", sans-serif;
+      font-size: 7.472px;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: -0.234px;
+      transition: background-color 0.2s ease;
+      border-bottom: 0.35px solid rgba(51, 67, 92, 0.1);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: #f0f0f0;
+      }
+
+      &[data-active="true"] {
+        background: #e8f2ff;
+        color: #1e3a5f;
+      }
     }
   }
 
@@ -379,22 +434,33 @@ const EventSlot = styled.div<{ width?: number }>`
       .event-time {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 4px;
         width: 100%;
 
         .time-icon {
           width: 14px;
           height: 14px;
+          align-self: center;
         }
 
         .time-text {
           flex: 1;
-          color: #435475;
-          font-family: "Inter", sans-serif;
-          font-size: 10px;
-          font-weight: 500;
-          line-height: normal;
-          letter-spacing: -0.5px;
+          display: flex;
+          flex-direction: row;
+          gap: 8px;
+          justify-content: flex-start;
+          align-items: center;
+
+          .time-line {
+            color: #435475;
+            font-family: "Inter", sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+          }
         }
 
         .calendar-icon {

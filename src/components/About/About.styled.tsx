@@ -138,7 +138,7 @@ const AboutInnerContainer = styled.div`
   }
 `
 
-const DownloadBtnContainer = styled.div`
+const ButtonContainer = styled.div`
   &.mobile-only {
     display: none;
 
@@ -160,4 +160,4 @@ const DownloadBtnContainer = styled.div`
     }
   }
 `
-export { AboutContainer, AboutInnerContainer, DownloadBtnContainer }
+export { AboutContainer, AboutInnerContainer, ButtonContainer }

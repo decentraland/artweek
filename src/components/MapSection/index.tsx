@@ -9,7 +9,7 @@ import { styled } from "styled-components"
 import { artists, invitedArtists } from "./data"
 import { MapVector } from "./MapVector"
 import { AnimatedCharacters } from "../animatedCharacters"
-import { DownloadBtn } from "../DownloadBtn/DownloadBtn"
+import { JumpInBtn } from "../JumpInBtn/JumpInBtn"
 import { Modal } from "../Modal"
 import {
   ArtistModalContainer,
@@ -83,13 +83,9 @@ const MapSection = () => {
             </ul>
           </div>
         </div>
-        <CenteredDownloadButton>
-          <DownloadBtn
-            customText="DOWNLOAD DECENTRALAND"
-            showAvailableOnText={false}
-            variant="cosmicGlass"
-          />
-        </CenteredDownloadButton>
+        <CenteredJumpInButton>
+          <JumpInBtn customText="JUMP IN" variant="cosmicGlass" />
+        </CenteredJumpInButton>
       </MapSectionContainer>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <ArtistModalContainer>
@@ -168,7 +164,7 @@ const ArtistPin = ({
   )
 }
 
-const CenteredDownloadButton = styled.div`
+const CenteredJumpInButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

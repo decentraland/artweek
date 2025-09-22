@@ -12,8 +12,8 @@ const OgiWorldsPhoto =
   "https://marketing-files.decentraland.org/uploads/1756887261780_Art-Week_OgiWorlds-photo.jpg"
 const MicahAlhadeffPhoto =
   "https://marketing-files.decentraland.org/uploads/1756887261610_Art-Week_Micah-Alhadeff-photo.jpg"
-const SabatoViscontiPhoto =
-  "https://marketing-files.decentraland.org/uploads/1756887261773_Art-Week_Sabato-Visconti-photo.jpg"
+const ConTEMPLATEGalleryPhoto =
+  "https://marketing-files.decentraland.org/uploads/1758532585634_Art-Week_24.jpg"
 const LLACERARTPhoto =
   "https://marketing-files.decentraland.org/uploads/1756887261836_Art-Week_LLACERART-photo.jpg"
 const CarlaKnoppPhoto =
@@ -128,13 +128,13 @@ const artists = [
   },
   {
     id: 6,
-    name: "Sabato Visconti",
-    artworkTitle: "Capybara Sanctuary #2",
+    name: "The ConTEMPLATE Gallery",
+    artworkTitle: "Photography Open Call",
     description:
-      "As natural habitats come under threat, Capybara Sanctuaries become an important refuge for dislocated Capy populations. Capybara Sanctuary #2 expands on the first installation lauched at Art Week 2024, adding a Capybara Grass Market, interactive elements, and perhaps some Capybara lore.",
-    image: SabatoViscontiPhoto,
-    link: "x.com/sabatobox",
-    studio: "Sabato Visconti",
+      "This gallery, built with the new Art Gallery Template in the Decentraland Creator Hub, presents the highly commended works from the DIY Photography Magazine Open Call in collaboration with the Decentraland Foundation. Visitors can also experience the sculpture 'Neon Garden (San Francisco)' by XR artist Pearl Hyacinth. Photo: Mariela Gonzalez",
+    image: ConTEMPLATEGalleryPhoto,
+    link: "https://x.com/decentraland/status/1962990131654361147",
+    studio: "Decentraland Creator Hub",
     coordinates: {
       lat: -135,
       lng: -95,
